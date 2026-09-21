@@ -6,6 +6,8 @@ auth-in-agree,v4,P!
 auth-in-agree,v5,P!
 auth-in-agree,v6,P!
 auth-in-agree,v7,P!
+auth-in-agree,v8,N!
+auth-in-agree,v9,P!
 auth-in-dispute,v1,P!
 auth-in-dispute,v2,P!
 auth-in-dispute,v3,P!
@@ -13,6 +15,8 @@ auth-in-dispute,v4,P!
 auth-in-dispute,v5,P!
 auth-in-dispute,v6,N!
 auth-in-dispute,v7,N!
+auth-in-dispute,v8,P!
+auth-in-dispute,v9,P!
 dispute-onlyif-agree,v1,P!
 dispute-onlyif-agree,v2,P!
 dispute-onlyif-agree,v3,P!
@@ -20,6 +24,8 @@ dispute-onlyif-agree,v4,P!
 dispute-onlyif-agree,v5,P!
 dispute-onlyif-agree,v6,P!
 dispute-onlyif-agree,v7,N!
+dispute-onlyif-agree,v8,P!
+dispute-onlyif-agree,v9,P!
 no-send-in-agree,v1,P!
 no-send-in-agree,v2,UNK
 no-send-in-agree,v3,UNK
@@ -27,6 +33,8 @@ no-send-in-agree,v4,P!
 no-send-in-agree,v5,P!
 no-send-in-agree,v6,P!
 no-send-in-agree,v7,P!
+no-send-in-agree,v8,P!
+no-send-in-agree,v9,P!
 recipient-buyer-or-seller,v1,P!
 recipient-buyer-or-seller,v2,P!
 recipient-buyer-or-seller,v3,N!
@@ -34,3 +42,5 @@ recipient-buyer-or-seller,v4,N!
 recipient-buyer-or-seller,v5,P!
 recipient-buyer-or-seller,v6,N!
 recipient-buyer-or-seller,v7,P!
+recipient-buyer-or-seller,v8,P!
+recipient-buyer-or-seller,v9,P!
