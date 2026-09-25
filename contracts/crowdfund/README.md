@@ -53,6 +53,7 @@ The contract implements the following methods:
 - **v13**: after the donation phase, donations decrease the balance instead of increasing it.
 - **v14**: a non-reverting call to `donate` always decreases the balance of the contract, as it immediately sends the donation to the owner.
 - **v15**: Reclaims swap donations with the last donor who reclaimed their donation.
+- **v16**: if the donation is odd, `donate` decreases donation.
 
 ## Verification data
 
