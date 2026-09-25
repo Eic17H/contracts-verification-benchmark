@@ -49,6 +49,9 @@ The contract implements the following methods:
 - **v9**: no `donation[msg.sender] += msg.value` check & `donate` returns (msg.value - 1) while claiming "donation reverted".
 - **v10**: `donate`, `withdraw` and `reclaim` are non-reentrant. `owner_.code.length == 0`, `goal_ > 0`, `end_donate_ > block.number` check in `constructor`, and `require(address(this).balance == 0)` check in `withdraw`. 
 - **v11**: if `goal` is reached and the donation phase has not ended and the balance of the contract minus donation[A] is less than the goal, then A can clawback his funds.
+- **v12**: can donate after deadline.
+- **v13**: after the donation phase, donations decrease the balance instead of increasing it.
+- **v14**: a non-reverting call to `donate` always decreases the balance of the contract, as it immediately sends the donation to the owner.
 
 ## Verification data
 
@@ -56,3 +59,5 @@ The contract implements the following methods:
 - [Solcmc/z3](solcmc-z3.csv)
 - [Solcmc/Eldarica](solcmc-eld.csv)
 - [Certora](certora.csv)
+
+## Experiments
