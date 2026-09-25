@@ -310,3 +310,29 @@ wd-not-revert,v12,0,"Receiver of the funds may revert the transaction."
 wd-not-revert-EOA,v12,1,
 wd-onlyif-goal-reached,v12,1,
 wd-transfer-to-owner,v12,0,"This property is false, since `owner` can be a contract which can redirect the received funds to another address."
+
+bal-decr-onlyif-wd-reclaim,v13,0,"Donations after the donate phase transfer ETH to the donor."
+donate-bal-inc,v13,1,
+donate-not-dec-donation,v13,1,
+donate-not-revert,v13,0,"This property should be false, since the increment of the `donation` map could overflow."
+donate-not-revert-overflow,v13,1,
+donation-dec-onlyif-reclaim,v13,0,"This property is false, since a call to `withdraw` allows a reentrant call to `reclaim`. This causes the donation to decrease during a withdraw transaction."
+donation-inc-onlyif-donate,v13,1,
+exists-unique-donation-change,v13,0,"This property should always be false, since `donate` does not require `msg.value > 0`. Hence, if a user donates with a `msg.value == 0`, then the `donation` map of no user changes."
+goal-not-change,v13,1,
+msg-value-not-negative,v13,1,
+no-deadlock,v13,0,"This property is false because there exists a state where the donation phase has ended and the receiver of the funds (either the owner or the msg.sender) reverts the transaction, causing a deadlock."
+no-donate-after-deadline,v13,0,"Donations after the donate phase are allowed."
+no-receive-after-deadline,v13,0,"This property should always be false, since a contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
+no-wd-if-no-goal,v13,1,
+owner-not-change,v13,1,
+owner-only-recv,v13,0,"This property is false since donors can reclaim their donations (after the donation period has ended and the goal has not been reached)."
+reclaim-even-if-msgvalue,v13,0,"This property is false, since the `reclaim` method is not payable and will revert if `msg.value` is greater than zero."
+reclaim-not-revert,v13,0,"This property is false since if the caller is a contract, then its `receive` function may revert."
+reclaim-own-funds,v13,0,"This property is false since the `msg.sender` can be a contract that redirects the funds received from Crowdfund to another address."
+wd-empties-balance,v13,0,"This property should always be false, since during the external call in `withdraw`, ether can be forcibly sent to Crowdfund. This leaves a positive balance in the Crowdfund contract after `withdraw` executes."
+wd-full-balance,v13,0,"This property is false, since during the `withdraw` external call, the owner can send the funds to another contract through its `receive` method."
+wd-not-revert,v13,0,"Receiver of the funds may revert the transaction."
+wd-not-revert-EOA,v13,1,
+wd-onlyif-goal-reached,v13,1,
+wd-transfer-to-owner,v13,0,"This property is false, since `owner` can be a contract which can redirect the received funds to another address."
