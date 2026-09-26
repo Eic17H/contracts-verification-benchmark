@@ -8,6 +8,8 @@ bal-decr-onlyif-wd-reclaim,v14,P!
 bal-decr-onlyif-wd-reclaim,v15,P!
 bal-decr-onlyif-wd-reclaim,v16,P!
 bal-decr-onlyif-wd-reclaim,v17,P!
+bal-decr-onlyif-wd-reclaim,v18,P!
+bal-decr-onlyif-wd-reclaim,v19,P!
 bal-decr-onlyif-wd-reclaim,v2,P!
 bal-decr-onlyif-wd-reclaim,v3,P!
 bal-decr-onlyif-wd-reclaim,v4,P!
@@ -25,6 +27,8 @@ donate-bal-inc,v14,N!
 donate-bal-inc,v15,P!
 donate-bal-inc,v16,P!
 donate-bal-inc,v17,P!
+donate-bal-inc,v18,P!
+donate-bal-inc,v19,P!
 donate-bal-inc,v2,P!
 donate-bal-inc,v3,P!
 donate-bal-inc,v4,N!
@@ -42,6 +46,8 @@ donate-not-dec-donation,v14,N
 donate-not-dec-donation,v15,P!
 donate-not-dec-donation,v16,N!
 donate-not-dec-donation,v17,P!
+donate-not-dec-donation,v18,P!
+donate-not-dec-donation,v19,P!
 donate-not-dec-donation,v2,P!
 donate-not-dec-donation,v3,P!
 donate-not-dec-donation,v4,P!
@@ -59,6 +65,8 @@ exists-unique-donation-change,v14,N!
 exists-unique-donation-change,v15,N!
 exists-unique-donation-change,v16,N!
 exists-unique-donation-change,v17,P!
+exists-unique-donation-change,v18,N!
+exists-unique-donation-change,v19,N!
 exists-unique-donation-change,v2,N!
 exists-unique-donation-change,v3,N!
 exists-unique-donation-change,v4,N!
@@ -76,6 +84,8 @@ msg-value-not-negative,v14,P!
 msg-value-not-negative,v15,P!
 msg-value-not-negative,v16,P!
 msg-value-not-negative,v17,P!
+msg-value-not-negative,v18,P!
+msg-value-not-negative,v19,P!
 msg-value-not-negative,v2,P!
 msg-value-not-negative,v3,P!
 msg-value-not-negative,v4,P!
@@ -93,6 +103,8 @@ no-deadlock,v14,N!
 no-deadlock,v15,N!
 no-deadlock,v16,N!
 no-deadlock,v17,N!
+no-deadlock,v18,N!
+no-deadlock,v19,N!
 no-deadlock,v2,N!
 no-deadlock,v3,N!
 no-deadlock,v4,N!
@@ -110,6 +122,8 @@ no-donate-after-deadline,v14,P!
 no-donate-after-deadline,v15,P!
 no-donate-after-deadline,v16,P!
 no-donate-after-deadline,v17,P!
+no-donate-after-deadline,v18,P!
+no-donate-after-deadline,v19,P!
 no-donate-after-deadline,v2,P!
 no-donate-after-deadline,v3,P!
 no-donate-after-deadline,v4,P!
@@ -127,6 +141,8 @@ no-wd-if-no-goal,v14,P!
 no-wd-if-no-goal,v15,P!
 no-wd-if-no-goal,v16,P!
 no-wd-if-no-goal,v17,P!
+no-wd-if-no-goal,v18,P!
+no-wd-if-no-goal,v19,P!
 no-wd-if-no-goal,v2,P!
 no-wd-if-no-goal,v3,P!
 no-wd-if-no-goal,v4,P!
@@ -144,6 +160,8 @@ reclaim-own-funds,v14,N!
 reclaim-own-funds,v15,N!
 reclaim-own-funds,v16,N!
 reclaim-own-funds,v17,N!
+reclaim-own-funds,v18,N!
+reclaim-own-funds,v19,N!
 reclaim-own-funds,v2,P!
 reclaim-own-funds,v3,N!
 reclaim-own-funds,v4,N!
@@ -161,6 +179,8 @@ wd-empties-balance,v14,N!
 wd-empties-balance,v15,N!
 wd-empties-balance,v16,N!
 wd-empties-balance,v17,N!
+wd-empties-balance,v18,N!
+wd-empties-balance,v19,N!
 wd-empties-balance,v2,P!
 wd-empties-balance,v3,N!
 wd-empties-balance,v4,N!
@@ -178,6 +198,8 @@ wd-onlyif-goal-reached,v14,P!
 wd-onlyif-goal-reached,v15,P!
 wd-onlyif-goal-reached,v16,P!
 wd-onlyif-goal-reached,v17,P!
+wd-onlyif-goal-reached,v18,P!
+wd-onlyif-goal-reached,v19,P!
 wd-onlyif-goal-reached,v2,P!
 wd-onlyif-goal-reached,v3,P!
 wd-onlyif-goal-reached,v4,P!
