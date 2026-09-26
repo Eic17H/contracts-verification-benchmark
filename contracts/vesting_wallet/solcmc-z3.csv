@@ -1,5 +1,5 @@
 property,version,outcome
-exp-all-rel,v1,UNK
+exp-all-rel,v1,N
 exp-all-rel,v2,UNK
 exp-all-rel,v3,UNK
 exp-all-rel,v4,UNK
@@ -11,7 +11,7 @@ no-start-no-rel,v2,P!
 no-start-no-rel,v3,UNK
 no-start-no-rel,v4,P!
 no-start-no-rel,v5,P!
-no-start-no-rel,v6,UNK
+no-start-no-rel,v6,P!
 no-start-no-rel,v7,P!
 rel-le-bal,v1,N
 rel-le-bal,v2,N
