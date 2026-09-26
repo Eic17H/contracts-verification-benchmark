@@ -16,35 +16,17 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 ## Versions
 - **v1**: from [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/finance/VestingWallet.sol).
 - **v2**: releasable funds is over-approximated.
+- **v3**: balance is releasable even if the vesting scheme hasn't started yet.
+- **v4**: after a successful call to `release`, the beneficiary receives half of `releasable()` ETH.
+- **v5**: any caller to `release` can receive ETH from the contract.
+- **v6**: releasable grows quadratically.
+- **v7**: before the expiration of the scheme and after the start of the vesting scheme, the releasable amount is not strictly increasing whenever the contract balance and the released amount is constant.
 
-## Ground truth
-|        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
-|--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| **v1** | 1                | 1                | 1                | 1                | 1                | 1                | 1                | 1                |
-| **v2** | 1                | 0                | 1                | 1                | 1                | 0                | 1                | 1                |
- 
+## Verification data
+
+- [Ground truth](ground-truth.csv)
+- [Solcmc/z3](solcmc-z3.csv)
+- [Solcmc/Eldarica](solcmc-eld.csv)
+- [Certora](certora.csv)
 
 ## Experiments
-### SolCMC
-#### Z3
-|        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
-|--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| **v1** | ND               | FN               | ND               | UNK              | ND               | FN               | ND               | ND               |
-| **v2** | ND               | UNK              | ND               | TP!              | ND               | TN               | ND               | ND               |
- 
-
-#### Eldarica
-|        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
-|--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| **v1** | ND               | FN!              | ND               | TP!              | ND               | UNK              | ND               | ND               |
-| **v2** | ND               | TN!              | ND               | TP!              | ND               | UNK              | ND               | ND               |
- 
-
-
-### Certora
-|        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
-|--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| **v1** | ND               | FN               | ND               | TP!              | ND               | TP!              | FN               | ND               |
-| **v2** | ND               | TN               | ND               | TP!              | ND               | TN               | FN               | ND               |
- 
-
