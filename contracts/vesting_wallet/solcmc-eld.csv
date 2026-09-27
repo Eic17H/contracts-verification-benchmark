@@ -13,6 +13,13 @@ no-start-no-rel,v4,UNK
 no-start-no-rel,v5,UNK
 no-start-no-rel,v6,UNK
 no-start-no-rel,v7,UNK
+rel-grows-linear,v1,P!
+rel-grows-linear,v2,P!
+rel-grows-linear,v3,P!
+rel-grows-linear,v4,P!
+rel-grows-linear,v5,P!
+rel-grows-linear,v6,P!
+rel-grows-linear,v7,P!
 rel-le-bal,v1,UNK
 rel-le-bal,v2,UNK
 rel-le-bal,v3,UNK
