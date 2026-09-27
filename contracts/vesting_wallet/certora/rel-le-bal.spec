@@ -1,2 +1,2 @@
-invariant P1(env e)
+invariant rel_le_bal(env e)
     releasable(e) <= getBalance();

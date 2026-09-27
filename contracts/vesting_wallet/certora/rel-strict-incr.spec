@@ -1,4 +1,4 @@
-rule P8 {
+rule rel_strict_incr {
     mathint start = getStart();
     mathint duration = getDuration();
     
