@@ -3,13 +3,16 @@ rule rel_strict_incr {
     mathint duration = getDuration();
     
     env e1;
+    env e2;
+    // Avoid overflow when casting to uint64
+    require e1.block.timestamp < 2^64;
+    require e2.block.timestamp < 2^64;
     
     mathint releasable1 = releasable(e1);
     mathint balance1 = getBalance();
     mathint timestamp1 = e1.block.timestamp;
     mathint released1 = currentContract.released;
     
-    env e2;
 
     mathint releasable2 = releasable(e2);
     mathint balance2 = getBalance();

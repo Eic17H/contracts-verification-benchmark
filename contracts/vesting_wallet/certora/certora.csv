@@ -13,6 +13,13 @@ no-start-no-rel,v4,ERR
 no-start-no-rel,v5,ERR
 no-start-no-rel,v6,ERR
 no-start-no-rel,v7,ERR
+rel-grows-linear,v1,ERR
+rel-grows-linear,v2,ERR
+rel-grows-linear,v3,ERR
+rel-grows-linear,v4,ERR
+rel-grows-linear,v5,ERR
+rel-grows-linear,v6,ERR
+rel-grows-linear,v7,ERR
 rel-le-bal,v1,ERR
 rel-le-bal,v2,ERR
 rel-le-bal,v3,ERR
