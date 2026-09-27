@@ -1,4 +1,4 @@
-rule P3 {
+rule no_start_no_rel {
     env e;
 
     mathint start = getStart();

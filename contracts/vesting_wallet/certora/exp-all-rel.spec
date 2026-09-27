@@ -1,4 +1,4 @@
-rule P2 {
+rule exp_all_rel {
     env e;
 
     mathint current_timestamp = e.block.timestamp;
