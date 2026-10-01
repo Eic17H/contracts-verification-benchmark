@@ -27,35 +27,19 @@ In the Redeem state, the chosen recipient can `redeem` the whole contract balanc
 ## Versions
 - **v1**: conformant to specification.
 - **v2**: allow arbitrate in any state.
+- **v3**: ETH can be redeemed only in the Agree state.
+- **v4**: the recipient of the `redeem` call can be anyone.
+- **v5**: during a successful call to `arbitrate`, the contract sends the seller `fee` ETH.
+- **v6**: in the Dispute state, anyone can perform actions.
+- **v7**: a dispute can be opened in any state.
+- **v8**: only the arbiter can open disputes in the Agree state.
+- **v9**: after a successful call to `redeem`, the arbiter receives `deposit` ETH.
 
-## Ground truth
-|        | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
-|--------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| **v1** | 1                         | 1                         | 1                         | 1                         | 1                         | 1                         | 1                         | 1                         |
-| **v2** | 1                         | 0                         | 1                         | 1                         | 1                         | 0                         | 1                         | 1                         |
- 
+## Verification data
+
+- [Ground truth](ground-truth.csv)
+- [Solcmc/z3](solcmc-z3.csv)
+- [Solcmc/Eldarica](solcmc-eld.csv)
+- [Certora](certora.csv)
 
 ## Experiments
-### SolCMC
-#### Z3
-|        | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
-|--------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| **v1** | ND                        | TP!                       | TP!                       | ND                        | TP!                       | TP!                       | TP!                       | ND                        |
-| **v2** | ND                        | TN!                       | TP!                       | ND                        | TP!                       | UNK                       | TP!                       | ND                        |
- 
-
-#### Eldarica
-|        | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
-|--------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| **v1** | ND                        | TP!                       | TP!                       | ND                        | TP!                       | TP!                       | TP!                       | ND                        |
-| **v2** | ND                        | TN!                       | TP!                       | ND                        | TP!                       | TN!                       | TP!                       | ND                        |
- 
-
-
-### Certora
-|        | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
-|--------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| **v1** | FN                        | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN                        | FN                        |
-| **v2** | FN                        | TN                        | FN                        | TP!                       | TP!                       | TN                        | FN                        | FN                        |
- 
-
