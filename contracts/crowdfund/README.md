@@ -54,9 +54,9 @@ The contract implements the following methods:
 - **v14**: a non-reverting call to `donate` always decreases the balance of the contract, as it immediately sends the donation to the owner.
 - **v15**: Reclaims swap donations with the last donor who reclaimed their donation.
 - **v16**: if the donation is odd, `donate` decreases donation.
-- **v17**: conforming to specification.
-- **v18**: conforming to specification.
-- **v19**: conforming to specification.
+- **v17**: a non-reverting donation always changes the `donation` map of exactly one user.
+- **v18**: the `reclaim` method is now payable.
+- **v19**: `withdraw` doesn't send funds directly to the owner so it cannot be reverted.
 
 ## Verification data
 

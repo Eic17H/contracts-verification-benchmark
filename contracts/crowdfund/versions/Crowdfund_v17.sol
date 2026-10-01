@@ -2,7 +2,7 @@
 pragma solidity >= 0.8.2;
 
 
-/// @custom:version conforming to specification.
+/// @custom:version a non-reverting donation always changes the `donation` map of exactly one user.
 contract Crowdfund {
     uint immutable end_donate;    // last block in which users can donate
     uint immutable goal;          // amount of ETH that must be donated for the crowdfunding to be succesful
