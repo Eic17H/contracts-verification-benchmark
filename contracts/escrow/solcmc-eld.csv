@@ -1,11 +1,11 @@
 property,version,outcome
 arbitrate-send,v1,N
-arbitrate-send,v2,N
+arbitrate-send,v2,UNK
 arbitrate-send,v3,P!
 arbitrate-send,v4,N
-arbitrate-send,v5,N
+arbitrate-send,v5,UNK
 arbitrate-send,v6,N
-arbitrate-send,v7,N
+arbitrate-send,v7,UNK
 arbitrate-send,v8,N
 arbitrate-send,v9,N
 auth-in-agree,v1,P!
@@ -54,7 +54,7 @@ no-send-in-agree,v7,P!
 no-send-in-agree,v8,P!
 no-send-in-agree,v9,P!
 recipient-buyer-or-seller,v1,P!
-recipient-buyer-or-seller,v2,P!
+recipient-buyer-or-seller,v2,UNK
 recipient-buyer-or-seller,v3,N!
 recipient-buyer-or-seller,v4,N!
 recipient-buyer-or-seller,v5,P!
