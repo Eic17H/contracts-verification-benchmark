@@ -16,13 +16,15 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 ## Versions
 - **v1**: compliant with the specification.
 - **v2**: deposit() omits require enforcing a single call.
+- **v3**: the balance of player A can be negative, as player A can deposit.
+- **v4**: B cannot deposit.
 
-## Ground truth
-|        | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
-|--------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **v1** | 1         | 1         | 1         | 1         | 1         | 1         | 1         | 1         |
-| **v2** | 1         | 0         | 0         | 1         | 1         | 0         | 1         | 0         |
- 
+## Verification data
+
+- [Ground truth](ground-truth.csv)
+- [Solcmc/z3](solcmc-z3.csv)
+- [Solcmc/Eldarica](solcmc-eld.csv)
+- [Certora](certora.csv)
 
 ## Experiments
 ### SolCMC
@@ -31,20 +33,26 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 |--------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **v1** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
 | **v2** | TP!       | TN!       | TN!       | UNK       | TP!       | TN!       | TP!       | TN!       |
+| **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
+| **v4** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
  
 
 #### Eldarica
 |        | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
 |--------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **v1** | FN        | FN        | FN        | FN        | FN        | FN        | FN        | FN        |
-| **v2** | FN        | TN        | TN        | FN        | FN        | TN        | FN        | TN        |
+| **v1** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
+| **v2** | TP!       | TN!       | TN!       | TP!       | TP!       | TN!       | TP!       | TN!       |
+| **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
+| **v4** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
  
 
 
 ### Certora
 |        | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
 |--------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **v1** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TP!       | FN        |
-| **v2** | TP!       | TN        | TN        | FN        | TP!       | TN        | TP!       | TN        |
+| **v1** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
+| **v2** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
+| **v3** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
+| **v4** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
  
 
