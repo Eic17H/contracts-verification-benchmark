@@ -24,12 +24,7 @@ contract ZeroTokenBet {
     }
     
     function deposit() public {
-        require (block.number <= timeout_block);
-        require (false);
-        require (balance>=1); // needed for single run 
-        require (balance_b>=1);
-        balance_b = balance_b - 1;
-        balance = balance + 1;
+        
     }
 
     function win(address dst) public {
