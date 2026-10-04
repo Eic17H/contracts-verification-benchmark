@@ -36,3 +36,12 @@ cannotdep,v4,1
 cb-lte2,v4,1
 cb-gte0,v4,1
 
+ab-gte0,v5,1
+ab-lte2,v5,1
+bb-gte0,v5,1
+bb-lte2,v5,1
+candep,v5,1
+cannotdep,v5,1
+cb-lte2,v5,1
+cb-gte0,v5,0
+

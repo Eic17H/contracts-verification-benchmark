@@ -1,4 +1,4 @@
-/// @custom:version deposit() omits require enforcing a single call.
+/// @custom:version `deposit()` omits require enforcing a single call.
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity >= 0.8.2;
 

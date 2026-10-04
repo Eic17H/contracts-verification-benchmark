@@ -1,4 +1,4 @@
-/// @custom:version B cannot deposit.
+/// @custom:version the contract balance can be negative, as `win()` sends the whole balance to both A and B.
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity >= 0.8.2;
 
@@ -24,7 +24,12 @@ contract ZeroTokenBet {
     }
     
     function deposit() public {
-        
+        require (block.number <= timeout_block);
+        require (msg.sender==b);
+        require (balance>=1); // needed for single run 
+        require (balance_b>=1);
+        balance_b = balance_b - 1;
+        balance = balance + 1;
     }
 
     function win(address dst) public {
@@ -32,8 +37,9 @@ contract ZeroTokenBet {
         require (msg.sender==oracle);
         require (dst==a || dst==b);
         require (balance>=2);
-        if (dst==a) { balance_a += balance; balance = 0; } 
-        else if (dst==b) { balance_b += balance; balance = 0; }
+        balance_a += balance;
+        balance_b += balance;
+        balance = -balance;
     }
 
     function timeout() public {

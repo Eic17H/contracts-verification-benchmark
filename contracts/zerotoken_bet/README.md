@@ -15,9 +15,10 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 
 ## Versions
 - **v1**: compliant with the specification.
-- **v2**: deposit() omits require enforcing a single call.
+- **v2**: `deposit()` omits require enforcing a single call.
 - **v3**: the balance of player A can be negative, as player A can deposit.
 - **v4**: B cannot deposit.
+- **v5**: the contract balance can be negative, as `win()` sends the whole balance to both A and B.
 
 ## Verification data
 
@@ -34,7 +35,8 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 | **v1** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
 | **v2** | TP!       | TN!       | TN!       | UNK       | TP!       | TN!       | TP!       | TN!       |
 | **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
-| **v4** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
+| **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
+| **v5** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       |
  
 
 #### Eldarica
@@ -43,16 +45,18 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 | **v1** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
 | **v2** | TP!       | TN!       | TN!       | TP!       | TP!       | TN!       | TP!       | TN!       |
 | **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
-| **v4** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
+| **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
+| **v5** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       |
  
 
 
 ### Certora
 |        | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
 |--------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **v1** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
-| **v2** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
-| **v3** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
-| **v4** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
+| **v1** | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       |
+| **v2** | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       |
+| **v3** | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       |
+| **v4** | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       |
+| **v5** | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       |
  
 
