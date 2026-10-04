@@ -30,3 +30,41 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 - [Certora](certora.csv)
 
 ## Experiments
+### SolCMC
+#### Z3
+|        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
+|--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| **v1** | UNK              | FN!              | UNK              | UNK              | UNK              | FN               | ND               | UNK              |
+| **v2** | UNK              | TN               | UNK              | TP!              | UNK              | TN               | ND               | UNK              |
+| **v3** | UNK              | FN!              | UNK              | UNK              | UNK              | UNK              | ND               | FN               |
+| **v4** | UNK              | FN!              | UNK              | UNK              | UNK              | FN               | ND               | UNK              |
+| **v5** | UNK              | FN!              | UNK              | TP!              | UNK              | FN               | ND               | UNK              |
+| **v6** | UNK              | FN!              | UNK              | TP!              | UNK              | FN               | ND               | UNK              |
+| **v7** | UNK              | FN!              | UNK              | TP!              | UNK              | TP!              | ND               | UNK              |
+ 
+
+#### Eldarica
+|        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
+|--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| **v1** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
+| **v2** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
+| **v3** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
+| **v4** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
+| **v5** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
+| **v6** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
+| **v7** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
+ 
+
+
+### Certora
+|        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
+|--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| **v1** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
+| **v2** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
+| **v3** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
+| **v4** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
+| **v5** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
+| **v6** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
+| **v7** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
+ 
+
