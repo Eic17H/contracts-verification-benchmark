@@ -10,8 +10,8 @@ rule auth_in_agree {
         || f.selector == sig:arbitrate(address).selector
         || f.selector == sig:redeem().selector);
     
-    require(getState() == Escrow.State.AGREE);
+    require(currentContract.state == Escrow.State.AGREE);
     f(e, args);
-    assert (e.msg.sender == getBuyer() || 
-            e.msg.sender == getSeller());
+    assert (e.msg.sender == currentContract.buyer || 
+            e.msg.sender == currentContract.seller);
 }

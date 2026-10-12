@@ -10,8 +10,8 @@ rule auth_in_dispute {
         || f.selector == sig:arbitrate(address).selector
         || f.selector == sig:redeem().selector);
     
-    require(getState() == Escrow.State.DISPUTE);
+    require(currentContract.state == Escrow.State.DISPUTE);
     f(e, args);
         
-    assert (e.msg.sender == getArbiter());
+    assert (e.msg.sender == currentContract.arbiter);
 }

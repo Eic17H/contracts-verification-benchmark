@@ -1,7 +1,7 @@
 rule no_start_no_rel {
     env e;
 
-    mathint start = getStart();
+    mathint start = currentContract.start;
     mathint current_timestamp = e.block.timestamp;
     
     require current_timestamp < start;

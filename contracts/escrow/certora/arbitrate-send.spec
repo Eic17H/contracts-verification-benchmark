@@ -11,5 +11,5 @@ rule arbitrate_send {
     address a;
     arbitrate(e, a);
 
-    assert sent == to_mathint(getFee());
+    assert sent == currentContract.fee;
 }

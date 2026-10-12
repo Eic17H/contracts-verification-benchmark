@@ -2,8 +2,8 @@
 
 rule rel_grows_linear {
 
-    mathint start = getStart();
-    mathint duration = getDuration();
+    mathint start = currentContract.start;
+    mathint duration = currentContract.duration;
     
     env e1;
     env e2;
@@ -15,20 +15,20 @@ rule rel_grows_linear {
 
 
     
-    mathint releasable1 = releasable(e1);
-    mathint balance1 = getBalance();
+    mathint releasable1 = currentContract.releasable(e1);
+    mathint balance1 = nativeBalances[currentContract];
     mathint timestamp1 = e1.block.timestamp;
     mathint released1 = currentContract.released;
     
 
-    mathint releasable2 = releasable(e2);
-    mathint balance2 = getBalance();
+    mathint releasable2 = currentContract.releasable(e2);
+    mathint balance2 = nativeBalances[currentContract];
     mathint timestamp2 = e2.block.timestamp;
     mathint released2 = currentContract.released;
 
 
-    mathint releasable3 = releasable(e3);
-    mathint balance3 = getBalance();
+    mathint releasable3 = currentContract.releasable(e3);
+    mathint balance3 = nativeBalances[currentContract];
     mathint timestamp3 = e3.block.timestamp;
     mathint released3 = currentContract.released;
     
