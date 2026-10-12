@@ -3,11 +3,11 @@ rule no_send_in_agree {
     method f;
     calldataarg args;
 
-    require(getState() == Escrow.State.AGREE);
+    require(currentContract.state == Escrow.State.AGREE);
 
-    mathint old_balance = getBalance();        
+    mathint old_balance = nativeBalances[currentContract];        
     f(e, args);
-    mathint new_balance = getBalance();
+    mathint new_balance = nativeBalances[currentContract];
 
     assert(old_balance == new_balance);
 }

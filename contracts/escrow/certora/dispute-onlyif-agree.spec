@@ -1,7 +1,7 @@
 rule dispute_onlyif_agree {
     env e;
 
-    Escrow.State s = getState();
+    Escrow.State s = currentContract.state;
 
     open_dispute@withrevert(e);
 

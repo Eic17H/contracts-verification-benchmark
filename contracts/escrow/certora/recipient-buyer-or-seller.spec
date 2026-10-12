@@ -3,5 +3,5 @@ rule recipient_buyer_or_seller {
     
     redeem(e);
 
-    assert currentContract.recipient == getBuyer() || currentContract.recipient == getSeller();
+    assert currentContract.recipient == currentContract.buyer || currentContract.recipient == currentContract.seller;
 }

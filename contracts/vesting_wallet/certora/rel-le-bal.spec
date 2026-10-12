@@ -1,2 +1,2 @@
 invariant rel_le_bal(env e)
-    releasable(e) <= getBalance();
+    currentContract.releasable(e) <= nativeBalances[currentContract];

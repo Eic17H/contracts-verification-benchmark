@@ -1,6 +1,6 @@
 rule rel_strict_incr {
-    mathint start = getStart();
-    mathint duration = getDuration();
+    mathint start = currentContract.start;
+    mathint duration = currentContract.duration;
     
     env e1;
     env e2;
@@ -8,14 +8,14 @@ rule rel_strict_incr {
     require e1.block.timestamp < 2^64;
     require e2.block.timestamp < 2^64;
     
-    mathint releasable1 = releasable(e1);
-    mathint balance1 = getBalance();
+    mathint releasable1 = currentContract.releasable(e1);
+    mathint balance1 = nativeBalances[currentContract];
     mathint timestamp1 = e1.block.timestamp;
     mathint released1 = currentContract.released;
     
 
-    mathint releasable2 = releasable(e2);
-    mathint balance2 = getBalance();
+    mathint releasable2 = currentContract.releasable(e2);
+    mathint balance2 = nativeBalances[currentContract];
     mathint timestamp2 = e2.block.timestamp;
     mathint released2 = currentContract.released;
 
