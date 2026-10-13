@@ -39,7 +39,7 @@ contract VestingWallet {
 
     function vestingSchedule(uint256 totalAllocation, uint64 timestamp) internal view virtual returns (uint256) {
         if (timestamp < start) {
-            return (totalAllocation * (start - timestamp)) / duration;
+            return totalAllocation;
         } else if (timestamp > start + duration) {
             return totalAllocation;
         } else {
