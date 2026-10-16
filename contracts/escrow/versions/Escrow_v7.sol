@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity >= 0.8.2;
 
-/// @custom:version a dispute can be opened in any state.
+/// @custom:version a dispute can be opened in any state other than Dispute.
 
 contract Escrow {
    enum State {AGREE, DISPUTE, ARBITRATED, REDEEM, END}
@@ -45,6 +45,7 @@ contract Escrow {
     }
 
     function open_dispute() public {
+        require(state != State.DISPUTE);
         require(msg.sender == buyer || msg.sender == seller);
         state = State.DISPUTE;
     }

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity >= 0.8.2;
 
-/// @custom:version conformant to specification, but the fee is sent to the arbiter with two calls.
+/// @custom:version conformant to specification, but very time ETH is sent, two calls are used instead of one.
 
 contract Escrow {
    enum State {AGREE, DISPUTE, ARBITRATED, REDEEM, END}
@@ -64,7 +64,8 @@ contract Escrow {
 
     function redeem() instate(State.REDEEM) public {
         state = State.END;
-        (bool success,) = recipient.call{value: deposit}("");
-        require(success);
+        (bool success1,) = recipient.call{value: deposit/2}("");
+        (bool success2,) = recipient.call{value: deposit - deposit/2}("");
+        require(success1 && success2);
     }
 }

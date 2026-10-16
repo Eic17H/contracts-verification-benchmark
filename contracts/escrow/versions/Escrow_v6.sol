@@ -50,7 +50,8 @@ contract Escrow {
     }
 
     function arbitrate(address dst) instate(State.DISPUTE) public {
-        
+        require(dst == buyer || dst == seller);
+
         recipient = dst;
         state = State.REDEEM;
         deposit -= fee;
