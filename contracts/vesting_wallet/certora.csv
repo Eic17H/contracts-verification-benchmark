@@ -14,7 +14,7 @@ no-start-no-rel,v5,P!
 no-start-no-rel,v6,P!
 no-start-no-rel,v7,P!
 rel-grows-linear,v1,N
-rel-grows-linear,v2,ERR
+rel-grows-linear,v2,N
 rel-grows-linear,v3,N
 rel-grows-linear,v4,N
 rel-grows-linear,v5,N
@@ -22,10 +22,10 @@ rel-grows-linear,v6,N
 rel-grows-linear,v7,N
 rel-le-bal,v1,P!
 rel-le-bal,v2,N
-rel-le-bal,v3,N
+rel-le-bal,v3,P!
 rel-le-bal,v4,P!
 rel-le-bal,v5,P!
-rel-le-bal,v6,ERR
+rel-le-bal,v6,P!
 rel-le-bal,v7,P!
 rel-strict-incr,v1,N
 rel-strict-incr,v2,N

@@ -1,6 +1,8 @@
 // if the vesting scheme has expired, that the whole contract balance is releasable
 
 function invariant(uint64 timestamp) public view {
+    require(block.timestamp > start + duration);
+    assert(releasable() >= address(this).balance);
     // block.timestamp > start + duration => releasable() >= address(this).balance
-    assert(vestedAmount(timestamp) - released == address(this).balance);
+    // assert(vestedAmount(timestamp) - released == address(this).balance);
 }
