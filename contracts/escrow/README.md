@@ -46,33 +46,34 @@ In the Redeem state, the chosen recipient can `redeem` the whole contract balanc
 ## Experiments
 ### SolCMC
 #### Z3
-|        | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
-|--------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| **v1** | UNK                       | TP!                       | TP!                       | FN!                       | TP!                       | TP!                       | TP!                       | UNK                       |
-| **v2** | UNK                       | TN!                       | TP!                       | FN!                       | TP!                       | UNK                       | TP!                       | UNK                       |
-| **v3** | UNK                       | FN!                       | TP!                       | FN!                       | TP!                       | UNK                       | FN!                       | TP!                       |
-| **v4** | UNK                       | TP!                       | TP!                       | FN!                       | TP!                       | TP!                       | TN!                       | UNK                       |
-| **v5** | UNK                       | TP!                       | TP!                       | FN!                       | TP!                       | TP!                       | TP!                       | UNK                       |
-| **v6** | UNK                       | TP!                       | TN!                       | FN!                       | TP!                       | TP!                       | FN!                       | UNK                       |
-| **v7** | UNK                       | TP!                       | UNK                       | FN!                       | TN!                       | TP!                       | TP!                       | UNK                       |
-| **v8** | UNK                       | FN!                       | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | UNK                       |
-| **v9** | UNK                       | TP!                       | TP!                       | FN!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+|         | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
+|---------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
+| **v1** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v10** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v2** | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | UNK                       | TP!                       | UNK                       |
+| **v3** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       | FN!                       | TP!                       |
+| **v4** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | UNK                       |
+| **v5** | FP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v6** | TP!                       | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v7** | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | TP!                       | UNK                       |
+| **v8** | TP!                       | TN!                       | TP!                       | FP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v9** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
  
 
 #### Eldarica
-|        | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
-|--------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| **v1** | FN                        | TP!                       | TP!                       | FN!                       | TP!                       | TP!                       | TP!                       | FN!                       |
-| **v2** | UNK                       | TN!                       | TP!                       | FN!                       | TP!                       | TN!                       | UNK                       | FN!                       |
-| **v3** | TP!                       | FN!                       | TP!                       | FN!                       | TP!                       | FP!                       | FN!                       | TP!                       |
-| **v4** | FN                        | TP!                       | TP!                       | FN!                       | TP!                       | TP!                       | TN!                       | FN!                       |
-| **v5** | UNK                       | TP!                       | TP!                       | FN!                       | TP!                       | TP!                       | TP!                       | FN!                       |
-| **v6** | FN                        | TP!                       | TN!                       | FN!                       | TP!                       | TP!                       | FN!                       | FN!                       |
-| **v7** | UNK                       | TP!                       | FN!                       | FN!                       | TN!                       | TP!                       | UNK                       | FN!                       |
-| **v8** | FN                        | FN!                       | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | FN!                       |
-| **v9** | FN                        | TP!                       | TP!                       | FN!                       | TP!                       | TP!                       | TP!                       | TN!                       |
+|         | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
+|---------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
+| **v1** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v10** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v2** | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | FN!                       |
+| **v3** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FP!                       | FN!                       | TP!                       |
+| **v4** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TN!                       |
+| **v5** | FP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v6** | TP!                       | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v7** | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | TP!                       | FN!                       |
+| **v8** | TP!                       | TN!                       | TP!                       | FP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v9** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       |
  
-
 
 ### Certora
 |         | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
