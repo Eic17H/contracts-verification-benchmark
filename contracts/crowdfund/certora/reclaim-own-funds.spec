@@ -18,9 +18,9 @@ rule reclaim_own_funds {
     mathint bal_A_prev = nativeBalances[e.msg.sender];
     mathint donation_A = currentContract.donation[e.msg.sender];
     
-    reclaim@withrevert(e);   
+    reclaim(e);   
 
     mathint bal_A_next = nativeBalances[e.msg.sender];
  
-    assert !lastReverted => bal_A_next == bal_A_prev + donation_A;
+    assert bal_A_next == bal_A_prev + donation_A;
 }
