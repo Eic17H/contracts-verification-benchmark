@@ -1,6 +1,6 @@
 property,version,outcome
 arbitrate-send,v1,P!
-arbitrate-send,v10,N
+arbitrate-send,v10,P!
 arbitrate-send,v2,P!
 arbitrate-send,v3,P!
 arbitrate-send,v4,P!
@@ -70,7 +70,7 @@ recipient-buyer-or-seller,v7,P!
 recipient-buyer-or-seller,v8,P!
 recipient-buyer-or-seller,v9,P!
 redeem-send,v1,P!
-redeem-send,v10,N
+redeem-send,v10,P!
 redeem-send,v2,P!
 redeem-send,v3,P!
 redeem-send,v4,N
