@@ -341,7 +341,7 @@ bal-decr-onlyif-wd-reclaim,v14,1,
 donate-bal-inc,v14,0,"`donate` sends the donation to the owner instead of modifying the balance."
 donate-not-dec-donation,v14,1,
 donate-not-revert,v14,0,"This property should be false, since the increment of the `donation` map could overflow."
-donate-not-revert-overflow,v14,1,
+donate-not-revert-overflow,v14,0,"This property is false because the `owner` could be a contract that refuses the payment, resulting in a revert."
 donation-dec-onlyif-reclaim,v14,0,"This property is false, since a call to `withdraw` allows a reentrant call to `reclaim`. This causes the donation to decrease during a withdraw transaction."
 donation-inc-onlyif-donate,v14,1,
 exists-unique-donation-change,v14,0,"This property should always be false, since `donate` does not require `msg.value > 0`. Hence, if a user donates with a `msg.value == 0`, then the `donation` map of no user changes."
@@ -419,7 +419,7 @@ bal-decr-onlyif-wd-reclaim,v17,1,
 donate-bal-inc,v17,1,
 donate-not-dec-donation,v17,1,
 donate-not-revert,v17,0,"This property should be false, since the increment of the `donation` map could overflow."
-donate-not-revert-overflow,v17,1,
+donate-not-revert-overflow,v17,0,"This property is false, as a donation of 0 ETH will revert `donate()`."
 donation-dec-onlyif-reclaim,v17,0,"This property is false, since a call to `withdraw` allows a reentrant call to `reclaim`. This causes the donation to decrease during a withdraw transaction."
 donation-inc-onlyif-donate,v17,1,
 exists-unique-donation-change,v17,1,"Since `donate` now requires `msg.value > 0`, a non-reverting donation always changes the `donation` map of exactly one user."

@@ -15,6 +15,6 @@ rule donation_inc_onlyif_donate {
 
     mathint new_donation = currentContract.donation[_user];
     
-    assert(old_donation < new_donation => f.selector == sig:donate().selector && _user == e.msg.sender);
+    assert(new_donation > old_donation => f.selector == sig:donate().selector && _user == e.msg.sender);
 }
 
