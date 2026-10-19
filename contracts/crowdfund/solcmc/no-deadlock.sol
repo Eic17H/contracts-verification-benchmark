@@ -1,4 +1,4 @@
-function check_no_deadlock() public {
+function no_deadlock() public {
     
     require(address(this).balance > 0);
     
