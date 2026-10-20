@@ -7,7 +7,7 @@ bor-additivity,v7,1,
 bor-additivity,v8,1,
 bor-state,v1,1,
 bor-state,v2,1,
-bor-state,v3,1,could duplicate borrowers but the the state does not change until an accrual
+bor-state,v3,1,"could duplicate borrowers but the the state does not change until an accrual"
 bor-state,v4,1,
 bor-state,v7,1,
 bor-state,v8,1,
