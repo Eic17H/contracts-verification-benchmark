@@ -1,6 +1,8 @@
 property,version,outcome
 arbitrate-send,v1,P!
 arbitrate-send,v10,P!
+arbitrate-send,v11,P!
+arbitrate-send,v12,P!
 arbitrate-send,v2,P!
 arbitrate-send,v3,P!
 arbitrate-send,v4,P!
@@ -11,6 +13,8 @@ arbitrate-send,v8,P!
 arbitrate-send,v9,P!
 auth-in-agree,v1,P!
 auth-in-agree,v10,P!
+auth-in-agree,v11,P!
+auth-in-agree,v12,P!
 auth-in-agree,v2,N
 auth-in-agree,v3,P!
 auth-in-agree,v4,P!
@@ -21,6 +25,8 @@ auth-in-agree,v8,N
 auth-in-agree,v9,P!
 auth-in-dispute,v1,P!
 auth-in-dispute,v10,P!
+auth-in-dispute,v11,P!
+auth-in-dispute,v12,P!
 auth-in-dispute,v2,P!
 auth-in-dispute,v3,P!
 auth-in-dispute,v4,P!
@@ -31,6 +37,8 @@ auth-in-dispute,v8,P!
 auth-in-dispute,v9,P!
 dispute-if-agree,v1,P!
 dispute-if-agree,v10,P!
+dispute-if-agree,v11,P!
+dispute-if-agree,v12,P!
 dispute-if-agree,v2,P!
 dispute-if-agree,v3,P!
 dispute-if-agree,v4,P!
@@ -41,6 +49,8 @@ dispute-if-agree,v8,N
 dispute-if-agree,v9,P!
 dispute-onlyif-agree,v1,P!
 dispute-onlyif-agree,v10,P!
+dispute-onlyif-agree,v11,P!
+dispute-onlyif-agree,v12,P!
 dispute-onlyif-agree,v2,P!
 dispute-onlyif-agree,v3,P!
 dispute-onlyif-agree,v4,P!
@@ -51,6 +61,8 @@ dispute-onlyif-agree,v8,P!
 dispute-onlyif-agree,v9,P!
 no-send-in-agree,v1,P!
 no-send-in-agree,v10,P!
+no-send-in-agree,v11,P!
+no-send-in-agree,v12,N
 no-send-in-agree,v2,N
 no-send-in-agree,v3,N
 no-send-in-agree,v4,P!
@@ -61,6 +73,8 @@ no-send-in-agree,v8,P!
 no-send-in-agree,v9,P!
 recipient-buyer-or-seller,v1,P!
 recipient-buyer-or-seller,v10,P!
+recipient-buyer-or-seller,v11,P!
+recipient-buyer-or-seller,v12,P!
 recipient-buyer-or-seller,v2,P!
 recipient-buyer-or-seller,v3,P!
 recipient-buyer-or-seller,v4,N
@@ -71,6 +85,8 @@ recipient-buyer-or-seller,v8,P!
 recipient-buyer-or-seller,v9,P!
 redeem-send,v1,P!
 redeem-send,v10,P!
+redeem-send,v11,ERR
+redeem-send,v12,P!
 redeem-send,v2,P!
 redeem-send,v3,P!
 redeem-send,v4,N
