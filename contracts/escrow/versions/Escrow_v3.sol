@@ -62,7 +62,9 @@ contract Escrow {
     }
 
     function redeem() instate(State.AGREE) public {
-        require(msg.sender == buyer || msg.sender == seller);
+        // Require added to verify recipient-buyer-or-seller
+        require(recipient == buyer || recipient == seller);
+        
         state = State.END;
         (bool success,) = recipient.call{value: deposit}("");
         require(success);

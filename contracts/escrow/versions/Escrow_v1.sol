@@ -25,6 +25,7 @@ contract Escrow {
         require (seller_ != address(0) && arbiter_ != address(0));
         require(fee_ < msg.value);    // The fee cannot be more than the deposit
 
+        //TODO: deposit = msg.value; and test everything again
         buyer = msg.sender;
         seller = seller_;
         arbiter = arbiter_;

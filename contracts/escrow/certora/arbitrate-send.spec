@@ -1,5 +1,6 @@
-rule arbitrate_send {   
+// during a successful call to `arbitrate`, the contract sends the arbiter `fee` ETH.
 
+rule arbitrate_send {   
 
     env e;
     require e.msg.sender == currentContract.arbiter;

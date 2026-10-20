@@ -35,6 +35,8 @@ In the Redeem state, the chosen recipient can `redeem` the whole contract balanc
 - **v8**: only the arbiter can open disputes in the Agree state.
 - **v9**: after a successful call to `redeem`, the arbiter receives `deposit` ETH.
 - **v10**: conformant to specification, but very time ETH is sent, two calls are used instead of one.
+- **v11**: no `deposit` variable.
+- **v12**: ETH can be redeemed only in the Agree state.
 
 ## Verification data
 
@@ -48,31 +50,35 @@ In the Redeem state, the chosen recipient can `redeem` the whole contract balanc
 #### Z3
 |         | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
 |---------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| **v1** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
-| **v10** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
-| **v2** | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | UNK                       | TP!                       | UNK                       |
-| **v3** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       | FN!                       | TP!                       |
-| **v4** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | UNK                       |
-| **v5** | FP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
-| **v6** | TP!                       | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
-| **v7** | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | TP!                       | UNK                       |
-| **v8** | TP!                       | TN!                       | TP!                       | FP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
-| **v9** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v1** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v10** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v11** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v12** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       | TN!                       | TP!                       |
+| **v2** | UNK                       | TN!                       | TP!                       | TP!                       | TP!                       | UNK                       | TP!                       | UNK                       |
+| **v3** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       | TP!                       | TP!                       |
+| **v4** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | UNK                       |
+| **v5** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v6** | UNK                       | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v7** | UNK                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | TP!                       | UNK                       |
+| **v8** | UNK                       | TN!                       | TP!                       | FP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
+| **v9** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       |
  
 
 #### Eldarica
 |         | arbitrate-send            | auth-in-agree             | auth-in-dispute           | dispute-if-agree          | dispute-onlyif-agree      | no-send-in-agree          | recipient-buyer-or-seller | redeem-send               |
 |---------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
-| **v1** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
-| **v10** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
-| **v2** | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | FN!                       |
-| **v3** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FP!                       | FN!                       | TP!                       |
-| **v4** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TN!                       |
-| **v5** | FP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
-| **v6** | TP!                       | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
-| **v7** | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | TP!                       | FN!                       |
-| **v8** | TP!                       | TN!                       | TP!                       | FP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
-| **v9** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       |
+| **v1** | FN                        | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v10** | FN                        | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v11** | FN!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v12** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FP!                       | TN!                       | TP!                       |
+| **v2** | FN                        | TN!                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | FN!                       |
+| **v3** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FP!                       | TP!                       | TP!                       |
+| **v4** | FN                        | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TN!                       |
+| **v5** | TN                        | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v6** | FN                        | TP!                       | TN!                       | TP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v7** | FN                        | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | TP!                       | FN!                       |
+| **v8** | FN                        | TN!                       | TP!                       | FP!                       | TP!                       | TP!                       | TP!                       | FN!                       |
+| **v9** | FN                        | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       |
  
 
 ### Certora
@@ -80,6 +86,8 @@ In the Redeem state, the chosen recipient can `redeem` the whole contract balanc
 |---------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|---------------------------|
 | **v1** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       |
 | **v10** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       |
+| **v11** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | ERR                       |
+| **v12** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN                        | FP!                       | TP!                       |
 | **v2** | TP!                       | TN                        | TP!                       | TP!                       | TP!                       | TN                        | TP!                       | TP!                       |
 | **v3** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN                        | TP!                       | TP!                       |
 | **v4** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN                        | TN                        |

@@ -1,31 +1,22 @@
-// Won't work, as the arbiter can forward the ETH to a different address before the final assertion.
+// during a successful call to `arbitrate`, the contract sends the arbiter `fee` ETH.
 
-function invariant(address dst, uint f) public {
+function invariant(address dst) public {
 
-    if(f==0) require (arbiter == seller);
-    else if(f==1) require (arbiter != seller);
-    else require(false);
+    require (msg.sender == arbiter);
 
-    // Arbitrate requires Dispute state
-    require(state == State.DISPUTE);
-    require(fee > 0);
-    // require(msg.sender == arbiter);
-    // require(dst == buyer || dst == seller);
+    require (dst == buyer || dst == seller);
 
-    // Balances before the arbitrate
-    uint thisBefore = address(this).balance;
-    uint arbiterBefore = address(arbiter).balance;
+    require (msg.sender != address(this));
+    require (dst != address(this));
+
+    uint oldbal = msg.sender.balance;
 
     arbitrate(dst);
 
-    // Immediately after the arbitrate
-    require(state == State.REDEEM);
-    
-    // Balances after the arbitrate
-    uint thisAfter = address(this).balance;
-    uint arbiterAfter = address(arbiter).balance;
+    uint newbal = msg.sender.balance;
 
-    // The fee must have been transfered from this to arbiter
-    assert(thisBefore - thisAfter == fee);
-    assert(arbiterAfter - arbiterBefore == fee);
+    uint sent = newbal - oldbal;
+
+    assert (sent == fee);
+
 }

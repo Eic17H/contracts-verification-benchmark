@@ -1,4 +1,7 @@
-function invariant(uint f,address dst) public {
+function invariant(uint f, address dst, uint deposit_) public {
+
+    deposit = deposit_;
+
     require(state==State.AGREE);
     uint prev_bal = address(this).balance;
     
