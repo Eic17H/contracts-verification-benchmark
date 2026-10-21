@@ -1,3 +1,5 @@
+// after a successful call to `redeem`, either the buyer or the seller receives `deposit` ETH.
+
 rule redeem_send {
     env e;
     method f;
@@ -28,6 +30,6 @@ rule redeem_send {
     mathint sent_s = newbal_s - oldbal_s;
 
     assert
-        ( sent_b == to_mathint(currentContract.deposit)
+        (  sent_b == to_mathint(currentContract.deposit)
         || sent_s == to_mathint(currentContract.deposit));
 }

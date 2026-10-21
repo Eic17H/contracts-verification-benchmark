@@ -12,6 +12,8 @@ auth-in-agree,v9,1,
 auth-in-agree,v10,1,
 auth-in-agree,v11,1,
 auth-in-agree,v12,1,
+auth-in-agree,v13,0,"`redeem()` requires `AGREE` state but does not require a specific sender."
+auth-in-agree,v14,0,"`redeem()` requires `AGREE` state but does not require a specific sender."
 
 dispute-if-agree,v1,1,
 dispute-if-agree,v2,1,
@@ -25,6 +27,8 @@ dispute-if-agree,v9,1,
 dispute-if-agree,v10,1,
 dispute-if-agree,v11,1,
 dispute-if-agree,v12,1,
+dispute-if-agree,v13,1,
+dispute-if-agree,v14,1,
 
 dispute-onlyif-agree,v1,1,
 dispute-onlyif-agree,v2,1,
@@ -38,6 +42,8 @@ dispute-onlyif-agree,v9,1,
 dispute-onlyif-agree,v10,1,
 dispute-onlyif-agree,v11,1,
 dispute-onlyif-agree,v12,1,
+dispute-onlyif-agree,v13,1,
+dispute-onlyif-agree,v14,1,
 
 no-send-in-agree,v1,1,
 no-send-in-agree,v2,0,"An arbitrate, where the arbiter redeems ETH, can happen in any state."
@@ -51,6 +57,8 @@ no-send-in-agree,v9,1,
 no-send-in-agree,v10,1,
 no-send-in-agree,v11,1,
 no-send-in-agree,v12,0,"A redeem, where either the buyer or the seller redeems ETH, can only happen in the Agree state."
+no-send-in-agree,v13,0,"A redeem, where either the buyer or the seller redeems ETH, can only happen in the Agree state."
+no-send-in-agree,v14,0,"A redeem, where either the buyer or the seller redeems ETH, can only happen in the Agree state."
 
 auth-in-dispute,v1,1,
 auth-in-dispute,v2,1,
@@ -64,6 +72,8 @@ auth-in-dispute,v9,1,
 auth-in-dispute,v10,1,
 auth-in-dispute,v11,1,
 auth-in-dispute,v12,1,
+auth-in-dispute,v13,1,
+auth-in-dispute,v14,1,
 
 arbitrate-send,v1,1,
 arbitrate-send,v2,1,
@@ -77,6 +87,8 @@ arbitrate-send,v9,1,
 arbitrate-send,v10,1,
 arbitrate-send,v11,1,
 arbitrate-send,v12,1,
+arbitrate-send,v13,1,
+arbitrate-send,v14,1,
 
 redeem-send,v1,1,
 redeem-send,v2,1,
@@ -90,6 +102,8 @@ redeem-send,v9,0,"The arbiter redeems the ETH instead of the buyer or the seller
 redeem-send,v10,1,
 redeem-send,v11,1,
 redeem-send,v12,1,
+redeem-send,v13,1,
+redeem-send,v14,1,
 
 recipient-buyer-or-seller,v1,1,
 recipient-buyer-or-seller,v2,1,
@@ -102,4 +116,6 @@ recipient-buyer-or-seller,v8,1,
 recipient-buyer-or-seller,v9,1,
 recipient-buyer-or-seller,v10,1,
 recipient-buyer-or-seller,v11,1,
-recipient-buyer-or-seller,v12,0,"`redeem()` requires the AGREE state, where the recipient may not have been set."
+recipient-buyer-or-seller,v12,0,"`redeem()` requires the `AGREE` state, where the recipient may not have been set."
+recipient-buyer-or-seller,v13,1,
+recipient-buyer-or-seller,v14,0,"`redeem()` requires the `AGREE` state, where the recipient may not have been set."

@@ -1,7 +1,6 @@
-// Wrong
+// after a successful call to `redeem`, either the buyer or the seller receives `deposit` ETH.
 
 function invariant() public {
-    require(state == State.REDEEM);
     uint buyerBalance = address(buyer).balance;
     uint sellerBalance = address(seller).balance;
     redeem();
