@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity >= 0.8.2;
 
-/// @custom:version ETH can be redeemed only in the Agree state.
+/// @custom:version ETH can be redeemed only in the Agree state, and `redeem()` can be called by anyone.
 
 contract Escrow {
    enum State {AGREE, DISPUTE, ARBITRATED, REDEEM, END}
