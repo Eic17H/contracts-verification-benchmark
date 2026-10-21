@@ -25,6 +25,7 @@ contract Escrow {
         require (seller_ != address(0) && arbiter_ != address(0));
         require(fee_ < msg.value);    // The fee cannot be more than the deposit
 
+        deposit = msg.value;
         buyer = msg.sender;
         seller = seller_;
         arbiter = arbiter_;
@@ -64,6 +65,8 @@ contract Escrow {
     function redeem() instate(State.AGREE) public {
         // Require added to verify recipient-buyer-or-seller
         require(recipient == buyer || recipient == seller);
+        // Require added to verify auth-in-agree
+        require(msg.sender == buyer || msg.sender == seller);
         
         state = State.END;
         (bool success,) = recipient.call{value: deposit}("");
