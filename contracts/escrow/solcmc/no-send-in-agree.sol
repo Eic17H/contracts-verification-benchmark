@@ -1,3 +1,5 @@
+// in the Agree state, no one can redeem ETH.
+
 function invariant(uint f, address dst, uint deposit_) public {
 
     deposit = deposit_;

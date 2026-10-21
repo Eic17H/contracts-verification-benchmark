@@ -1,3 +1,5 @@
+// a dispute can be opened only in the Agree state.
+
 /// @custom:preghost function open_dispute
 Escrow.State prev_state = state;
 

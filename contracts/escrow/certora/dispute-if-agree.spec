@@ -1,3 +1,5 @@
+// in the Agree state, both the buyer and the seller can open a dispute.
+
 rule dispute_if_agree {
     env e;
     require (currentContract.state == Escrow.State.AGREE);

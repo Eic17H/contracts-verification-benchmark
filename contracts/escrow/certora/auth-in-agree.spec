@@ -1,3 +1,5 @@
+// in the Agree state, only the buyer and the seller can perform actions.
+
 rule auth_in_agree {
     env e;
     method f;

@@ -1,3 +1,5 @@
+// in the Agree state, no one can redeem ETH.
+
 rule no_send_in_agree {
     env e;
     method f;
