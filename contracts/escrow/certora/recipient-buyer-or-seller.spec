@@ -1,3 +1,5 @@
+// the recipient of the `redeem` call must be either the buyer or the seller.
+
 rule recipient_buyer_or_seller {
     env e;
     method f;

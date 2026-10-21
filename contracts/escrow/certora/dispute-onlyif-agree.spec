@@ -1,3 +1,5 @@
+// a dispute can be opened only in the Agree state.
+
 rule dispute_onlyif_agree {
     env e;
 

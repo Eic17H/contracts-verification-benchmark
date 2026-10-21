@@ -1,3 +1,5 @@
+// in the Agree state, only the buyer and the seller can perform actions.
+
 function invariant(uint f,address dst) public {
     if (f==0)
         approve_payment();

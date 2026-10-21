@@ -1,3 +1,5 @@
+// in the Dispute state, only the arbiter can perform actions.
+
 rule auth_in_dispute {
     env e;
     method f;
