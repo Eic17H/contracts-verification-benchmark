@@ -36,9 +36,10 @@ In the Redeem state, the chosen recipient can `redeem` the whole contract balanc
 - **v9**: after a successful call to `redeem`, the arbiter receives `deposit` ETH.
 - **v10**: conformant to specification, but very time ETH is sent, two calls are used instead of one.
 - **v11**: no `deposit` variable.
-- **v12**: ETH can be redeemed only in the Agree state.
-- **v13**: ETH can be redeemed only in the Agree state.
-- **v14**: ETH can be redeemed only in the Agree state.
+- **v12**: ETH can be redeemed only in the Agree state, and the recipient may not have been set.
+- **v13**: ETH can be redeemed only in the Agree state, and `redeem()` can be called by anyone.
+- **v14**: ETH can be redeemed only in the Agree state, the recipient may not have been set, and `redeem()` can be called by anyone.
+- **v15**: all methods revert, most properties hold due to negating the precedent.
 
 ## Verification data
 
@@ -58,6 +59,7 @@ In the Redeem state, the chosen recipient can `redeem` the whole contract balanc
 | **v12** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TN!                       | UNK                       |
 | **v13** | UNK                       | TN!                       | TP!                       | TP!                       | TP!                       | UNK                       | TP!                       | UNK                       |
 | **v14** | UNK                       | TN!                       | TP!                       | TP!                       | TP!                       | TN!                       | TN!                       | UNK                       |
+| **v15** | TP!                       | TP!                       | TP!                       | FP!                       | TP!                       | TP!                       | TP!                       | TP!                       |
 | **v2** | UNK                       | TN!                       | TP!                       | TP!                       | TP!                       | UNK                       | TP!                       | UNK                       |
 | **v3** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | UNK                       | TP!                       | UNK                       |
 | **v4** | UNK                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | UNK                       |
@@ -77,6 +79,7 @@ In the Redeem state, the chosen recipient can `redeem` the whole contract balanc
 | **v12** | FN!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TN!                       | FN!                       |
 | **v13** | FN!                       | TN!                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | FN!                       |
 | **v14** | FN!                       | TN!                       | TP!                       | TP!                       | TP!                       | TN!                       | TN!                       | FN!                       |
+| **v15** | TP!                       | TP!                       | TP!                       | FP!                       | TP!                       | TP!                       | TP!                       | TP!                       |
 | **v2** | FN!                       | TN!                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | FN!                       |
 | **v3** | FN!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TP!                       | FN!                       |
 | **v4** | FN!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN!                       | TN!                       |
@@ -96,6 +99,7 @@ In the Redeem state, the chosen recipient can `redeem` the whole contract balanc
 | **v12** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN                        | FP!                       | TP!                       |
 | **v13** | TP!                       | TN                        | TP!                       | TP!                       | TP!                       | TN                        | TP!                       | TP!                       |
 | **v14** | TP!                       | TN                        | TP!                       | TP!                       | TP!                       | TN                        | FP!                       | TP!                       |
+| **v15** | TP!                       | TP!                       | TP!                       | TN                        | TP!                       | TP!                       | ERR                       | TP!                       |
 | **v2** | TP!                       | TN                        | TP!                       | TP!                       | TP!                       | TN                        | TP!                       | TP!                       |
 | **v3** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN                        | TP!                       | TP!                       |
 | **v4** | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TP!                       | TN                        | TN                        |

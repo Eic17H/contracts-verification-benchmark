@@ -14,6 +14,7 @@ auth-in-agree,v11,1,
 auth-in-agree,v12,1,
 auth-in-agree,v13,0,"`redeem()` requires `AGREE` state but does not require a specific sender."
 auth-in-agree,v14,0,"`redeem()` requires `AGREE` state but does not require a specific sender."
+auth-in-agree,v15,1,"Nobody can perform actions, so for all x, if x can perform actions (always false) then x is either the buyer or the seller."
 
 dispute-if-agree,v1,1,
 dispute-if-agree,v2,1,
@@ -29,6 +30,7 @@ dispute-if-agree,v11,1,
 dispute-if-agree,v12,1,
 dispute-if-agree,v13,1,
 dispute-if-agree,v14,1,
+dispute-if-agree,v15,0,"Disputes cannot be opened."
 
 dispute-onlyif-agree,v1,1,
 dispute-onlyif-agree,v2,1,
@@ -44,6 +46,7 @@ dispute-onlyif-agree,v11,1,
 dispute-onlyif-agree,v12,1,
 dispute-onlyif-agree,v13,1,
 dispute-onlyif-agree,v14,1,
+dispute-onlyif-agree,v15,1,"Disputes cannot be opened, so if a dispute is opened (always false) then the state is Agree."
 
 no-send-in-agree,v1,1,
 no-send-in-agree,v2,0,"An arbitrate, where the arbiter redeems ETH, can happen in any state."
@@ -59,6 +62,7 @@ no-send-in-agree,v11,1,
 no-send-in-agree,v12,0,"A redeem, where either the buyer or the seller redeems ETH, can only happen in the Agree state."
 no-send-in-agree,v13,0,"A redeem, where either the buyer or the seller redeems ETH, can only happen in the Agree state."
 no-send-in-agree,v14,0,"A redeem, where either the buyer or the seller redeems ETH, can only happen in the Agree state."
+no-send-in-agree,v15,1,"No one can redeem ETH in any state."
 
 auth-in-dispute,v1,1,
 auth-in-dispute,v2,1,
@@ -74,6 +78,8 @@ auth-in-dispute,v11,1,
 auth-in-dispute,v12,1,
 auth-in-dispute,v13,1,
 auth-in-dispute,v14,1,
+auth-in-dispute,v15,1,"Nobody can perform actions, so for all x, if x can perform actions (always false) then x is the arbiter."
+
 
 arbitrate-send,v1,1,
 arbitrate-send,v2,1,
@@ -89,6 +95,7 @@ arbitrate-send,v11,1,
 arbitrate-send,v12,1,
 arbitrate-send,v13,1,
 arbitrate-send,v14,1,
+arbitrate-send,v15,1,"There are no successful calls to arbitrate, so for every call to arbitrate x, if x is successful (always false), then fee ETH is sent to the arbitrate."
 
 redeem-send,v1,1,
 redeem-send,v2,1,
@@ -104,6 +111,7 @@ redeem-send,v11,1,
 redeem-send,v12,1,
 redeem-send,v13,1,
 redeem-send,v14,1,
+redeem-send,v15,1,"There are no successful calls to redeem, so for all calls to redeem x, if x is successful (always false), then the recipient receives deposit ETH."
 
 recipient-buyer-or-seller,v1,1,
 recipient-buyer-or-seller,v2,1,
@@ -119,3 +127,4 @@ recipient-buyer-or-seller,v11,1,
 recipient-buyer-or-seller,v12,0,"`redeem()` requires the `AGREE` state, where the recipient may not have been set."
 recipient-buyer-or-seller,v13,1,
 recipient-buyer-or-seller,v14,0,"`redeem()` requires the `AGREE` state, where the recipient may not have been set."
+recipient-buyer-or-seller,v15,1,"Redeems always revert, so there are no successful redeems where the recipient is neither the buyer or the seller."
