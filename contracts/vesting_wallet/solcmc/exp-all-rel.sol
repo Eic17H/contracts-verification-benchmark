@@ -2,7 +2,5 @@
 
 function invariant(uint64 timestamp) public view {
     require(block.timestamp > start + duration);
-    assert(releasable() >= address(this).balance);
-    // block.timestamp > start + duration => releasable() >= address(this).balance
-    // assert(vestedAmount(timestamp) - released == address(this).balance);
+    assert(releasable() == address(this).balance);
 }

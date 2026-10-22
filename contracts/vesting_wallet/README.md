@@ -21,6 +21,7 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 - **v5**: any caller to `release` can receive ETH from the contract.
 - **v6**: releasable grows quadratically.
 - **v7**: before the expiration of the scheme and after the start of the vesting scheme, the releasable amount is not strictly increasing whenever the contract balance and the released amount is constant.
+- **v8**: all methods revert.
 
 ## Verification data
 
@@ -41,29 +42,32 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 | **v5** | UNK              | UNK              | UNK              | TP!              | UNK              | FN               | ND               | UNK              |
 | **v6** | UNK              | UNK              | UNK              | TP!              | UNK              | FN               | ND               | UNK              |
 | **v7** | UNK              | UNK              | UNK              | TP!              | UNK              | TP!              | ND               | UNK              |
+| **v8** | TP!              | FP!              | TP!              | TP!              | TP!              | TP!              | ND               | TP!              |
  
 
 #### Eldarica
 |        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
 |--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| **v1** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
-| **v2** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
-| **v3** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
-| **v4** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
-| **v5** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
-| **v6** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
-| **v7** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | ND               | UNK              |
+| **v1** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              |
+| **v2** | UNK              | UNK              | UNK              | UNK              | TP!              | UNK              | ND               | UNK              |
+| **v3** | UNK              | UNK              | UNK              | UNK              | TP!              | UNK              | ND               | UNK              |
+| **v4** | UNK              | UNK              | UNK              | UNK              | TP!              | UNK              | ND               | UNK              |
+| **v5** | UNK              | UNK              | UNK              | UNK              | TP!              | UNK              | ND               | UNK              |
+| **v6** | UNK              | UNK              | UNK              | UNK              | FP!              | UNK              | ND               | UNK              |
+| **v7** | UNK              | UNK              | UNK              | UNK              | FP!              | UNK              | ND               | UNK              |
+| **v8** | TP!              | FP!              | TP!              | TP!              | TP!              | TP!              | ND               | TP!              |
  
 
 ### Certora
 |        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
 |--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| **v1** | ND               | FN               | ND               | TP!              | FN               | TP!              | FN               | ND               |
-| **v2** | ND               | TN               | ND               | TP!              | FN               | TN               | FN               | ND               |
-| **v3** | ND               | FN               | ND               | TN               | FN               | TP!              | FN               | ND               |
-| **v4** | ND               | FN               | ND               | TP!              | FN               | TP!              | FN               | ND               |
-| **v5** | ND               | FN               | ND               | TP!              | FN               | TP!              | FN               | ND               |
-| **v6** | ND               | FN               | ND               | TP!              | TN               | TP!              | FN               | ND               |
-| **v7** | ND               | FN               | ND               | TP!              | TN               | TP!              | TN               | ND               |
+| **v1** | ND               | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | ND               |
+| **v2** | ND               | TN               | ND               | TP!              | TP!              | TN               | TP!              | ND               |
+| **v3** | ND               | TP!              | ND               | TN               | TP!              | TP!              | TP!              | ND               |
+| **v4** | ND               | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | ND               |
+| **v5** | ND               | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | ND               |
+| **v6** | ND               | TP!              | ND               | TP!              | FP!              | TP!              | FN               | ND               |
+| **v7** | ND               | TP!              | ND               | TP!              | FP!              | TP!              | TN               | ND               |
+| **v8** | ND               | FP!              | ND               | TP!              | ERR              | TP!              | ERR              | ND               |
  
 

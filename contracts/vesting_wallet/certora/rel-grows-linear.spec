@@ -32,12 +32,6 @@ rule rel_grows_linear {
     mathint timestamp3 = e3.block.timestamp;
     mathint released3 = currentContract.released;
     
-    // An attempt to fix the truncation problem
-    require balance1 + released1 >= duration;
-    require balance2 + released2 >= duration;
-    require balance3 + released3 >= duration;
-
-
     require balance1 == balance2 && released2 == released1 && balance2 == balance3 && released2 == released3;
     require start < timestamp1 && timestamp1 < timestamp2 && timestamp2 < timestamp3 && timestamp3 < start+duration;
     
