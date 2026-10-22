@@ -1,3 +1,7 @@
+// before the expiration of the scheme and after the start of the vesting scheme,
+// the releasable amount is strictly increasing
+// whenever the contract balance and the released amount is constant.
+
 rule rel_strict_incr {
     mathint start = currentContract.start;
     mathint duration = currentContract.duration;
@@ -22,6 +26,10 @@ rule rel_strict_incr {
 
     require balance1 == balance2 && released2 == released1;
     require start+duration > timestamp2 && timestamp2 > timestamp1 && timestamp1 > start;
+
+    // Avoid timestamps being so close that releasable1==releasable2 despite the function being strictly increasing.
+    // Will not work with function that grow faster than linearly.
+    require (balance1+released1) * (timestamp2 - timestamp1) >= duration;
     
     assert releasable2 > releasable1;
 }

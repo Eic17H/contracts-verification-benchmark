@@ -61,3 +61,12 @@ ext-release-rel,v7,1,
 benef-only-recv,v7,1,
 rel-grows-linear,v7,0,
 rel-strict-incr,v7,0,
+
+rel-le-bal,v8,1,
+exp-all-rel,v8,0,
+no-start-no-rel,v8,1,"No balance is ever releasable."
+release-rel,v8,1,"Since there are no sucessful calls to `release`, anything is true about successful calls to `release`."
+ext-release-rel,v8,1,"Since there are no sucessful calls to `release`, anything is true about successful calls to `release`."
+benef-only-recv,v8,1,"Since nobody can receive ETH from the contract, for all x, if x can receive ETH from the contract (always false), then x is the beneficiary."
+rel-grows-linear,v8,1,"Since there are no sucessful calls to `release`, anything is true about successful calls to `release`."
+rel-strict-incr,v8,0,
