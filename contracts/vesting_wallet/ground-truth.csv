@@ -70,3 +70,21 @@ ext-release-rel,v8,1,"Since there are no sucessful calls to `release`, anything 
 benef-only-recv,v8,1,"Since nobody can receive ETH from the contract, for all x, if x can receive ETH from the contract (always false), then x is the beneficiary."
 rel-grows-linear,v8,1,"Since there are no sucessful calls to `release`, anything is true about successful calls to `release`."
 rel-strict-incr,v8,0,
+
+rel-le-bal,v9,1,
+exp-all-rel,v9,1,
+no-start-no-rel,v9,1,
+release-rel,v9,1,
+ext-release-rel,v9,1,
+benef-only-recv,v9,1,
+rel-grows-linear,v9,0,
+rel-strict-incr,v9,0,
+
+rel-le-bal,v10,1,
+exp-all-rel,v10,1,
+no-start-no-rel,v10,1,
+release-rel,v10,1,
+ext-release-rel,v10,1,
+benef-only-recv,v10,1,
+rel-grows-linear,v10,1,
+rel-strict-incr,v10,1,
