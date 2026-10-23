@@ -22,6 +22,8 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 - **v6**: releasable grows quadratically.
 - **v7**: before the expiration of the scheme and after the start of the vesting scheme, the releasable amount is not strictly increasing whenever the contract balance and the released amount is constant.
 - **v8**: all methods revert.
+- **v9**: `releasable` is linear for some values and flat for others.
+- **v10**: like v1, but ETH is sent using multiple calls.
 
 ## Verification data
 
@@ -33,9 +35,10 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 ## Experiments
 ### SolCMC
 #### Z3
-|        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
-|--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+|         | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
+|---------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | **v1** | UNK              | UNK              | UNK              | UNK              | UNK              | FN               | ND               | UNK              |
+| **v10** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
 | **v2** | UNK              | UNK              | UNK              | TP!              | UNK              | TN               | ND               | UNK              |
 | **v3** | UNK              | UNK              | UNK              | UNK              | UNK              | FN               | ND               | UNK              |
 | **v4** | UNK              | UNK              | UNK              | UNK              | UNK              | FN               | ND               | UNK              |
@@ -43,12 +46,14 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 | **v6** | UNK              | UNK              | UNK              | TP!              | UNK              | FN               | ND               | UNK              |
 | **v7** | UNK              | UNK              | UNK              | TP!              | UNK              | TP!              | ND               | UNK              |
 | **v8** | TP!              | FP!              | TP!              | TP!              | TP!              | TP!              | ND               | TP!              |
+| **v9** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
  
 
 #### Eldarica
-|        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
-|--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+|         | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
+|---------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | **v1** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              |
+| **v10** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
 | **v2** | UNK              | UNK              | UNK              | UNK              | TP!              | UNK              | ND               | UNK              |
 | **v3** | UNK              | UNK              | UNK              | UNK              | TP!              | UNK              | ND               | UNK              |
 | **v4** | UNK              | UNK              | UNK              | UNK              | TP!              | UNK              | ND               | UNK              |
@@ -56,18 +61,21 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 | **v6** | UNK              | UNK              | UNK              | UNK              | FP!              | UNK              | ND               | UNK              |
 | **v7** | UNK              | UNK              | UNK              | UNK              | FP!              | UNK              | ND               | UNK              |
 | **v8** | TP!              | FP!              | TP!              | TP!              | TP!              | TP!              | ND               | TP!              |
+| **v9** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
  
 
 ### Certora
-|        | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
-|--------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| **v1** | ND               | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | ND               |
-| **v2** | ND               | TN               | ND               | TP!              | TP!              | TN               | TP!              | ND               |
-| **v3** | ND               | TP!              | ND               | TN               | TP!              | TP!              | TP!              | ND               |
-| **v4** | ND               | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | ND               |
-| **v5** | ND               | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | ND               |
-| **v6** | ND               | TP!              | ND               | TP!              | FP!              | TP!              | FN               | ND               |
-| **v7** | ND               | TP!              | ND               | TP!              | FP!              | TP!              | TN               | ND               |
-| **v8** | ND               | FP!              | ND               | TP!              | ERR              | TP!              | ERR              | ND               |
+|         | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
+|---------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| **v1** | TP!              | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | TP!              |
+| **v10** | TP!              | TP!              | ND               | TP!              | FN               | TP!              | TP!              | FN               |
+| **v2** | TP!              | TN               | ND               | TP!              | TP!              | TN               | TP!              | TP!              |
+| **v3** | TP!              | TP!              | ND               | TN               | TP!              | TP!              | TP!              | TP!              |
+| **v4** | TP!              | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | TN               |
+| **v5** | ERR              | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | ERR              |
+| **v6** | TP!              | TP!              | ND               | TP!              | FP!              | TP!              | FN               | TP!              |
+| **v7** | TP!              | TP!              | ND               | TP!              | FP!              | TP!              | TN               | TP!              |
+| **v8** | TP!              | FP!              | ND               | TP!              | ERR              | TP!              | ERR              | TP!              |
+| **v9** | TP!              | TP!              | ND               | TP!              | TN               | TP!              | TN               | TP!              |
  
 
