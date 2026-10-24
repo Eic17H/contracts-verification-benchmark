@@ -19,6 +19,16 @@ exp-all-rel,v6,P!
 exp-all-rel,v7,P!
 exp-all-rel,v8,P!
 exp-all-rel,v9,P!
+ext-release-rel,v1,P!
+ext-release-rel,v10,N
+ext-release-rel,v2,P!
+ext-release-rel,v3,P!
+ext-release-rel,v4,N
+ext-release-rel,v5,ERR
+ext-release-rel,v6,P!
+ext-release-rel,v7,P!
+ext-release-rel,v8,P!
+ext-release-rel,v9,P!
 no-start-no-rel,v1,P!
 no-start-no-rel,v10,P!
 no-start-no-rel,v2,P!

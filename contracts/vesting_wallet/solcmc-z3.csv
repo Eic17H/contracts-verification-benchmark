@@ -39,7 +39,7 @@ rel-grows-linear,v5,UNK
 rel-grows-linear,v6,UNK
 rel-grows-linear,v7,UNK
 rel-grows-linear,v8,P!
-rel-le-bal,v1,N
+rel-le-bal,v1,UNK
 rel-le-bal,v2,N
 rel-le-bal,v3,N
 rel-le-bal,v4,N
@@ -47,6 +47,7 @@ rel-le-bal,v5,N
 rel-le-bal,v6,N
 rel-le-bal,v7,P!
 rel-le-bal,v8,P!
+rel-strict-incr,v1,UNK
 release-rel,v1,UNK
 release-rel,v2,UNK
 release-rel,v3,UNK
