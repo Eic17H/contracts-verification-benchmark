@@ -37,7 +37,7 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 #### Z3
 |         | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
 |---------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| **v1** | UNK              | UNK              | UNK              | UNK              | UNK              | FN               | ND               | UNK              |
+| **v1** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              |
 | **v10** | ND               | ND               | ND               | ND               | ND               | ND               | ND               | ND               |
 | **v2** | UNK              | UNK              | UNK              | TP!              | UNK              | TN               | ND               | UNK              |
 | **v3** | UNK              | UNK              | UNK              | UNK              | UNK              | FN               | ND               | UNK              |
@@ -67,15 +67,15 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 ### Certora
 |         | benef-only-recv  | exp-all-rel      | ext-release-rel  | no-start-no-rel  | rel-grows-linear | rel-le-bal       | rel-strict-incr  | release-rel      |
 |---------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| **v1** | TP!              | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | TP!              |
-| **v10** | TP!              | TP!              | ND               | TP!              | FN               | TP!              | TP!              | FN               |
-| **v2** | TP!              | TN               | ND               | TP!              | TP!              | TN               | TP!              | TP!              |
-| **v3** | TP!              | TP!              | ND               | TN               | TP!              | TP!              | TP!              | TP!              |
-| **v4** | TP!              | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | TN               |
-| **v5** | ERR              | TP!              | ND               | TP!              | TP!              | TP!              | TP!              | ERR              |
-| **v6** | TP!              | TP!              | ND               | TP!              | FP!              | TP!              | FN               | TP!              |
-| **v7** | TP!              | TP!              | ND               | TP!              | FP!              | TP!              | TN               | TP!              |
-| **v8** | TP!              | FP!              | ND               | TP!              | ERR              | TP!              | ERR              | TP!              |
-| **v9** | TP!              | TP!              | ND               | TP!              | TN               | TP!              | TN               | TP!              |
+| **v1** | TP!              | TP!              | TP!              | TP!              | FN               | TP!              | TP!              | TP!              |
+| **v10** | TP!              | TP!              | FN               | TP!              | FN               | TP!              | TP!              | FN               |
+| **v2** | TP!              | TN               | TP!              | TP!              | FN               | TN               | TP!              | TP!              |
+| **v3** | TP!              | TP!              | TP!              | TN               | FN               | TP!              | TP!              | TP!              |
+| **v4** | TP!              | TP!              | TN               | TP!              | FN               | TP!              | TP!              | TN               |
+| **v5** | ERR              | TP!              | ERR              | TP!              | FN               | TP!              | TP!              | ERR              |
+| **v6** | TP!              | TP!              | TP!              | TP!              | TN               | TP!              | FN               | TP!              |
+| **v7** | TP!              | TP!              | TP!              | TP!              | TN               | TP!              | TN               | TP!              |
+| **v8** | TP!              | FP!              | TP!              | TP!              | ERR              | TP!              | ERR              | TP!              |
+| **v9** | TP!              | TP!              | TP!              | TP!              | TN               | TP!              | TN               | TP!              |
  
 
