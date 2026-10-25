@@ -8,8 +8,8 @@ benef-only-recv,v1,1,
 rel-grows-linear,v1,1,
 rel-strict-incr,v1,1,
 
-rel-le-bal,v2,0,
-exp-all-rel,v2,0,
+rel-le-bal,v2,0,"Releasable funds is over-approximated"
+exp-all-rel,v2,1,
 no-start-no-rel,v2,1
 release-rel,v2,1,
 ext-release-rel,v2,1,
@@ -19,7 +19,7 @@ rel-strict-incr,v2,1,
 
 rel-le-bal,v3,1,
 exp-all-rel,v3,1,
-no-start-no-rel,v3,0,
+no-start-no-rel,v3,0,"The whole balance is releasable before the start."
 release-rel,v3,1,
 ext-release-rel,v3,1,
 benef-only-recv,v3,1,
@@ -29,8 +29,8 @@ rel-strict-incr,v3,1,
 rel-le-bal,v4,1,
 exp-all-rel,v4,1,
 no-start-no-rel,v4,1,
-release-rel,v4,0,
-ext-release-rel,v4,0,
+release-rel,v4,0,"The released amount is half of what it should be."
+ext-release-rel,v4,0,"The released amount is half of what it should be."
 benef-only-recv,v4,1,
 rel-grows-linear,v4,1,
 rel-strict-incr,v4,1,
@@ -40,7 +40,7 @@ exp-all-rel,v5,1,
 no-start-no-rel,v5,1,
 release-rel,v5,1,
 ext-release-rel,v5,1,
-benef-only-recv,v5,0,
+benef-only-recv,v5,0,"Any caller to `release` can receive ETH."
 rel-grows-linear,v5,1,
 rel-strict-incr,v5,1,
 
@@ -50,7 +50,7 @@ no-start-no-rel,v6,1,
 release-rel,v6,1,
 ext-release-rel,v6,1,
 benef-only-recv,v6,1,
-rel-grows-linear,v6,0,
+rel-grows-linear,v6,0,"Releasable grows quadratically."
 rel-strict-incr,v6,1,
 
 rel-le-bal,v7,1,
@@ -59,17 +59,17 @@ no-start-no-rel,v7,1,
 release-rel,v7,1,
 ext-release-rel,v7,1,
 benef-only-recv,v7,1,
-rel-grows-linear,v7,0,
-rel-strict-incr,v7,0,
+rel-grows-linear,v7,0,"Releasable is always decreasing."
+rel-strict-incr,v7,0,"Releasable is always decreasing."
 
-rel-le-bal,v8,1,
-exp-all-rel,v8,0,
+rel-le-bal,v8,1,"No balance is ever releasable."
+exp-all-rel,v8,0,"No balance is ever releasable."
 no-start-no-rel,v8,1,"No balance is ever releasable."
 release-rel,v8,1,"Since there are no sucessful calls to `release`, anything is true about successful calls to `release`."
 ext-release-rel,v8,1,"Since there are no sucessful calls to `release`, anything is true about successful calls to `release`."
 benef-only-recv,v8,1,"Since nobody can receive ETH from the contract, for all x, if x can receive ETH from the contract (always false), then x is the beneficiary."
 rel-grows-linear,v8,1,"Since there are no sucessful calls to `release`, anything is true about successful calls to `release`."
-rel-strict-incr,v8,0,
+rel-strict-incr,v8,0,"No balance is ever releasable."
 
 rel-le-bal,v9,1,
 exp-all-rel,v9,1,
@@ -77,8 +77,8 @@ no-start-no-rel,v9,1,
 release-rel,v9,1,
 ext-release-rel,v9,1,
 benef-only-recv,v9,1,
-rel-grows-linear,v9,0,
-rel-strict-incr,v9,0,
+rel-grows-linear,v9,0,"In the middle third of the vesting scheme, releasable stops growing."
+rel-strict-incr,v9,0,"In the middle third of the vesting scheme, releasable stops growing."
 
 rel-le-bal,v10,1,
 exp-all-rel,v10,1,
@@ -89,7 +89,7 @@ benef-only-recv,v10,1,
 rel-grows-linear,v10,1,
 rel-strict-incr,v10,1,
 
-rel-le-bal,v11,0,
+rel-le-bal,v11,0,"Releasable is independent from the total allocation."
 exp-all-rel,v11,1,
 no-start-no-rel,v11,1,
 release-rel,v11,1,
@@ -97,3 +97,12 @@ ext-release-rel,v11,1,
 benef-only-recv,v11,1,
 rel-grows-linear,v11,1,
 rel-strict-incr,v11,1,
+
+rel-le-bal,v12,1,"`released` is updated after sending the ETH as an attempt to keep SolCMC from failing the test due to the possibility of a reentrant call."
+exp-all-rel,v12,1,
+no-start-no-rel,v12,1,
+release-rel,v12,1,
+ext-release-rel,v12,1,
+benef-only-recv,v12,1,
+rel-grows-linear,v12,1,
+rel-strict-incr,v12,1,

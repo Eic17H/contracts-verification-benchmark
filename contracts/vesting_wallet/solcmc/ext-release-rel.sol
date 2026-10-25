@@ -6,5 +6,6 @@ function invariant() public payable {
     uint oldBalance = beneficiary.balance;
     release();
     uint newBalance = beneficiary.balance;
-    assert(oldBalance + rels == newBalance);
+    assert(newBalance > rels);
+    assert(oldBalance == newBalance - rels);
 }

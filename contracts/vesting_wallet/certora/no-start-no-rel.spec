@@ -1,3 +1,5 @@
+// if the vesting scheme has not started yet, then no balance is releasable
+
 rule no_start_no_rel {
     env e;
 

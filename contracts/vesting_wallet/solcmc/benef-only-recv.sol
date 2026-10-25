@@ -1,10 +1,8 @@
 // only the beneficiary can receive ETH from the contract
 
-function invariant(address callerAddress) public payable {
-    require(msg.sender == callerAddress);
-    require(msg.sender != beneficiary);
-    uint oldBalance = callerAddress.balance;
+function invariant(uint f) public payable {
+    uint oldBalance = msg.sender.balance;
     release();
-    uint newBalance = callerAddress.balance;
-    assert(oldBalance == newBalance);
+    uint newBalance = msg.sender.balance;
+    assert(oldBalance == newBalance || msg.sender == beneficiary);
 }
