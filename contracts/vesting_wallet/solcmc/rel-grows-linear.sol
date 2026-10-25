@@ -1,6 +1,8 @@
-// Wrong (due to integer truncation)
+// releasable grows linearly between the start of the vesting scheme and its expiration:
+// two successful consequent calls to `releasable` differ by c*t,
+// where t is the timestamp difference between the two calls,
+// and c is a fixed constant for the contract
 
-// releasable grows linearly between the start of the vesting scheme and its expiration
 function invariant(uint256 total, uint64 t1, uint64 t2, uint64 t3) public view {
 
     require(start <= t1);
@@ -12,5 +14,17 @@ function invariant(uint256 total, uint64 t1, uint64 t2, uint64 t3) public view {
     uint256 r2 = vestingSchedule(total, t2);
     uint256 r3 = vestingSchedule(total, t3);
 
-    assert((r2 - r1)*(t3 - t2) == (r3 - r2)*(t2 - t1));
+    uint tdiff1 = t2 - t1;
+    uint tdiff2 = t3 - t2;
+    uint rdiff1 = r2 - r1;
+    uint rdiff2 = r3 - r2;
+
+    uint cross;
+    if(rdiff1 * tdiff2 > rdiff2 * tdiff1)
+        cross = rdiff1 * tdiff2 - rdiff2 * tdiff1;
+    else
+        cross = rdiff2 * tdiff1 - rdiff1 * tdiff2;
+    uint tolerance = tdiff1 + tdiff2;
+
+    assert (cross < tolerance);
 }

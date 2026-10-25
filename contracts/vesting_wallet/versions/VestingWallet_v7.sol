@@ -2,7 +2,7 @@
 // OpenZeppelin Contracts (last updated v4.8.0) (finance/VestingWallet.sol)
 pragma solidity >= 0.8.2;
 
-/// @custom:version before the expiration of the scheme and after the start of the vesting scheme, the releasable amount is not strictly increasing whenever the contract balance and the released amount is constant.
+/// @custom:version before the expiration of the scheme and after the start of the vesting scheme, the releasable amount goes from the total allocation to 0, instead of growing from 0 to the total allocation.
 contract VestingWallet {
 
     uint256 private released;
