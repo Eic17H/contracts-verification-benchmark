@@ -7,6 +7,7 @@ benef-only-recv,v5,UNK
 benef-only-recv,v6,UNK
 benef-only-recv,v7,UNK
 benef-only-recv,v8,P!
+benef-only-recv,v9,UNK
 exp-all-rel,v1,UNK
 exp-all-rel,v2,UNK
 exp-all-rel,v3,UNK
@@ -15,6 +16,7 @@ exp-all-rel,v5,UNK
 exp-all-rel,v6,UNK
 exp-all-rel,v7,UNK
 exp-all-rel,v8,P!
+exp-all-rel,v9,UNK
 ext-release-rel,v1,UNK
 ext-release-rel,v2,UNK
 ext-release-rel,v3,UNK
@@ -23,6 +25,7 @@ ext-release-rel,v5,UNK
 ext-release-rel,v6,UNK
 ext-release-rel,v7,UNK
 ext-release-rel,v8,P!
+ext-release-rel,v9,UNK
 no-start-no-rel,v1,UNK
 no-start-no-rel,v2,UNK
 no-start-no-rel,v3,UNK
@@ -31,14 +34,17 @@ no-start-no-rel,v5,UNK
 no-start-no-rel,v6,UNK
 no-start-no-rel,v7,UNK
 no-start-no-rel,v8,P!
+no-start-no-rel,v9,UNK
 rel-grows-linear,v1,UNK
-rel-grows-linear,v2,P!
-rel-grows-linear,v3,P!
-rel-grows-linear,v4,P!
-rel-grows-linear,v5,P!
-rel-grows-linear,v6,P!
-rel-grows-linear,v7,P!
+rel-grows-linear,v10,UNK
+rel-grows-linear,v2,UNK
+rel-grows-linear,v3,UNK
+rel-grows-linear,v4,UNK
+rel-grows-linear,v5,UNK
+rel-grows-linear,v6,UNK
+rel-grows-linear,v7,UNK
 rel-grows-linear,v8,P!
+rel-grows-linear,v9,UNK
 rel-le-bal,v1,UNK
 rel-le-bal,v2,UNK
 rel-le-bal,v3,UNK
@@ -47,7 +53,9 @@ rel-le-bal,v5,UNK
 rel-le-bal,v6,UNK
 rel-le-bal,v7,UNK
 rel-le-bal,v8,P!
+rel-le-bal,v9,UNK
 rel-strict-incr,v1,UNK
+rel-strict-incr,v9,UNK
 release-rel,v1,UNK
 release-rel,v2,UNK
 release-rel,v3,UNK
@@ -56,3 +64,4 @@ release-rel,v5,UNK
 release-rel,v6,UNK
 release-rel,v7,UNK
 release-rel,v8,P!
+release-rel,v9,UNK
