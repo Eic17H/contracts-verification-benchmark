@@ -1,6 +1,6 @@
 property,version,outcome
 bal-decr-onlyif-wd-reclaim,v1,P!
-bal-decr-onlyif-wd-reclaim,v10,ERR
+bal-decr-onlyif-wd-reclaim,v10,P!
 bal-decr-onlyif-wd-reclaim,v11,P!
 bal-decr-onlyif-wd-reclaim,v12,P!
 bal-decr-onlyif-wd-reclaim,v13,N!
@@ -20,7 +20,7 @@ bal-decr-onlyif-wd-reclaim,v7,P!
 bal-decr-onlyif-wd-reclaim,v8,P!
 bal-decr-onlyif-wd-reclaim,v9,P!
 donate-bal-inc,v1,P!
-donate-bal-inc,v10,ERR
+donate-bal-inc,v10,P!
 donate-bal-inc,v11,P!
 donate-bal-inc,v12,P!
 donate-bal-inc,v13,P!
@@ -40,7 +40,7 @@ donate-bal-inc,v7,P!
 donate-bal-inc,v8,P!
 donate-bal-inc,v9,N!
 donate-not-dec-donation,v1,P!
-donate-not-dec-donation,v10,ERR
+donate-not-dec-donation,v10,P!
 donate-not-dec-donation,v11,P!
 donate-not-dec-donation,v12,P!
 donate-not-dec-donation,v13,P!
@@ -59,8 +59,11 @@ donate-not-dec-donation,v6,P!
 donate-not-dec-donation,v7,P!
 donate-not-dec-donation,v8,P!
 donate-not-dec-donation,v9,P!
+donate-not-revert,v1,P!
+donate-not-revert,v10,ERR
+donate-not-revert,v8,P!
 donation-dec-onlyif-reclaim,v1,N
-donation-dec-onlyif-reclaim,v10,ERR
+donation-dec-onlyif-reclaim,v10,P!
 donation-dec-onlyif-reclaim,v11,UNK
 donation-dec-onlyif-reclaim,v12,N
 donation-dec-onlyif-reclaim,v13,N!
@@ -80,7 +83,7 @@ donation-dec-onlyif-reclaim,v7,N
 donation-dec-onlyif-reclaim,v8,N
 donation-dec-onlyif-reclaim,v9,P!
 donation-inc-onlyif-donate,v1,N!
-donation-inc-onlyif-donate,v10,ERR
+donation-inc-onlyif-donate,v10,P!
 donation-inc-onlyif-donate,v11,N!
 donation-inc-onlyif-donate,v12,N!
 donation-inc-onlyif-donate,v13,N!
@@ -100,7 +103,7 @@ donation-inc-onlyif-donate,v7,N!
 donation-inc-onlyif-donate,v8,N!
 donation-inc-onlyif-donate,v9,P!
 exists-unique-donation-change,v1,N!
-exists-unique-donation-change,v10,ERR
+exists-unique-donation-change,v10,N!
 exists-unique-donation-change,v11,N!
 exists-unique-donation-change,v12,N!
 exists-unique-donation-change,v13,N!
@@ -120,7 +123,7 @@ exists-unique-donation-change,v7,N!
 exists-unique-donation-change,v8,N!
 exists-unique-donation-change,v9,N!
 msg-value-not-negative,v1,P!
-msg-value-not-negative,v10,ERR
+msg-value-not-negative,v10,P!
 msg-value-not-negative,v11,P!
 msg-value-not-negative,v12,P!
 msg-value-not-negative,v13,P!
@@ -140,7 +143,7 @@ msg-value-not-negative,v7,P!
 msg-value-not-negative,v8,P!
 msg-value-not-negative,v9,P!
 no-deadlock,v1,N!
-no-deadlock,v10,ERR
+no-deadlock,v10,N!
 no-deadlock,v11,N!
 no-deadlock,v12,N!
 no-deadlock,v13,N!
@@ -160,7 +163,7 @@ no-deadlock,v7,N!
 no-deadlock,v8,N!
 no-deadlock,v9,P!
 no-donate-after-deadline,v1,P!
-no-donate-after-deadline,v10,ERR
+no-donate-after-deadline,v10,P!
 no-donate-after-deadline,v11,P!
 no-donate-after-deadline,v12,N!
 no-donate-after-deadline,v13,N!
@@ -180,7 +183,7 @@ no-donate-after-deadline,v7,P!
 no-donate-after-deadline,v8,P!
 no-donate-after-deadline,v9,P!
 no-receive-after-deadline,v1,N!
-no-receive-after-deadline,v10,ERR
+no-receive-after-deadline,v10,N!
 no-receive-after-deadline,v11,N!
 no-receive-after-deadline,v12,N!
 no-receive-after-deadline,v13,N!
@@ -200,7 +203,7 @@ no-receive-after-deadline,v7,N!
 no-receive-after-deadline,v8,N!
 no-receive-after-deadline,v9,N!
 no-wd-if-no-goal,v1,P!
-no-wd-if-no-goal,v10,ERR
+no-wd-if-no-goal,v10,P!
 no-wd-if-no-goal,v11,P!
 no-wd-if-no-goal,v12,P!
 no-wd-if-no-goal,v13,P!
@@ -220,7 +223,7 @@ no-wd-if-no-goal,v7,P!
 no-wd-if-no-goal,v8,P!
 no-wd-if-no-goal,v9,P!
 reclaim-own-funds,v1,N!
-reclaim-own-funds,v10,ERR
+reclaim-own-funds,v10,N!
 reclaim-own-funds,v11,N!
 reclaim-own-funds,v12,N!
 reclaim-own-funds,v13,N!
@@ -240,7 +243,7 @@ reclaim-own-funds,v7,N!
 reclaim-own-funds,v8,N!
 reclaim-own-funds,v9,P!
 wd-empties-balance,v1,N!
-wd-empties-balance,v10,ERR
+wd-empties-balance,v10,P!
 wd-empties-balance,v11,N!
 wd-empties-balance,v12,N!
 wd-empties-balance,v13,N!
@@ -260,7 +263,7 @@ wd-empties-balance,v7,N!
 wd-empties-balance,v8,N!
 wd-empties-balance,v9,N!
 wd-onlyif-goal-reached,v1,P!
-wd-onlyif-goal-reached,v10,ERR
+wd-onlyif-goal-reached,v10,P!
 wd-onlyif-goal-reached,v11,P!
 wd-onlyif-goal-reached,v12,P!
 wd-onlyif-goal-reached,v13,P!

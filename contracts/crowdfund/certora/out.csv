@@ -1,6 +1,6 @@
 property,version,outcome
 bal-decr-onlyif-wd-reclaim,v1,P!
-bal-decr-onlyif-wd-reclaim,v10,ERR
+bal-decr-onlyif-wd-reclaim,v10,P!
 bal-decr-onlyif-wd-reclaim,v11,P!
 bal-decr-onlyif-wd-reclaim,v12,P!
 bal-decr-onlyif-wd-reclaim,v13,N
@@ -12,6 +12,7 @@ bal-decr-onlyif-wd-reclaim,v18,P!
 bal-decr-onlyif-wd-reclaim,v19,P!
 bal-decr-onlyif-wd-reclaim,v2,P!
 bal-decr-onlyif-wd-reclaim,v20,P!
+bal-decr-onlyif-wd-reclaim,v21,P!
 bal-decr-onlyif-wd-reclaim,v3,P!
 bal-decr-onlyif-wd-reclaim,v4,P!
 bal-decr-onlyif-wd-reclaim,v5,P!
@@ -20,7 +21,7 @@ bal-decr-onlyif-wd-reclaim,v7,P!
 bal-decr-onlyif-wd-reclaim,v8,P!
 bal-decr-onlyif-wd-reclaim,v9,P!
 donate-bal-inc,v1,P!
-donate-bal-inc,v10,ERR
+donate-bal-inc,v10,P!
 donate-bal-inc,v11,P!
 donate-bal-inc,v12,P!
 donate-bal-inc,v13,P!
@@ -32,6 +33,7 @@ donate-bal-inc,v18,P!
 donate-bal-inc,v19,P!
 donate-bal-inc,v2,P!
 donate-bal-inc,v20,P!
+donate-bal-inc,v21,P!
 donate-bal-inc,v3,P!
 donate-bal-inc,v4,N
 donate-bal-inc,v5,P!
@@ -40,7 +42,7 @@ donate-bal-inc,v7,P!
 donate-bal-inc,v8,P!
 donate-bal-inc,v9,P!
 donate-not-dec-donation,v1,P!
-donate-not-dec-donation,v10,ERR
+donate-not-dec-donation,v10,P!
 donate-not-dec-donation,v11,P!
 donate-not-dec-donation,v12,P!
 donate-not-dec-donation,v13,P!
@@ -52,6 +54,7 @@ donate-not-dec-donation,v18,P!
 donate-not-dec-donation,v19,P!
 donate-not-dec-donation,v2,P!
 donate-not-dec-donation,v20,P!
+donate-not-dec-donation,v21,P!
 donate-not-dec-donation,v3,P!
 donate-not-dec-donation,v4,P!
 donate-not-dec-donation,v5,P!
@@ -60,7 +63,7 @@ donate-not-dec-donation,v7,P!
 donate-not-dec-donation,v8,P!
 donate-not-dec-donation,v9,P!
 donate-not-revert,v1,N
-donate-not-revert,v10,ERR
+donate-not-revert,v10,N
 donate-not-revert,v11,N
 donate-not-revert,v12,N
 donate-not-revert,v13,N
@@ -72,6 +75,7 @@ donate-not-revert,v18,N
 donate-not-revert,v19,N
 donate-not-revert,v2,N
 donate-not-revert,v20,N
+donate-not-revert,v21,N
 donate-not-revert,v3,N
 donate-not-revert,v4,N
 donate-not-revert,v5,N
@@ -80,7 +84,7 @@ donate-not-revert,v7,N
 donate-not-revert,v8,N
 donate-not-revert,v9,N
 donate-not-revert-overflow,v1,P!
-donate-not-revert-overflow,v10,ERR
+donate-not-revert-overflow,v10,N
 donate-not-revert-overflow,v11,P!
 donate-not-revert-overflow,v12,P!
 donate-not-revert-overflow,v13,P!
@@ -92,6 +96,7 @@ donate-not-revert-overflow,v18,P!
 donate-not-revert-overflow,v19,P!
 donate-not-revert-overflow,v2,P!
 donate-not-revert-overflow,v20,P!
+donate-not-revert-overflow,v21,N
 donate-not-revert-overflow,v3,P!
 donate-not-revert-overflow,v4,N
 donate-not-revert-overflow,v5,P!
@@ -100,7 +105,7 @@ donate-not-revert-overflow,v7,P!
 donate-not-revert-overflow,v8,P!
 donate-not-revert-overflow,v9,N
 donation-dec-onlyif-reclaim,v1,P!
-donation-dec-onlyif-reclaim,v10,ERR
+donation-dec-onlyif-reclaim,v10,P!
 donation-dec-onlyif-reclaim,v11,N
 donation-dec-onlyif-reclaim,v12,P!
 donation-dec-onlyif-reclaim,v13,P!
@@ -112,6 +117,7 @@ donation-dec-onlyif-reclaim,v18,P!
 donation-dec-onlyif-reclaim,v19,N
 donation-dec-onlyif-reclaim,v2,P!
 donation-dec-onlyif-reclaim,v20,P!
+donation-dec-onlyif-reclaim,v21,P!
 donation-dec-onlyif-reclaim,v3,P!
 donation-dec-onlyif-reclaim,v4,P!
 donation-dec-onlyif-reclaim,v5,P!
@@ -120,7 +126,7 @@ donation-dec-onlyif-reclaim,v7,P!
 donation-dec-onlyif-reclaim,v8,P!
 donation-dec-onlyif-reclaim,v9,P!
 donation-inc-onlyif-donate,v1,P!
-donation-inc-onlyif-donate,v10,ERR
+donation-inc-onlyif-donate,v10,P!
 donation-inc-onlyif-donate,v11,P!
 donation-inc-onlyif-donate,v12,P!
 donation-inc-onlyif-donate,v13,P!
@@ -132,6 +138,7 @@ donation-inc-onlyif-donate,v18,P!
 donation-inc-onlyif-donate,v19,N
 donation-inc-onlyif-donate,v2,P!
 donation-inc-onlyif-donate,v20,P!
+donation-inc-onlyif-donate,v21,P!
 donation-inc-onlyif-donate,v3,P!
 donation-inc-onlyif-donate,v4,P!
 donation-inc-onlyif-donate,v5,P!
@@ -140,7 +147,7 @@ donation-inc-onlyif-donate,v7,P!
 donation-inc-onlyif-donate,v8,P!
 donation-inc-onlyif-donate,v9,P!
 exists-unique-donation-change,v1,N
-exists-unique-donation-change,v10,ERR
+exists-unique-donation-change,v10,N
 exists-unique-donation-change,v11,N
 exists-unique-donation-change,v12,N
 exists-unique-donation-change,v13,N
@@ -152,6 +159,7 @@ exists-unique-donation-change,v18,N
 exists-unique-donation-change,v19,N
 exists-unique-donation-change,v2,N
 exists-unique-donation-change,v20,N
+exists-unique-donation-change,v21,P!
 exists-unique-donation-change,v3,N
 exists-unique-donation-change,v4,N
 exists-unique-donation-change,v5,N
@@ -160,7 +168,7 @@ exists-unique-donation-change,v7,N
 exists-unique-donation-change,v8,N
 exists-unique-donation-change,v9,N
 goal-not-change,v1,P!
-goal-not-change,v10,ERR
+goal-not-change,v10,P!
 goal-not-change,v11,P!
 goal-not-change,v12,P!
 goal-not-change,v13,P!
@@ -172,6 +180,7 @@ goal-not-change,v18,P!
 goal-not-change,v19,P!
 goal-not-change,v2,P!
 goal-not-change,v20,P!
+goal-not-change,v21,P!
 goal-not-change,v3,P!
 goal-not-change,v4,P!
 goal-not-change,v5,N
@@ -180,7 +189,7 @@ goal-not-change,v7,P!
 goal-not-change,v8,P!
 goal-not-change,v9,P!
 msg-value-not-negative,v1,P!
-msg-value-not-negative,v10,ERR
+msg-value-not-negative,v10,P!
 msg-value-not-negative,v11,P!
 msg-value-not-negative,v12,P!
 msg-value-not-negative,v13,P!
@@ -192,6 +201,7 @@ msg-value-not-negative,v18,P!
 msg-value-not-negative,v19,P!
 msg-value-not-negative,v2,P!
 msg-value-not-negative,v20,P!
+msg-value-not-negative,v21,P!
 msg-value-not-negative,v3,P!
 msg-value-not-negative,v4,P!
 msg-value-not-negative,v5,P!
@@ -200,7 +210,7 @@ msg-value-not-negative,v7,P!
 msg-value-not-negative,v8,P!
 msg-value-not-negative,v9,P!
 no-deadlock,v1,N
-no-deadlock,v10,ERR
+no-deadlock,v10,N
 no-deadlock,v11,N
 no-deadlock,v12,N
 no-deadlock,v13,N
@@ -212,6 +222,7 @@ no-deadlock,v18,N
 no-deadlock,v19,N
 no-deadlock,v2,N
 no-deadlock,v20,N
+no-deadlock,v21,N
 no-deadlock,v3,N
 no-deadlock,v4,N
 no-deadlock,v5,N
@@ -220,7 +231,7 @@ no-deadlock,v7,N
 no-deadlock,v8,N
 no-deadlock,v9,N
 no-donate-after-deadline,v1,P!
-no-donate-after-deadline,v10,ERR
+no-donate-after-deadline,v10,P!
 no-donate-after-deadline,v11,P!
 no-donate-after-deadline,v12,N
 no-donate-after-deadline,v13,N
@@ -232,6 +243,7 @@ no-donate-after-deadline,v18,P!
 no-donate-after-deadline,v19,P!
 no-donate-after-deadline,v2,P!
 no-donate-after-deadline,v20,P!
+no-donate-after-deadline,v21,P!
 no-donate-after-deadline,v3,P!
 no-donate-after-deadline,v4,P!
 no-donate-after-deadline,v5,P!
@@ -240,7 +252,7 @@ no-donate-after-deadline,v7,P!
 no-donate-after-deadline,v8,P!
 no-donate-after-deadline,v9,P!
 no-receive-after-deadline,v1,N
-no-receive-after-deadline,v10,ERR
+no-receive-after-deadline,v10,N
 no-receive-after-deadline,v11,N
 no-receive-after-deadline,v12,N
 no-receive-after-deadline,v13,N
@@ -252,6 +264,7 @@ no-receive-after-deadline,v18,N
 no-receive-after-deadline,v19,N
 no-receive-after-deadline,v2,N
 no-receive-after-deadline,v20,N
+no-receive-after-deadline,v21,P!
 no-receive-after-deadline,v3,N
 no-receive-after-deadline,v4,N
 no-receive-after-deadline,v5,N
@@ -260,7 +273,7 @@ no-receive-after-deadline,v7,P!
 no-receive-after-deadline,v8,N
 no-receive-after-deadline,v9,N
 no-wd-if-no-goal,v1,P!
-no-wd-if-no-goal,v10,ERR
+no-wd-if-no-goal,v10,P!
 no-wd-if-no-goal,v11,P!
 no-wd-if-no-goal,v12,P!
 no-wd-if-no-goal,v13,P!
@@ -272,6 +285,7 @@ no-wd-if-no-goal,v18,P!
 no-wd-if-no-goal,v19,P!
 no-wd-if-no-goal,v2,P!
 no-wd-if-no-goal,v20,P!
+no-wd-if-no-goal,v21,P!
 no-wd-if-no-goal,v3,P!
 no-wd-if-no-goal,v4,P!
 no-wd-if-no-goal,v5,N
@@ -280,7 +294,7 @@ no-wd-if-no-goal,v7,P!
 no-wd-if-no-goal,v8,P!
 no-wd-if-no-goal,v9,P!
 owner-not-change,v1,P!
-owner-not-change,v10,ERR
+owner-not-change,v10,P!
 owner-not-change,v11,P!
 owner-not-change,v12,P!
 owner-not-change,v13,P!
@@ -292,6 +306,7 @@ owner-not-change,v18,P!
 owner-not-change,v19,P!
 owner-not-change,v2,P!
 owner-not-change,v20,P!
+owner-not-change,v21,P!
 owner-not-change,v3,N
 owner-not-change,v4,P!
 owner-not-change,v5,P!
@@ -300,7 +315,7 @@ owner-not-change,v7,P!
 owner-not-change,v8,P!
 owner-not-change,v9,P!
 owner-only-recv,v1,N
-owner-only-recv,v10,ERR
+owner-only-recv,v10,N
 owner-only-recv,v11,N
 owner-only-recv,v12,N
 owner-only-recv,v13,N
@@ -312,6 +327,7 @@ owner-only-recv,v18,N
 owner-only-recv,v19,N
 owner-only-recv,v2,N
 owner-only-recv,v20,N
+owner-only-recv,v21,N
 owner-only-recv,v3,N
 owner-only-recv,v4,N
 owner-only-recv,v5,N
@@ -320,7 +336,7 @@ owner-only-recv,v7,N
 owner-only-recv,v8,N
 owner-only-recv,v9,N
 reclaim-even-if-msgvalue,v1,N
-reclaim-even-if-msgvalue,v10,ERR
+reclaim-even-if-msgvalue,v10,N
 reclaim-even-if-msgvalue,v11,N
 reclaim-even-if-msgvalue,v12,N
 reclaim-even-if-msgvalue,v13,N
@@ -332,6 +348,7 @@ reclaim-even-if-msgvalue,v18,N
 reclaim-even-if-msgvalue,v19,N
 reclaim-even-if-msgvalue,v2,N
 reclaim-even-if-msgvalue,v20,N
+reclaim-even-if-msgvalue,v21,N
 reclaim-even-if-msgvalue,v3,N
 reclaim-even-if-msgvalue,v4,N
 reclaim-even-if-msgvalue,v5,N
@@ -340,7 +357,7 @@ reclaim-even-if-msgvalue,v7,N
 reclaim-even-if-msgvalue,v8,N
 reclaim-even-if-msgvalue,v9,N
 reclaim-not-revert,v1,N
-reclaim-not-revert,v10,ERR
+reclaim-not-revert,v10,N
 reclaim-not-revert,v11,N
 reclaim-not-revert,v12,N
 reclaim-not-revert,v13,N
@@ -352,6 +369,7 @@ reclaim-not-revert,v18,N
 reclaim-not-revert,v19,N
 reclaim-not-revert,v2,N
 reclaim-not-revert,v20,N
+reclaim-not-revert,v21,N
 reclaim-not-revert,v3,N
 reclaim-not-revert,v4,N
 reclaim-not-revert,v5,N
@@ -360,7 +378,7 @@ reclaim-not-revert,v7,N
 reclaim-not-revert,v8,N
 reclaim-not-revert,v9,N
 reclaim-own-funds,v1,P!
-reclaim-own-funds,v10,ERR
+reclaim-own-funds,v10,P!
 reclaim-own-funds,v11,P!
 reclaim-own-funds,v12,P!
 reclaim-own-funds,v13,P!
@@ -372,6 +390,7 @@ reclaim-own-funds,v18,P!
 reclaim-own-funds,v19,P!
 reclaim-own-funds,v2,P!
 reclaim-own-funds,v20,P!
+reclaim-own-funds,v21,P!
 reclaim-own-funds,v3,P!
 reclaim-own-funds,v4,N
 reclaim-own-funds,v5,P!
@@ -380,7 +399,7 @@ reclaim-own-funds,v7,N
 reclaim-own-funds,v8,P!
 reclaim-own-funds,v9,P!
 wd-empties-balance,v1,N
-wd-empties-balance,v10,ERR
+wd-empties-balance,v10,P!
 wd-empties-balance,v11,N
 wd-empties-balance,v12,N
 wd-empties-balance,v13,N
@@ -392,6 +411,7 @@ wd-empties-balance,v18,N
 wd-empties-balance,v19,N
 wd-empties-balance,v2,N
 wd-empties-balance,v20,N
+wd-empties-balance,v21,P!
 wd-empties-balance,v3,N
 wd-empties-balance,v4,N
 wd-empties-balance,v5,N
@@ -400,7 +420,7 @@ wd-empties-balance,v7,N
 wd-empties-balance,v8,N
 wd-empties-balance,v9,N
 wd-full-balance,v1,N
-wd-full-balance,v10,ERR
+wd-full-balance,v10,P!
 wd-full-balance,v11,N
 wd-full-balance,v12,N
 wd-full-balance,v13,N
@@ -412,6 +432,7 @@ wd-full-balance,v18,N
 wd-full-balance,v19,N
 wd-full-balance,v2,N
 wd-full-balance,v20,N
+wd-full-balance,v21,P!
 wd-full-balance,v3,N
 wd-full-balance,v4,N
 wd-full-balance,v5,N
@@ -420,7 +441,7 @@ wd-full-balance,v7,N
 wd-full-balance,v8,N
 wd-full-balance,v9,N
 wd-not-revert,v1,N
-wd-not-revert,v10,ERR
+wd-not-revert,v10,N
 wd-not-revert,v11,N
 wd-not-revert,v12,N
 wd-not-revert,v13,N
@@ -432,6 +453,7 @@ wd-not-revert,v18,N
 wd-not-revert,v19,P!
 wd-not-revert,v2,N
 wd-not-revert,v20,N
+wd-not-revert,v21,N
 wd-not-revert,v3,N
 wd-not-revert,v4,N
 wd-not-revert,v5,N
@@ -440,7 +462,7 @@ wd-not-revert,v7,N
 wd-not-revert,v8,N
 wd-not-revert,v9,N
 wd-not-revert-EOA,v1,P!
-wd-not-revert-EOA,v10,ERR
+wd-not-revert-EOA,v10,N
 wd-not-revert-EOA,v11,P!
 wd-not-revert-EOA,v12,P!
 wd-not-revert-EOA,v13,P!
@@ -452,6 +474,7 @@ wd-not-revert-EOA,v18,P!
 wd-not-revert-EOA,v19,P!
 wd-not-revert-EOA,v2,P!
 wd-not-revert-EOA,v20,P!
+wd-not-revert-EOA,v21,N
 wd-not-revert-EOA,v3,P!
 wd-not-revert-EOA,v4,P!
 wd-not-revert-EOA,v5,P!
@@ -460,7 +483,7 @@ wd-not-revert-EOA,v7,N
 wd-not-revert-EOA,v8,P!
 wd-not-revert-EOA,v9,P!
 wd-onlyif-goal-reached,v1,P!
-wd-onlyif-goal-reached,v10,ERR
+wd-onlyif-goal-reached,v10,P!
 wd-onlyif-goal-reached,v11,P!
 wd-onlyif-goal-reached,v12,P!
 wd-onlyif-goal-reached,v13,P!
@@ -472,6 +495,7 @@ wd-onlyif-goal-reached,v18,P!
 wd-onlyif-goal-reached,v19,P!
 wd-onlyif-goal-reached,v2,P!
 wd-onlyif-goal-reached,v20,P!
+wd-onlyif-goal-reached,v21,P!
 wd-onlyif-goal-reached,v3,P!
 wd-onlyif-goal-reached,v4,P!
 wd-onlyif-goal-reached,v5,N
@@ -480,7 +504,7 @@ wd-onlyif-goal-reached,v7,P!
 wd-onlyif-goal-reached,v8,P!
 wd-onlyif-goal-reached,v9,P!
 wd-transfer-to-owner,v1,N
-wd-transfer-to-owner,v10,ERR
+wd-transfer-to-owner,v10,P!
 wd-transfer-to-owner,v11,N
 wd-transfer-to-owner,v12,N
 wd-transfer-to-owner,v13,N
@@ -492,6 +516,7 @@ wd-transfer-to-owner,v18,N
 wd-transfer-to-owner,v19,N
 wd-transfer-to-owner,v2,N
 wd-transfer-to-owner,v20,N
+wd-transfer-to-owner,v21,P!
 wd-transfer-to-owner,v3,N
 wd-transfer-to-owner,v4,N
 wd-transfer-to-owner,v5,N
