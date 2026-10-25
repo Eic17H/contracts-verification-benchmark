@@ -1,6 +1,7 @@
 property,version,outcome
 benef-only-recv,v1,P!
 benef-only-recv,v10,P!
+benef-only-recv,v11,P!
 benef-only-recv,v2,P!
 benef-only-recv,v3,P!
 benef-only-recv,v4,P!
@@ -11,6 +12,7 @@ benef-only-recv,v8,P!
 benef-only-recv,v9,P!
 exp-all-rel,v1,P!
 exp-all-rel,v10,P!
+exp-all-rel,v11,P!
 exp-all-rel,v2,N
 exp-all-rel,v3,P!
 exp-all-rel,v4,P!
@@ -21,6 +23,7 @@ exp-all-rel,v8,P!
 exp-all-rel,v9,P!
 ext-release-rel,v1,P!
 ext-release-rel,v10,N
+ext-release-rel,v11,P!
 ext-release-rel,v2,P!
 ext-release-rel,v3,P!
 ext-release-rel,v4,N
@@ -31,6 +34,7 @@ ext-release-rel,v8,P!
 ext-release-rel,v9,P!
 no-start-no-rel,v1,P!
 no-start-no-rel,v10,P!
+no-start-no-rel,v11,P!
 no-start-no-rel,v2,P!
 no-start-no-rel,v3,N
 no-start-no-rel,v4,P!
@@ -39,18 +43,20 @@ no-start-no-rel,v6,P!
 no-start-no-rel,v7,P!
 no-start-no-rel,v8,P!
 no-start-no-rel,v9,P!
-rel-grows-linear,v1,N
-rel-grows-linear,v10,N
-rel-grows-linear,v2,N
-rel-grows-linear,v3,N
-rel-grows-linear,v4,N
-rel-grows-linear,v5,N
+rel-grows-linear,v1,P!
+rel-grows-linear,v10,P!
+rel-grows-linear,v11,P!
+rel-grows-linear,v2,P!
+rel-grows-linear,v3,P!
+rel-grows-linear,v4,P!
+rel-grows-linear,v5,ERR
 rel-grows-linear,v6,N
-rel-grows-linear,v7,N
+rel-grows-linear,v7,ERR
 rel-grows-linear,v8,ERR
 rel-grows-linear,v9,N
 rel-le-bal,v1,P!
 rel-le-bal,v10,P!
+rel-le-bal,v11,N
 rel-le-bal,v2,N
 rel-le-bal,v3,P!
 rel-le-bal,v4,P!
@@ -61,6 +67,7 @@ rel-le-bal,v8,P!
 rel-le-bal,v9,P!
 rel-strict-incr,v1,P!
 rel-strict-incr,v10,P!
+rel-strict-incr,v11,P!
 rel-strict-incr,v2,P!
 rel-strict-incr,v3,P!
 rel-strict-incr,v4,P!
@@ -71,6 +78,7 @@ rel-strict-incr,v8,ERR
 rel-strict-incr,v9,N
 release-rel,v1,P!
 release-rel,v10,N
+release-rel,v11,P!
 release-rel,v2,P!
 release-rel,v3,P!
 release-rel,v4,N
