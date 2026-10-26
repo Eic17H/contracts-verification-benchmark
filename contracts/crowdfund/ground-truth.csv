@@ -211,7 +211,7 @@ bal-decr-onlyif-wd-reclaim,v9,1,
 donate-bal-inc,v9,1,
 donate-not-dec-donation,v9,1,
 donate-not-revert,v9,0,"This property should be false, since the `call` method could revert resulting in a false value for `succ`."
-donate-not-revert-overflow,v9,0,"This property is false, since  the sender could be a contract and the `call` method may revert."
+donate-not-revert-overflow,v9,0,"This property is false, since the sender could be a contract and the `call` method may revert."
 donation-dec-onlyif-reclaim,v9,1,
 donation-inc-onlyif-donate,v9,1,
 exists-unique-donation-change,v9,0,"This property should always be false, since `donate` does not require `msg.value > 0`. Hence, if a user donates with a `msg.value == 0`, then the `donation` map of no user changes."
