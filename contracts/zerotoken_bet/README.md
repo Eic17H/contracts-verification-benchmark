@@ -19,6 +19,7 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 - **v3**: the balance of player A can be negative, as player A can deposit.
 - **v4**: B cannot deposit.
 - **v5**: the contract balance can be negative, as `win()` sends the whole balance to both A and B.
+- **v6**: all methods revert.
 
 ## Verification data
 
@@ -37,6 +38,7 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 | **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
 | **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
 | **v5** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       |
+| **v6** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
  
 
 #### Eldarica
@@ -47,6 +49,7 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 | **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
 | **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
 | **v5** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       |
+| **v6** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
  
 
 ### Certora
@@ -57,5 +60,6 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 | **v3** | TN        | FN        | TP!       | TN        | TN        | FN        | TP!       | FN        |
 | **v4** | TP!       | FN        | TP!       | FN        | TN        | FN        | TP!       | TP!       |
 | **v5** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TN        | FN        |
+| **v6** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
  
 
