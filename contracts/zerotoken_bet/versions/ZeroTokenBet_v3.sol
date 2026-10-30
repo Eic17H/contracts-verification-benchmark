@@ -26,6 +26,7 @@ contract ZeroTokenBet {
     function deposit() public {
         require (block.number <= timeout_block);
         require (balance>=1); // needed for single run 
+        require (msg.sender == a || msg.sender == b);
         if(msg.sender == b) {
             require (balance_b>=1);
             balance_b = balance_b - 1;
