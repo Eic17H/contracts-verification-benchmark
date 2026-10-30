@@ -1,7 +1,4 @@
-    
-//rule cb_lte2 {
-//    assert getBalance()<=2;
-//}
+// the contract balance does not exceed 2 tokens
 
 invariant cb_lte2()
-    getBalance()<=2;
+    currentContract.balance<=2;

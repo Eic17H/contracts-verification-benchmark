@@ -1,7 +1,4 @@
-
-//rule ab_gte0 {
-//    assert getBalanceA()>=0;
-//}
+// the balance of player A is always nonnegative
 
 invariant ab_gte0()
-    getBalanceA()>=0;
+    currentContract.balance_a>=0;
