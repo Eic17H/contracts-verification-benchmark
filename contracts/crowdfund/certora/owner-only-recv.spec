@@ -2,6 +2,8 @@
 /// owner-only-recv:
 /// only the owner can receive ETH from the contract.
 
+// Will yield a false negative if the call exists but will always be reverted.
+
 ghost bool violated {
     init_state axiom violated == false;
 }
