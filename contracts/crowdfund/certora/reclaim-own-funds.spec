@@ -4,6 +4,9 @@
 /// the ETH balance of A is increased by an amount equal to `donation[A]`
 /// before `reclaim` was called.
 
+// Fails to take into account cases where the sender redirects the funds to another address upon receiving them, yielding false positives.
+// The test will still fail if the contract sends the wrong amount in a non-reverting call.
+
 rule reclaim_own_funds {
     env e;
     
