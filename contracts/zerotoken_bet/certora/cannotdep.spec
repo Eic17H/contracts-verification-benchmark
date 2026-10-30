@@ -1,4 +1,6 @@
-    
+// if B has at less than 1 token or he has already joined the bet,
+// then he cannot deposit 1 token in the contract
+
 rule cannotdep {
     env e;
     mathint old_balance_b = currentContract.balance_b;

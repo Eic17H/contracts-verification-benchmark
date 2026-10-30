@@ -49,14 +49,13 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 | **v5** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       |
  
 
-
 ### Certora
 |        | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
 |--------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **v1** | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       |
-| **v2** | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       |
-| **v3** | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       |
-| **v4** | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       |
-| **v5** | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       | ERR       |
+| **v1** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TP!       | FN        |
+| **v2** | TP!       | TN        | TN        | FN        | TP!       | TN        | TP!       | TN        |
+| **v3** | TN        | FN        | TP!       | TN        | TN        | FN        | TP!       | FN        |
+| **v4** | TP!       | FN        | TP!       | FN        | TN        | FN        | TP!       | TP!       |
+| **v5** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TN        | FN        |
  
 

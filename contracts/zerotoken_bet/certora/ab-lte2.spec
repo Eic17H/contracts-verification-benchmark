@@ -1,7 +1,4 @@
-    
-//rule ab_lte2 {
-//    assert getBalanceA()<=2;
-//}
+// the balance of player A does not exceed 2 tokens
 
 invariant ab_lte2()
-    getBalanceA()<=2;
+    currentContract.balance_a<=2;
