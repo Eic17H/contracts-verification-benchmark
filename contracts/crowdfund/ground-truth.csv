@@ -49,7 +49,7 @@ wd-full-balance,v2,0,"This property is false, since during the `withdraw` extern
 wd-not-revert,v2,0,"Receiver of the funds may revert the transaction."
 wd-not-revert-EOA,v2,1,
 wd-onlyif-goal-reached,v2,1,
-wd-transfer-to-owner,v2,1
+wd-transfer-to-owner,v2,0,"This property is false, since `owner` can be a contract which can redirect the received funds to another address."
 
 bal-decr-onlyif-wd-reclaim,v3,1,
 donate-bal-inc,v3,1,
