@@ -14,4 +14,3 @@ rule cannotdep {
     deposit@withrevert(e);
     assert (lastReverted);
 }
-
