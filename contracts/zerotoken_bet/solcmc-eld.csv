@@ -14,7 +14,7 @@ ab-lte2,v1,P!
 ab-lte2,v10,N!
 ab-lte2,v11,P!
 ab-lte2,v2,N!
-ab-lte2,v3,UNK
+ab-lte2,v3,P!
 ab-lte2,v4,P!
 ab-lte2,v5,P!
 ab-lte2,v6,P!
@@ -80,7 +80,7 @@ cb-lte2,v1,P!
 cb-lte2,v10,N!
 cb-lte2,v11,P!
 cb-lte2,v2,N!
-cb-lte2,v3,N!
+cb-lte2,v3,P!
 cb-lte2,v4,P!
 cb-lte2,v5,P!
 cb-lte2,v6,P!

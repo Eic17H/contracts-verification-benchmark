@@ -58,7 +58,7 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 | **v10** | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       |
 | **v11** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
 | **v2** | TP!       | TN!       | TN!       | TP!       | TP!       | TN!       | TP!       | TN!       |
-| **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | TP!       | TP!       | FN!       |
+| **v3** | TN!       | TP!       | TP!       | TN!       | TN!       | TP!       | TP!       | TP!       |
 | **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
 | **v5** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       |
 | **v6** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |

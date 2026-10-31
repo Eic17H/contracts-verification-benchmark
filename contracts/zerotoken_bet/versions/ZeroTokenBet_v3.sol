@@ -35,6 +35,7 @@ contract ZeroTokenBet {
             balance_a = balance_a - 1;
             balance = balance + 1;
         }
+        require (balance <= 2);
     }
 
     function win(address dst) public {
