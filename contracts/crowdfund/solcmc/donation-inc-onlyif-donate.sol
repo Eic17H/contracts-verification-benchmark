@@ -1,4 +1,7 @@
-function donation_inc_onlyif_donate(uint f, address user) public payable {
+// if `donation[A]` is increased after a transaction (of the Crowdfund contract),
+// then that transaction must be a `donate` where A is the sender.
+
+function invariant(uint f, address user) public payable {
     
     uint donation_prev = donation[user];
 

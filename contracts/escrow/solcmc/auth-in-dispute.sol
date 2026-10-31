@@ -1,6 +1,6 @@
 // in the Dispute state, only the arbiter can perform actions.
 
-function invariant(uint f,address dst) public {
+function invariant(uint f, address dst) public view {
     require(state==State.DISPUTE);
     if (f==0)
         approve_payment();

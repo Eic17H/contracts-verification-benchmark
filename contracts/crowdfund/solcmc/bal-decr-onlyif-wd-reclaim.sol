@@ -1,4 +1,13 @@
-function invariant(uint choice/*, address payable _newOwner, uint amount, address payable user*/) public payable {
+// after the donation phase,
+// if the contract balance decreases
+// then either a successful `withdraw` or `reclaim` have been performed.
+
+function invariant(
+    uint choice
+    //, address payable _newOwner // v3
+    //, uint amount // v5
+    //, address payable user // v11
+) public payable {
     
     require(block.number > end_donate);
 
@@ -8,17 +17,28 @@ function invariant(uint choice/*, address payable _newOwner, uint amount, addres
         donate();
     } else if (choice == 1) {
         withdraw();
-        // withdraw(user);
+        // withdraw(user); // v11
     } else if (choice == 2) {
         reclaim();
-    // } else if (choice == 3) {
-    //     setOwner(_newOwner);
-    // } else if (choice == 3) {
-    //     require(msg.sender == owner); 
-    //     setGoal(amount);
-    // } else if (choice == 3) {
-    //     clawback();
-    } else {
+    }
+
+    /* // v3
+    else if (choice == 3) {
+        setOwner(_newOwner);
+    }//*/
+
+    /* // v5
+    else if (choice == 3) {
+        require(msg.sender == owner); 
+        setGoal(amount);
+    }//*/
+
+    /* // v11
+    else if (choice == 3) {
+        clawback();
+    }//*/
+    
+    else {
         require(false);
     }
     

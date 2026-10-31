@@ -1,6 +1,6 @@
 // the contract balance does not increase after the end of the donation phase.
 
-function no_receive_after_deadline(uint f, address a) public payable {
+function invariant(uint f, address a) public payable {
     require(block.number > end_donate);
 
     uint balBefore = address(this).balance;

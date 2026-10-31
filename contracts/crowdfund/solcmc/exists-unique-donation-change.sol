@@ -1,4 +1,7 @@
-function check_exists_unique_donation_change(address donor, address other) public payable {
+// after a non-reverting `donate` transaction to the Crowdfund contract,
+// the donation of exactly one user has changed.
+
+function invariant(address donor, address other) public payable {
     require(block.number <= end_donate);
     require(donation[donor] <= type(uint256).max - msg.value);
     require(msg.sender == donor);

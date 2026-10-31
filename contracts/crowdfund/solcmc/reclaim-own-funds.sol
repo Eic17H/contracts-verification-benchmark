@@ -1,4 +1,9 @@
-function check_reclaim_own_funds() public payable {
+// a transaction `reclaim` is not reverted
+// if the goal amount is not reached
+// and the deposit phase has ended,
+// and the sender has donated funds that they have not reclaimed yet.
+
+function invariant() public payable {
     require(block.number > end_donate);
     require(address(this).balance < goal);
     

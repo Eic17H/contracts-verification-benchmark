@@ -1,4 +1,7 @@
-function no_deadlock() public {
+// at least one of the main functions (donate, withdraw, reclaim)
+// must not revert if the contract has a balance and the caller has made a donation.
+
+function invariant() public view {
     
     require(address(this).balance > 0);
     
