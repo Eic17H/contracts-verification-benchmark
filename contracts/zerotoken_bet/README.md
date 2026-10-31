@@ -24,6 +24,7 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 - **v8**: all methods do nothing.
 - **v9**: all methods but `deposit` do nothing.
 - **v10**: simplest way to comply with no property.
+- **v11**: `timeout_block = type(uint256).max` and no `require (block.number > timeout_block)` check in `win`.
 
 ## Verification data
 
@@ -39,6 +40,7 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **v1** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
 | **v10** | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       |
+| **v11** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
 | **v2** | TP!       | TN!       | TN!       | UNK       | TP!       | TN!       | TP!       | TN!       |
 | **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
 | **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
@@ -54,6 +56,7 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **v1** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
 | **v10** | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       |
+| **v11** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
 | **v2** | TP!       | TN!       | TN!       | TP!       | TP!       | TN!       | TP!       | TN!       |
 | **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
 | **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
@@ -69,6 +72,7 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **v1** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TP!       | FN        |
 | **v10** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
+| **v11** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
 | **v2** | TP!       | TN        | TN        | FN        | TP!       | TN        | TP!       | TN        |
 | **v3** | TN        | FN        | TP!       | TN        | TN        | FN        | TP!       | FN        |
 | **v4** | TP!       | FN        | TP!       | FN        | TN        | FN        | TP!       | TP!       |

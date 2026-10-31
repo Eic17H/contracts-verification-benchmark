@@ -89,3 +89,12 @@ candep,v10,0
 cannotdep,v10,0
 cb-lte2,v10,0
 cb-gte0,v10,0
+
+ab-gte0,v11,1
+ab-lte2,v11,1
+bb-gte0,v11,1
+bb-lte2,v11,1
+candep,v11,1
+cannotdep,v11,1
+cb-lte2,v11,1
+cb-gte0,v11,1
