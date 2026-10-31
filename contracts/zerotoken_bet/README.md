@@ -70,16 +70,16 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 ### Certora
 |         | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
 |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **v1** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TP!       | FN        |
+| **v1** | TP!       | FN        | TP!       | FN        | TP!       | TP!       | TP!       | FN        |
 | **v10** | TN        | TN        | TN        | TN        | TN        | TN        | TN        | TN        |
-| **v11** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TP!       | FN        |
+| **v11** | TP!       | FN        | TP!       | FN        | TP!       | TP!       | TP!       | FN        |
 | **v2** | TP!       | TN        | TN        | FN        | TP!       | TN        | TP!       | TN        |
-| **v3** | TN        | FN        | TP!       | TN        | TN        | FN        | TP!       | FN        |
-| **v4** | TP!       | FN        | TP!       | FN        | TN        | FN        | TP!       | TP!       |
-| **v5** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TN        | FN        |
+| **v3** | TN        | FN        | TP!       | TN        | TN        | TP!       | TP!       | FN        |
+| **v4** | TP!       | FN        | TP!       | FN        | TN        | TP!       | TP!       | TP!       |
+| **v5** | TP!       | FN        | TP!       | FN        | TP!       | TP!       | TN        | FN        |
 | **v6** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
-| **v7** | TP!       | TP!       | TP!       | TP!       | TP!       | FN        | TP!       | FN        |
-| **v8** | TP!       | TP!       | TP!       | TP!       | TN        | FN        | TP!       | TP!       |
-| **v9** | TP!       | TP!       | TP!       | TP!       | TP!       | FN        | TP!       | FN        |
+| **v7** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | FN        |
+| **v8** | TP!       | TP!       | TP!       | TP!       | TN        | TP!       | TP!       | TP!       |
+| **v9** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | FN        |
  
 
