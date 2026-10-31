@@ -19,7 +19,11 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 - **v3**: the balance of player A can be negative, as player A can deposit.
 - **v4**: B cannot deposit.
 - **v5**: the contract balance can be negative, as `win()` sends the whole balance to both A and B.
-- **v6**: all methods revert.
+- **v6**: all methods always revert.
+- **v7**: all methods but `deposit` always revert.
+- **v8**: all methods do nothing.
+- **v9**: all methods but `deposit` do nothing.
+- **v10**: simplest way to comply with no property.
 
 ## Verification data
 
@@ -31,35 +35,47 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 ## Experiments
 ### SolCMC
 #### Z3
-|        | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
-|--------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+|         | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
+|---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **v1** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
+| **v10** | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       |
 | **v2** | TP!       | TN!       | TN!       | UNK       | TP!       | TN!       | TP!       | TN!       |
 | **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
 | **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
 | **v5** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       |
 | **v6** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
+| **v7** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
+| **v8** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
+| **v9** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
  
 
 #### Eldarica
-|        | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
-|--------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+|         | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
+|---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **v1** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
+| **v10** | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       |
 | **v2** | TP!       | TN!       | TN!       | TP!       | TP!       | TN!       | TP!       | TN!       |
 | **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
 | **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
 | **v5** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       |
 | **v6** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
+| **v7** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
+| **v8** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
+| **v9** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
  
 
 ### Certora
-|        | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
-|--------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+|         | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
+|---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **v1** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TP!       | FN        |
+| **v10** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
 | **v2** | TP!       | TN        | TN        | FN        | TP!       | TN        | TP!       | TN        |
 | **v3** | TN        | FN        | TP!       | TN        | TN        | FN        | TP!       | FN        |
 | **v4** | TP!       | FN        | TP!       | FN        | TN        | FN        | TP!       | TP!       |
 | **v5** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TN        | FN        |
 | **v6** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
+| **v7** | TP!       | TP!       | TP!       | TP!       | TP!       | FN        | TP!       | FN        |
+| **v8** | TP!       | TP!       | TP!       | TP!       | TN        | FN        | TP!       | TP!       |
+| **v9** | TP!       | TP!       | TP!       | TP!       | TP!       | FN        | TP!       | FN        |
  
 
