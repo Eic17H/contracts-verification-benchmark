@@ -1,4 +1,6 @@
-function check_donate_bal_inc() public payable {
+// a non-reverting call to `donate` does not decrease the balance of the contract.
+
+function invariant() public payable {
     
     require(block.number <= end_donate);
 

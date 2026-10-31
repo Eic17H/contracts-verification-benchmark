@@ -2,7 +2,7 @@
 // the releasable amount is strictly increasing
 // whenever the contract balance and the released amount is constant.
 
-function invariant(uint64 timestamp1, uint64 timestamp2) public {
+function invariant(uint64 timestamp1, uint64 timestamp2) public view {
 
     require(start + duration > timestamp2);
     require(timestamp2 > timestamp1);

@@ -1,4 +1,7 @@
-function donation_dec_onlyif_reclaim(uint f, address user) public payable {
+// if `donation[A]` decreases after a transaction (of the Crowdfund contract),
+// then that transaction must be a `reclaim` where A is the sender.
+
+function invariant(uint f, address user) public payable {
     
     uint donation_prev = donation[user];
 

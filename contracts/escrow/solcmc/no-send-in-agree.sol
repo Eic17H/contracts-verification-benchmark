@@ -1,6 +1,6 @@
 // in the Agree state, no one can redeem ETH.
 
-function invariant(uint f, address dst, uint deposit_) public {
+function invariant(uint f, address dst, uint deposit_) public view {
 
     deposit = deposit_;
 

@@ -1,4 +1,6 @@
-function check_msg_value_not_negative() public payable {
+// the `msg.value` for a call to `donate` should not be negative.
+
+function invariant() public payable {
 
     donate();
 
