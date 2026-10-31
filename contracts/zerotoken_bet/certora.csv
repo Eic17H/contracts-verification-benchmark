@@ -1,5 +1,7 @@
 property,version,outcome
 ab-gte0,v1,P!
+ab-gte0,v10,N
+ab-gte0,v11,P!
 ab-gte0,v2,P!
 ab-gte0,v3,N
 ab-gte0,v4,P!
@@ -9,6 +11,8 @@ ab-gte0,v7,P!
 ab-gte0,v8,P!
 ab-gte0,v9,P!
 ab-lte2,v1,N
+ab-lte2,v10,N
+ab-lte2,v11,N
 ab-lte2,v2,N
 ab-lte2,v3,N
 ab-lte2,v4,N
@@ -18,6 +22,8 @@ ab-lte2,v7,P!
 ab-lte2,v8,P!
 ab-lte2,v9,P!
 bb-gte0,v1,P!
+bb-gte0,v10,N
+bb-gte0,v11,P!
 bb-gte0,v2,N
 bb-gte0,v3,P!
 bb-gte0,v4,P!
@@ -27,6 +33,8 @@ bb-gte0,v7,P!
 bb-gte0,v8,P!
 bb-gte0,v9,P!
 bb-lte2,v1,N
+bb-lte2,v10,N
+bb-lte2,v11,N
 bb-lte2,v2,N
 bb-lte2,v3,N
 bb-lte2,v4,N
@@ -36,6 +44,8 @@ bb-lte2,v7,P!
 bb-lte2,v8,P!
 bb-lte2,v9,P!
 candep,v1,P!
+candep,v10,N
+candep,v11,P!
 candep,v2,P!
 candep,v3,N
 candep,v4,N
@@ -45,6 +55,8 @@ candep,v7,P!
 candep,v8,N
 candep,v9,P!
 cannotdep,v1,N
+cannotdep,v10,N
+cannotdep,v11,N
 cannotdep,v2,N
 cannotdep,v3,N
 cannotdep,v4,N
@@ -54,6 +66,8 @@ cannotdep,v7,N
 cannotdep,v8,N
 cannotdep,v9,N
 cb-gte0,v1,P!
+cb-gte0,v10,N
+cb-gte0,v11,P!
 cb-gte0,v2,P!
 cb-gte0,v3,P!
 cb-gte0,v4,P!
@@ -63,6 +77,8 @@ cb-gte0,v7,P!
 cb-gte0,v8,P!
 cb-gte0,v9,P!
 cb-lte2,v1,N
+cb-lte2,v10,N
+cb-lte2,v11,N
 cb-lte2,v2,N
 cb-lte2,v3,N
 cb-lte2,v4,P!

@@ -42,7 +42,7 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 | **v10** | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       |
 | **v11** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
 | **v2** | TP!       | TN!       | TN!       | UNK       | TP!       | TN!       | TP!       | TN!       |
-| **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
+| **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | TP!       | TP!       | FN!       |
 | **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
 | **v5** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       |
 | **v6** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
@@ -58,7 +58,7 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 | **v10** | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       | TN!       |
 | **v11** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       |
 | **v2** | TP!       | TN!       | TN!       | TP!       | TP!       | TN!       | TP!       | TN!       |
-| **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | FN!       | TP!       | FN!       |
+| **v3** | TN!       | UNK       | TP!       | TN!       | TN!       | TP!       | TP!       | FN!       |
 | **v4** | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       | TP!       | TP!       |
 | **v5** | TP!       | TP!       | TP!       | TP!       | TP!       | TP!       | TN!       | TP!       |
 | **v6** | TP!       | TP!       | TP!       | TP!       | FP!       | TP!       | TP!       | TP!       |
@@ -71,8 +71,8 @@ The contract involves two players, each owning 1 token, and an oracle. Player A 
 |         | ab-gte0   | ab-lte2   | bb-gte0   | bb-lte2   | candep    | cannotdep | cb-gte0   | cb-lte2   |
 |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | **v1** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TP!       | FN        |
-| **v10** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
-| **v11** | ND        | ND        | ND        | ND        | ND        | ND        | ND        | ND        |
+| **v10** | TN        | TN        | TN        | TN        | TN        | TN        | TN        | TN        |
+| **v11** | TP!       | FN        | TP!       | FN        | TP!       | FN        | TP!       | FN        |
 | **v2** | TP!       | TN        | TN        | FN        | TP!       | TN        | TP!       | TN        |
 | **v3** | TN        | FN        | TP!       | TN        | TN        | FN        | TP!       | FN        |
 | **v4** | TP!       | FN        | TP!       | FN        | TN        | FN        | TP!       | TP!       |
