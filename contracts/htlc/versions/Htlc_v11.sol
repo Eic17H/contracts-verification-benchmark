@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.18;
 
-/// @custom:version wrong timeout eth receiver.
+/// @custom:version `timeout` transfers balance to owner instead of verifier.
 contract Htlc {
     address payable public owner;  
     address payable public verifier;

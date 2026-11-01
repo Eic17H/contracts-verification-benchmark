@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.18;
 
-/// @custom:version If `commit()` can be successful even if `isCommitted` was true before the calll.
+/// @custom:version `commit()` can be successful even if `isCommitted` was true before the call.
 contract Htlc {
     address payable public owner;  
     address payable public verifier;
