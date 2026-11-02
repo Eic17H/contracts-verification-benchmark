@@ -5,6 +5,10 @@
 rule reveal_auth_owner {
     env e;
     string s;
+
+    // Maximum length allowed by the hashing function
+    require s.length <= 224;
+
     reveal(e, s);
 
     assert e.msg.sender == currentContract.owner;

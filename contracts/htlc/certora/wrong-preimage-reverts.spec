@@ -5,6 +5,8 @@
 rule wrong_preimage_reverts {
     env e;
     string s;
+    // Maximum length allowed by the hashing function
+    require s.length <= 224;
     require hashing(e, s) != currentContract.hash;
     reveal@withrevert(e, s);
     assert lastReverted;
