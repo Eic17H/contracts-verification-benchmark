@@ -9,6 +9,7 @@ balance-only-increases-on-commit,v15,P!
 balance-only-increases-on-commit,v16,P!
 balance-only-increases-on-commit,v17,P!
 balance-only-increases-on-commit,v18,P!
+balance-only-increases-on-commit,v19,P!
 balance-only-increases-on-commit,v2,P!
 balance-only-increases-on-commit,v3,P!
 balance-only-increases-on-commit,v4,P!
@@ -27,7 +28,7 @@ cant-uncommit,v15,P!
 cant-uncommit,v16,P!
 cant-uncommit,v17,P!
 cant-uncommit,v18,P!
-cant-uncommit,v19,ERR
+cant-uncommit,v19,N
 cant-uncommit,v2,P!
 cant-uncommit,v3,P!
 cant-uncommit,v4,P!
@@ -46,6 +47,7 @@ commit-auth-owner,v15,P!
 commit-auth-owner,v16,P!
 commit-auth-owner,v17,N
 commit-auth-owner,v18,P!
+commit-auth-owner,v19,P!
 commit-auth-owner,v2,P!
 commit-auth-owner,v3,P!
 commit-auth-owner,v4,P!
@@ -64,6 +66,7 @@ commit-minimum,v15,P!
 commit-minimum,v16,P!
 commit-minimum,v17,N
 commit-minimum,v18,P!
+commit-minimum,v19,P!
 commit-minimum,v2,P!
 commit-minimum,v3,P!
 commit-minimum,v4,P!
@@ -82,6 +85,7 @@ commit-reverts-if-isCommitted,v15,N
 commit-reverts-if-isCommitted,v16,P!
 commit-reverts-if-isCommitted,v17,N
 commit-reverts-if-isCommitted,v18,P!
+commit-reverts-if-isCommitted,v19,P!
 commit-reverts-if-isCommitted,v2,N
 commit-reverts-if-isCommitted,v3,P!
 commit-reverts-if-isCommitted,v4,P!
@@ -100,6 +104,7 @@ commit-twice-reverts,v15,N
 commit-twice-reverts,v16,P!
 commit-twice-reverts,v17,N
 commit-twice-reverts,v18,N
+commit-twice-reverts,v19,P!
 commit-twice-reverts,v2,N
 commit-twice-reverts,v3,P!
 commit-twice-reverts,v4,P!
@@ -118,6 +123,7 @@ contract-balance-is-commit-value,v15,N
 contract-balance-is-commit-value,v16,P!
 contract-balance-is-commit-value,v17,N
 contract-balance-is-commit-value,v18,N
+contract-balance-is-commit-value,v19,N
 contract-balance-is-commit-value,v2,N
 contract-balance-is-commit-value,v3,N
 contract-balance-is-commit-value,v4,N
@@ -155,6 +161,7 @@ reveal-auth-owner,v15,P!
 reveal-auth-owner,v16,P!
 reveal-auth-owner,v17,N
 reveal-auth-owner,v18,P!
+reveal-auth-owner,v19,P!
 reveal-auth-owner,v2,P!
 reveal-auth-owner,v3,P!
 reveal-auth-owner,v4,P!
@@ -173,6 +180,7 @@ reveal-timeout-after-isCommitted,v15,P!
 reveal-timeout-after-isCommitted,v16,P!
 reveal-timeout-after-isCommitted,v17,N
 reveal-timeout-after-isCommitted,v18,P!
+reveal-timeout-after-isCommitted,v19,P!
 reveal-timeout-after-isCommitted,v2,N
 reveal-timeout-after-isCommitted,v3,P!
 reveal-timeout-after-isCommitted,v4,P!
@@ -191,6 +199,7 @@ reveal-transfer,v15,P!
 reveal-transfer,v16,P!
 reveal-transfer,v17,N
 reveal-transfer,v18,N
+reveal-transfer,v19,P!
 reveal-transfer,v2,P!
 reveal-transfer,v3,P!
 reveal-transfer,v4,P!
@@ -209,6 +218,7 @@ reveal-zeroes-balance,v15,N
 reveal-zeroes-balance,v16,P!
 reveal-zeroes-balance,v17,N
 reveal-zeroes-balance,v18,N
+reveal-zeroes-balance,v19,N
 reveal-zeroes-balance,v2,N
 reveal-zeroes-balance,v3,N
 reveal-zeroes-balance,v4,N
@@ -227,6 +237,7 @@ sent-le-init-bal,v15,ERR
 sent-le-init-bal,v16,ERR
 sent-le-init-bal,v17,ERR
 sent-le-init-bal,v18,ERR
+sent-le-init-bal,v19,ERR
 sent-le-init-bal,v2,ERR
 sent-le-init-bal,v3,ERR
 sent-le-init-bal,v4,ERR
@@ -245,6 +256,7 @@ timeout-deadline,v15,P!
 timeout-deadline,v16,P!
 timeout-deadline,v17,N
 timeout-deadline,v18,P!
+timeout-deadline,v19,P!
 timeout-deadline,v2,P!
 timeout-deadline,v3,N
 timeout-deadline,v4,P!
@@ -263,6 +275,7 @@ timeout-transfer,v15,P!
 timeout-transfer,v16,P!
 timeout-transfer,v17,N
 timeout-transfer,v18,N
+timeout-transfer,v19,P!
 timeout-transfer,v2,P!
 timeout-transfer,v3,P!
 timeout-transfer,v4,N
@@ -281,6 +294,7 @@ timeout-zeroes-balance,v15,N
 timeout-zeroes-balance,v16,P!
 timeout-zeroes-balance,v17,N
 timeout-zeroes-balance,v18,N
+timeout-zeroes-balance,v19,N
 timeout-zeroes-balance,v2,N
 timeout-zeroes-balance,v3,N
 timeout-zeroes-balance,v4,N

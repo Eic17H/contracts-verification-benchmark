@@ -14,6 +14,6 @@ _sent += _to_send;
 _sent += _to_send;
 
 /// @custom:invariant
-function invariant() internal view {
+function invariant() public view {
    assert(_sent <= _deposited);
 }

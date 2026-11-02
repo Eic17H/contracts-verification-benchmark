@@ -5,7 +5,7 @@ address _pre_owner;
 bool _initialized;
 
 /// @custom:invariant
-function invariant() internal {
+function invariant() public {
     if (_initialized) {
         assert(owner == _pre_owner);
     }
