@@ -17,6 +17,7 @@ rule owner_immutable {
     } else {
         f(e, args);
     }
+    
     assert currentContract.owner == _pre_owner,
         "owner changed after calling function";
 }
