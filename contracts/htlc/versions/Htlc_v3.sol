@@ -22,7 +22,7 @@ contract Htlc {
 
     function commit(bytes32 h) public payable {
         require(msg.sender == owner);
-        require(msg.value >= 1 ether);
+        require(msg.value >= fee);
         require(!isCommitted);
 
         hash = h;

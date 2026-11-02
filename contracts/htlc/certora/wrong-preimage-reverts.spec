@@ -4,10 +4,19 @@
 
 rule wrong_preimage_reverts {
     env e;
+
     string s;
     // Maximum length allowed by the hashing function
     require s.length <= 224;
-    require hashing(e, s) != currentContract.hash;
+
+    bytes32 hash;
+
+    bool correctPreimage = hashing(e, s) == hash;
+
+    require !currentContract.isCommitted;
+    commit@withrevert(e, hash);
+    require !lastReverted;
+    
     reveal@withrevert(e, s);
-    assert lastReverted;
+    assert !lastReverted => correctPreimage;
 }
