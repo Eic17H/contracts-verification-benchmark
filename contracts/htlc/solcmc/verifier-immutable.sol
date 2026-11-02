@@ -5,7 +5,7 @@ address _pre_verifier;
 bool _initialized;
 
 /// @custom:invariant
-function invariant() internal {
+function invariant() public {
     if (_initialized) {
         assert(verifier == _pre_verifier);
     }
