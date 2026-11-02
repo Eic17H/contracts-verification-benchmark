@@ -5,6 +5,9 @@
 rule reveal_transfer {
     env e;
     string s;
+    
+    // Maximum length allowed by the hashing function
+    require s.length <= 224;
 
     mathint pre_contract_bal = nativeBalances[currentContract];
 

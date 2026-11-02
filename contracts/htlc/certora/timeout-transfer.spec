@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
-// If a `timeout` transaction does not revert, `verifier`'s balance must increase by at least the balance of the contract
+// If a `timeout` transaction does not revert, 
+// `verifier`'s balance must increase by at least the balance of the contract
 
 rule timeout_transfer {
     env e;
@@ -14,5 +15,5 @@ rule timeout_transfer {
     timeout@withrevert(e);
     
     require !lastReverted;
-    assert (nativeBalances[verifier] >= pre_verifier_bal + pre_contract_bal);
+    assert (nativeBalances[verifier] - pre_verifier_bal >= pre_contract_bal);
 }

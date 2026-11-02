@@ -4,14 +4,21 @@
 
 rule reveal_timeout_after_isCommitted {
     env e;
-    calldataarg args;
+    string s;
     method f;
 
-    f(e, args);
+    // Maximum length allowed by the hashing function
+    require s.length <= 224;
 
-    assert (
-        f.selector == sig:reveal(string).selector ||
-        f.selector == sig:timeout().selector
-    ) => currentContract.isCommitted;
+    require f.selector == sig:reveal(string).selector
+         || f.selector == sig:timeout().selector;
+
+    if(f.selector == sig:reveal(string).selector) {
+        reveal(e, s);
+    } else {
+        timeout(e);
+    }
+
+    assert currentContract.isCommitted;
 
 }

@@ -5,6 +5,9 @@
 rule reveal_zeroes_balance {
     env e;
     string s;
+
+    // Maximum length allowed by the hashing function
+    require s.length <= 224;
     
     require currentContract.owner != currentContract;
     require nativeBalances[currentContract] == currentContract.fee;
