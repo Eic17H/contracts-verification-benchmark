@@ -2,7 +2,7 @@
 // after a non-reverting `withdraw`, the ETH balance of owner is increased by an amount
 // equal to the balance (of Crowdfund) before `withdraw` was called.
 
-function invariant() public view {
+function invariant() public {
     uint contractOldBalance = address(this).balance;
     uint ownerOldBalance = owner.balance;
     withdraw();
