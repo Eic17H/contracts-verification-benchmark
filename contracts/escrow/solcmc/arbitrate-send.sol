@@ -1,6 +1,6 @@
 // during a successful call to `arbitrate`, the contract sends the arbiter `fee` ETH.
 
-function invariant(address dst) public view {
+function invariant(address dst) public {
 
     require (msg.sender == arbiter);
 

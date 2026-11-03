@@ -1,6 +1,6 @@
 // in the Agree state, both the buyer and the seller can open a dispute.
 
-function invariant(uint f) public view {
+function invariant(uint f) public {
     
     require(state == State.AGREE);
 
