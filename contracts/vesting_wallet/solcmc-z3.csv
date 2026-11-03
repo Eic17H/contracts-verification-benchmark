@@ -39,7 +39,7 @@ no-start-no-rel,v1,UNK
 no-start-no-rel,v10,P!
 no-start-no-rel,v11,P!
 no-start-no-rel,v12,UNK
-no-start-no-rel,v2,UNK
+no-start-no-rel,v2,P!
 no-start-no-rel,v3,UNK
 no-start-no-rel,v4,UNK
 no-start-no-rel,v5,P!
@@ -65,8 +65,8 @@ rel-le-bal,v11,UNK
 rel-le-bal,v12,UNK
 rel-le-bal,v2,N
 rel-le-bal,v3,N
-rel-le-bal,v4,UNK
-rel-le-bal,v5,UNK
+rel-le-bal,v4,N
+rel-le-bal,v5,N
 rel-le-bal,v6,N
 rel-le-bal,v7,P!
 rel-le-bal,v8,P!
@@ -82,7 +82,7 @@ rel-strict-incr,v5,UNK
 rel-strict-incr,v6,UNK
 rel-strict-incr,v7,UNK
 rel-strict-incr,v8,P!
-rel-strict-incr,v9,N!
+rel-strict-incr,v9,UNK
 release-rel,v1,UNK
 release-rel,v10,UNK
 release-rel,v11,UNK

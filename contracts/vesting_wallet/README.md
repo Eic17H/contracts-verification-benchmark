@@ -43,14 +43,14 @@ The contract handles the maturation (vesting) of native cryptocurrency for a giv
 | **v10** | UNK              | UNK              | UNK              | TP!              | UNK              | FN               | UNK              | UNK              |
 | **v11** | UNK              | UNK              | UNK              | TP!              | UNK              | UNK              | TP!              | UNK              |
 | **v12** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              |
-| **v2** | UNK              | FN               | UNK              | UNK              | UNK              | TN               | UNK              | UNK              |
+| **v2** | UNK              | FN               | UNK              | TP!              | UNK              | TN               | UNK              | UNK              |
 | **v3** | UNK              | UNK              | UNK              | UNK              | UNK              | FN               | UNK              | UNK              |
-| **v4** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              |
-| **v5** | UNK              | UNK              | UNK              | TP!              | UNK              | UNK              | UNK              | UNK              |
+| **v4** | UNK              | UNK              | UNK              | UNK              | UNK              | FN               | UNK              | UNK              |
+| **v5** | UNK              | UNK              | UNK              | TP!              | UNK              | FN               | UNK              | UNK              |
 | **v6** | UNK              | UNK              | UNK              | TP!              | UNK              | FN               | UNK              | UNK              |
 | **v7** | UNK              | UNK              | UNK              | TP!              | UNK              | TP!              | UNK              | UNK              |
 | **v8** | TP!              | FP!              | TP!              | TP!              | TP!              | TP!              | FP!              | TP!              |
-| **v9** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | TN!              | UNK              |
+| **v9** | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              | UNK              |
  
 
 #### Eldarica
