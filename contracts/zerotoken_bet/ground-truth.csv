@@ -10,19 +10,19 @@ cb-lte2,v1,1
 cb-gte0,v1,1
 
 ab-gte0,v2,1
-ab-lte2,v2,0
-bb-gte0,v2,0
+ab-lte2,v2,0,"B can deposit more than once, so A can win more than two tokens."
+bb-gte0,v2,0,"B can deposit more than once, but only starts with one token."
 bb-lte2,v2,1
 candep,v2,1
-cannotdep,v2,0
-cb-lte2,v2,0
+cannotdep,v2,0,"B can deposit regardless of the amount of owned tokens."
+cb-lte2,v2,0,"B can deposit more than once."
 cb-gte0,v2,1
 
-ab-gte0,v3,0
+ab-gte0,v3,0,"A can deposit."
 ab-lte2,v3,1
 bb-gte0,v3,1
-bb-lte2,v3,0
-candep,v3,0
+bb-lte2,v3,0,"A can deposit, so B can win more than two tokens."
+candep,v3,0,"B can't deposit if A has deposited."
 cannotdep,v3,1
 cb-lte2,v3,1
 cb-gte0,v3,1
@@ -31,7 +31,7 @@ ab-gte0,v4,1
 ab-lte2,v4,1
 bb-gte0,v4,1
 bb-lte2,v4,1
-candep,v4,0
+candep,v4,0,"B cannot deposit."
 cannotdep,v4,1
 cb-lte2,v4,1
 cb-gte0,v4,1
@@ -43,13 +43,13 @@ bb-lte2,v5,1
 candep,v5,1
 cannotdep,v5,1
 cb-lte2,v5,1
-cb-gte0,v5,0
+cb-gte0,v5,0,"The contract sends the whole balance to A and then sends the same amount to B."
 
 ab-gte0,v6,1
 ab-lte2,v6,1
 bb-gte0,v6,1
 bb-lte2,v6,1
-candep,v6,0
+candep,v6,0,"All methods always revert."
 cannotdep,v6,1
 cb-lte2,v6,1
 cb-gte0,v6,1
@@ -67,7 +67,7 @@ ab-gte0,v8,1
 ab-lte2,v8,1
 bb-gte0,v8,1
 bb-lte2,v8,1
-candep,v8,0
+candep,v8,0,"All methods do nothing."
 cannotdep,v8,1
 cb-lte2,v8,1
 cb-gte0,v8,1
@@ -81,14 +81,14 @@ cannotdep,v9,1
 cb-lte2,v9,1
 cb-gte0,v9,1
 
-ab-gte0,v10,0
-ab-lte2,v10,0
-bb-gte0,v10,0
-bb-lte2,v10,0
-candep,v10,0
-cannotdep,v10,0
-cb-lte2,v10,0
-cb-gte0,v10,0
+ab-gte0,v10,0,"`timeout` sets A's balance to -1."
+ab-lte2,v10,0,"`win` sets A's balance to 3."
+bb-gte0,v10,0,"`timeout` sets B's balance to -1."
+bb-lte2,v10,0,"`win` sets B's balance to 3."
+candep,v10,0,"B's balance and the contract's balance change incorrectly when `deposit` is called."
+cannotdep,v10,0,"`deposit` can be called multiple times without reverting."
+cb-lte2,v10,0,"`win` sets the contract's balance to 3."
+cb-gte0,v10,0,"`timeout` sets the contract's balance to -1."
 
 ab-gte0,v11,1
 ab-lte2,v11,1

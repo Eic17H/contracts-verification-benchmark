@@ -80,7 +80,6 @@ auth-in-dispute,v13,1,
 auth-in-dispute,v14,1,
 auth-in-dispute,v15,1,"Nobody can perform actions, so for all x, if x can perform actions (always false) then x is the arbiter."
 
-
 arbitrate-send,v1,1,
 arbitrate-send,v2,1,
 arbitrate-send,v3,1,
