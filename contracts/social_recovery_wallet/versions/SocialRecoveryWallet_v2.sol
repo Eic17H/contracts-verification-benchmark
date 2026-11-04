@@ -3,8 +3,7 @@ pragma solidity ^0.8.11;
 
 import "./lib/ReentrancyGuard.sol";
 
-
-/// @custom:version removed guardian management
+/// @custom:version removed guardian management.
 contract Wallet is ReentrancyGuard {
 
     // hash of guardian address
