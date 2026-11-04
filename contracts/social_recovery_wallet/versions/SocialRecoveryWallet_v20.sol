@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.11;
 
-import "lib/ReentrancyGuard.sol";
+import "./lib/ReentrancyGuard.sol";
 
+/// @custom:version methods don't revert.
 contract Wallet is ReentrancyGuard {
 
     // hash of guardian address
@@ -23,41 +24,51 @@ contract Wallet is ReentrancyGuard {
     }
 
     mapping(address => Recovery) public guardianToRecovery;
+     
+    // ghost variables p1
+    address _first_owner;
+    
+     // ghost variables p2
+    bool _recovered;
+    
 
     /************************************************
      *  MODIFIERS 
     ***********************************************/
 
     modifier onlyOwner {
-        require(msg.sender == owner, "only owner");
+        //require(msg.sender == owner, "only owner");
         _;
     }
 
     modifier onlyGuardian {
-        require(isGuardian[keccak256(abi.encodePacked(msg.sender))], "only guardian");
+        //require(isGuardian[keccak256(abi.encodePacked(msg.sender))], "only guardian");
         _;
     }
 
     modifier notInRecovery {
-        require(!inRecovery, "wallet is in recovery mode");
+        //require(!inRecovery, "wallet is in recovery mode");
         _;
     }
 
     modifier onlyInRecovery {
-        require(inRecovery, "wallet is not in recovery mode");
+        //require(inRecovery, "wallet is not in recovery mode");
         _;
     }
 
     constructor(bytes32[] memory guardianAddrHashes, uint256 threshold_) {
-        require(threshold_ <= guardianAddrHashes.length, "threshold too high");
+        //require(threshold_ <= guardianAddrHashes.length, "threshold too high");
         
         for(uint i = 0; i < guardianAddrHashes.length; i++) {
-            require(!isGuardian[guardianAddrHashes[i]], "duplicate guardian");
+            //require(!isGuardian[guardianAddrHashes[i]], "duplicate guardian");
             isGuardian[guardianAddrHashes[i]] = true;
         }
         
         threshold = threshold_;
         owner = msg.sender;
+        
+        //p1
+        _first_owner = owner;
     }
 
     function executeExternalTx(address callee, 
@@ -65,7 +76,7 @@ contract Wallet is ReentrancyGuard {
         bytes memory data
     ) external onlyOwner nonReentrant returns (bytes memory) {
         (bool success, bytes memory result) = callee.call{value: value}(data);
-        require(success, "external call reverted");
+        //require(success, "external call reverted");
         return result;
     }
 
@@ -96,26 +107,28 @@ contract Wallet is ReentrancyGuard {
         inRecovery = false;
     }
 
-    function executeRecovery(address newOwner, address[] calldata guardianList) onlyGuardian onlyInRecovery public returns (bool) {
+    function executeRecovery(address newOwner, address[] calldata guardianList) onlyGuardian onlyInRecovery external {
         // Need enough guardians to agree on same newOwner
-        require(guardianList.length >= threshold, "more guardians required to transfer ownership");
+        //require(guardianList.length >= threshold, "more guardians //required to transfer ownership");
 
         // Let's verify that all guardians agreed on the same newOwner in the same round
         for (uint i = 0; i < guardianList.length; i++) {
             // cache recovery struct in memory
             Recovery memory recovery = guardianToRecovery[guardianList[i]];
 
-            if (recovery.recoveryRound != currRecoveryRound) return false;
-            if (recovery.proposedOwner != newOwner) return false;
-            if (recovery.usedInExecuteRecovery) return false;
+            //require(recovery.recoveryRound == currRecoveryRound, "round mismatch");
+            //require(recovery.proposedOwner == newOwner, "disagreement on new owner");
+            //require(!recovery.usedInExecuteRecovery, "duplicate guardian used in recovery");
 
             // set field to true in storage, not memory
             guardianToRecovery[guardianList[i]].usedInExecuteRecovery = true;
         }
 
+        //p2
+        _recovered = true;
+        
         inRecovery = false;
         owner = newOwner;
-        return true;
     }
 
     /************************************************
@@ -124,15 +137,15 @@ contract Wallet is ReentrancyGuard {
 
     function initiateGuardianRemoval(bytes32 guardianHash) external onlyOwner {
         // verify that the hash actually corresponds to a guardian
-        require(isGuardian[guardianHash], "not a guardian");
+        //require(isGuardian[guardianHash], "not a guardian");
 
         // removal delay fixed at 3 days
         guardianHashToRemovalTimestamp[guardianHash] = block.timestamp + 3 days;
     }
 
     function executeGuardianRemoval(bytes32 oldGuardianHash, bytes32 newGuardianHash) onlyOwner external {
-        require(guardianHashToRemovalTimestamp[oldGuardianHash] > 0, "guardian isn't queued for removal");
-        require(guardianHashToRemovalTimestamp[oldGuardianHash] <= block.timestamp, "time delay has not passed");
+        //require(guardianHashToRemovalTimestamp[oldGuardianHash] > 0, "guardian isn't queued for removal");
+        //require(guardianHashToRemovalTimestamp[oldGuardianHash] <= block.timestamp, "time delay has not passed");
 
         // Reset this the removal timestamp
         guardianHashToRemovalTimestamp[oldGuardianHash] = 0;
@@ -143,22 +156,6 @@ contract Wallet is ReentrancyGuard {
 
     function cancelGuardianRemoval(bytes32 guardianHash) onlyOwner external {
         guardianHashToRemovalTimestamp[guardianHash] = 0;
-    }
-
-    function invariant(address newOwner, address[] calldata guardianList) public {
-        require(guardianList.length < threshold);
-        require(owner != newOwner);
-
-        for (uint i = 0; i < guardianList.length; i++) {
-            require(isGuardian[keccak256(abi.encodePacked(guardianList[i]))] == true);
-            require(guardianToRecovery[guardianList[i]].proposedOwner == newOwner);
-            require(guardianToRecovery[guardianList[i]].recoveryRound == currRecoveryRound);
-        }
-    
-        bool recoverySuccess = executeRecovery(newOwner, guardianList);
-
-        assert(!recoverySuccess);
-        assert(owner != newOwner);
     }
 
 }
