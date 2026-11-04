@@ -79,7 +79,7 @@ recov-implies-guardian,v13,0,
 recov-succeeds,v13,0,
 
 no-recov,v14,1,
-owner-cannot-change,v14,0,
+owner-cannot-change,v14,1,
 recov-fails,v14,1,
 recov-implies-guardian,v14,1,"Recovery can't happen, and a recovery needs to exist in order for the property to be violated, because (true=>any)==false."
 recov-succeeds,v14,0,
@@ -102,11 +102,11 @@ recov-fails,v17,1,
 recov-implies-guardian,v17,1,"Recovery can't happen, and a recovery needs to exist in order for the property to be violated, because (true=>any)==false."
 recov-succeeds,v17,0,
 
-no-recov,v18,1,
-owner-cannot-change,v18,1,
+no-recov,v18,0,
+owner-cannot-change,v18,0,
 recov-fails,v18,1,
-recov-implies-guardian,v18,1,"Recovery can't happen, and a recovery needs to exist in order for the property to be violated, because (true=>any)==false."
-recov-succeeds,v18,0,
+recov-implies-guardian,v18,0,
+recov-succeeds,v18,1,
 
 no-recov,v19,0,
 owner-cannot-change,v19,0,
