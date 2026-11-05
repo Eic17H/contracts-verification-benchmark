@@ -40,10 +40,10 @@ owner-cannot-change,v7,N
 owner-cannot-change,v8,N
 owner-cannot-change,v9,N
 recov-implies-guardian,v1,ERR
-recov-succeeds,v1,ERR
+recov-succeeds,v1,N
 recov-succeeds,v10,N
 recov-succeeds,v11,N
-recov-succeeds,v12,N
+recov-succeeds,v12,ERR
 recov-succeeds,v13,N
 recov-succeeds,v14,N
 recov-succeeds,v15,N
@@ -52,11 +52,11 @@ recov-succeeds,v17,N
 recov-succeeds,v18,N
 recov-succeeds,v19,N
 recov-succeeds,v2,N
-recov-succeeds,v20,N
-recov-succeeds,v3,N
+recov-succeeds,v20,P!
+recov-succeeds,v3,ERR
 recov-succeeds,v4,N
 recov-succeeds,v5,N
-recov-succeeds,v6,N
+recov-succeeds,v6,P!
 recov-succeeds,v7,N
 recov-succeeds,v8,N
 recov-succeeds,v9,N

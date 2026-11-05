@@ -14,19 +14,10 @@ rule recov_succeeds {
     require e.msg.value == 0;
 
     // modifier onlyGuardian
-    require currentContract.isGuardian[
-        keccak256( // hash
-            to_bytes20( // 20 byte array (equivalent to abi.encodePacked())
-                assert_uint160( // 20 byte uint
-                    assert_uint256( // 32 byte uint
-                        to_bytes32( // 32 byte array
-                            e.msg.sender
-                        )
-                    )
-                )
-            )
-        )
-    ];
+    // Still doesn't work because packedSender is turned back into a bytes32 when hashed
+    bytes20 packedSender;
+    require packedSender == to_bytes20(assert_uint160(to_mathint(e.msg.sender)));
+    require currentContract.isGuardian[keccak256(packedSender)];
 
     // modifier onlyInRecovery
     require currentContract.inRecovery;
@@ -42,7 +33,14 @@ rule recov_succeeds {
             currentContract.guardianToRecovery[guardianList[i]].recoveryRound == currentContract.currRecoveryRound
         && currentContract.guardianToRecovery[guardianList[i]].proposedOwner == newOwner
         && !currentContract.guardianToRecovery[guardianList[i]].usedInExecuteRecovery
-        // && guardianList[i] < address(2^160) // cap address value to avoid addresses being rejected, I don't know how to do it
+        && to_mathint(guardianList[i]) < 2^160 // cap address value to avoid addresses being rejected
+        ;
+    
+    require forall uint256 i .
+        forall uint256 j .
+            i < guardianList.length && j < guardianList.length
+            && i != j
+            => guardianList[i] != guardianList[j]
         ;
 
     executeRecovery@withrevert(e, newOwner, guardianList);
