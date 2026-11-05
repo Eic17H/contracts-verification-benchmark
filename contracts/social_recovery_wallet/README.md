@@ -68,26 +68,26 @@ guardian state.
 #### Z3
 |         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
 |---------|------------------------|------------------------|------------------------|------------------------|------------------------|
-| **v1** | TN!                    | UNK                    | ERR                    | UNK                    | ERR                    |
-| **v10** | UNK                    | UNK                    | ERR                    | TN!                    | ERR                    |
-| **v11** | TN!                    | UNK                    | ERR                    | UNK                    | ERR                    |
-| **v12** | TN!                    | UNK                    | ERR                    | UNK                    | ERR                    |
-| **v13** | UNK                    | UNK                    | ERR                    | UNK                    | ERR                    |
-| **v14** | TP!                    | TP!                    | ERR                    | FN!                    | ERR                    |
-| **v15** | TP!                    | TP!                    | ERR                    | TP!                    | ERR                    |
-| **v16** | TP!                    | TP!                    | ERR                    | TP!                    | ERR                    |
-| **v17** | TP!                    | TP!                    | ERR                    | TP!                    | ERR                    |
-| **v18** | TN!                    | UNK                    | ERR                    | UNK                    | ERR                    |
-| **v19** | TN!                    | UNK                    | ERR                    | UNK                    | ERR                    |
-| **v2** | TN!                    | TN!                    | ERR                    | UNK                    | ERR                    |
-| **v20** | TN!                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v3** | TN!                    | TP!                    | ERR                    | UNK                    | ERR                    |
-| **v4** | UNK                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v5** | UNK                    | TN!                    | ERR                    | UNK                    | ERR                    |
-| **v6** | TN!                    | UNK                    | ERR                    | TN!                    | ERR                    |
-| **v7** | TN!                    | UNK                    | ERR                    | UNK                    | ERR                    |
-| **v8** | UNK                    | UNK                    | ERR                    | UNK                    | ERR                    |
-| **v9** | TN!                    | UNK                    | ERR                    | UNK                    | ERR                    |
+| **v1** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
+| **v10** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
+| **v11** | TN!                    | UNK                    | FP!                    | UNK                    | TP!                    |
+| **v12** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
+| **v13** | UNK                    | UNK                    | UNK                    | UNK                    | UNK                    |
+| **v14** | TP!                    | TP!                    | TP!                    | FN!                    | TN!                    |
+| **v15** | TP!                    | TP!                    | TP!                    | TP!                    | FN!                    |
+| **v16** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
+| **v17** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
+| **v18** | UNK                    | UNK                    | UNK                    | UNK                    | TP!                    |
+| **v19** | TN!                    | UNK                    | TN!                    | UNK                    | TP!                    |
+| **v2** | TN!                    | TN!                    | TP!                    | UNK                    | TP!                    |
+| **v20** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
+| **v3** | UNK                    | TP!                    | TP!                    | UNK                    | UNK                    |
+| **v4** | UNK                    | UNK                    | TP!                    | UNK                    | FP!                    |
+| **v5** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
+| **v6** | TN!                    | UNK                    | TP!                    | TN!                    | TP!                    |
+| **v7** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
+| **v8** | UNK                    | UNK                    | UNK                    | UNK                    | UNK                    |
+| **v9** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
  
 
 #### Eldarica
