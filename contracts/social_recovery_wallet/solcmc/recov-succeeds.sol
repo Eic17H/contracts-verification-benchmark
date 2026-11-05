@@ -2,19 +2,27 @@
 // have participated in the same recovery round, and selected the same new owner,
 // then `executeRecovery()` will succeed and `owner == newOwner`.
 
-function invariant(address newOwner, address[] calldata guardianList) public {
+/// @custom:negate
 
-    require(guardianList.length >= threshold);
-    require(inRecovery == true);
+/// @custom:ghost
+address newOwner;
+address[] guardianList;
 
-    for (uint i = 0; i < guardianList.length; i++) {
-        require(isGuardian[keccak256(abi.encodePacked(guardianList[i]))] == true);
-        require(guardianToRecovery[guardianList[i]].proposedOwner == newOwner);
-        require(guardianToRecovery[guardianList[i]].recoveryRound == currRecoveryRound);
-    }
+/// @custom:preghost function executeRecovery
+require(guardianList.length >= threshold); // line 112 in v1
+require(inRecovery == true); // modifier onlyInRecovery
+for (uint i = 0; i < guardianList.length; i++) {
+    //require(isGuardian[keccak256(abi.encodePacked(guardianList[i]))] == true); // check that the guardian list makes sense
+    require(guardianToRecovery[guardianList[i]].recoveryRound == currRecoveryRound); // line 119 in v1
+    require(guardianToRecovery[guardianList[i]].proposedOwner == newOwner); // line 120 in v1
+    require(!guardianToRecovery[guardianList[i]].usedInExecuteRecovery); // line 121 in v1
+}
 
-    bool recoverySuccess = executeRecovery(newOwner, guardianList);
+/// @custom:postghost function executeRecovery
+assert(owner != newOwner);
 
-    assert(recoverySuccess);
-    assert(owner == newOwner);
+/// @custom:invariant
+function invariant(address newOwner_, address[] calldata guardianList_) public {
+    newOwner = newOwner_;
+    guardianList = guardianList_;
 }

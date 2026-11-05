@@ -93,26 +93,26 @@ guardian state.
 #### Eldarica
 |         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
 |---------|------------------------|------------------------|------------------------|------------------------|------------------------|
-| **v1** | TN!                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v10** | TN!                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v11** | TN!                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v12** | TN!                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v13** | TN!                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v14** | TP!                    | TP!                    | ERR                    | FN!                    | ERR                    |
-| **v15** | TP!                    | TP!                    | ERR                    | TP!                    | ERR                    |
-| **v16** | TP!                    | TP!                    | ERR                    | TP!                    | ERR                    |
-| **v17** | TP!                    | TP!                    | ERR                    | TP!                    | ERR                    |
-| **v18** | TN!                    | TN!                    | ERR                    | TN                     | ERR                    |
-| **v19** | TN!                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v2** | TN!                    | TN!                    | ERR                    | FN                     | ERR                    |
-| **v20** | TN!                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v3** | TN!                    | UNK                    | ERR                    | TN!                    | ERR                    |
-| **v4** | TN!                    | TN!                    | ERR                    | TN                     | ERR                    |
-| **v5** | TN!                    | TN!                    | ERR                    | TN                     | ERR                    |
-| **v6** | TN!                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v7** | TN!                    | TN!                    | ERR                    | TN!                    | ERR                    |
-| **v8** | TN                     | UNK                    | ERR                    | UNK                    | ERR                    |
-| **v9** | TN                     | UNK                    | ERR                    | TN                     | ERR                    |
+| **v1** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
+| **v10** | TN!                    | TN!                    | TP!                    | TN!                    | FP!                    |
+| **v11** | TN!                    | TN!                    | FP!                    | TN!                    | TP!                    |
+| **v12** | TN!                    | TN!                    | TP!                    | TN!                    | FP!                    |
+| **v13** | TN!                    | TN!                    | TN!                    | TN!                    | FP!                    |
+| **v14** | TP!                    | TP!                    | TP!                    | FN!                    | TN!                    |
+| **v15** | TP!                    | TP!                    | TP!                    | TP!                    | FN!                    |
+| **v16** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
+| **v17** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
+| **v18** | TN!                    | TN!                    | TP!                    | TN                     | TP!                    |
+| **v19** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
+| **v2** | TN!                    | TN!                    | TP!                    | FN                     | TP!                    |
+| **v20** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
+| **v3** | TN!                    | UNK                    | TP!                    | TN!                    | TP!                    |
+| **v4** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
+| **v5** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
+| **v6** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
+| **v7** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
+| **v8** | TN                     | UNK                    | TP!                    | UNK                    | TP!                    |
+| **v9** | TN                     | UNK                    | TP!                    | TN                     | TP!                    |
  
 
 ### Certora
