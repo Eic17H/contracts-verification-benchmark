@@ -40,7 +40,7 @@ owner-cannot-change,v7,N
 owner-cannot-change,v8,N
 owner-cannot-change,v9,N
 recov-implies-guardian,v1,ERR
-recov-succeeds,v1,N
+recov-succeeds,v1,ERR
 recov-succeeds,v10,N
 recov-succeeds,v11,N
 recov-succeeds,v12,N
