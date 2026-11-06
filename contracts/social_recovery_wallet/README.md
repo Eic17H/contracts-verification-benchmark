@@ -118,25 +118,25 @@ guardian state.
 ### Certora
 |         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
 |---------|------------------------|------------------------|------------------------|------------------------|------------------------|
-| **v1** | TN                     | TN                     | ND                     | ERR                    | FN                     |
-| **v10** | TN                     | TN                     | ND                     | ND                     | TN                     |
-| **v11** | TN                     | TN                     | ND                     | ND                     | FN                     |
-| **v12** | TN                     | TN                     | ND                     | ND                     | ERR                    |
-| **v13** | TN                     | TN                     | ND                     | ND                     | TN                     |
-| **v14** | TP!                    | FN                     | ND                     | ND                     | TN                     |
-| **v15** | TP!                    | FN                     | ND                     | ND                     | FN                     |
+| **v1** | TN                     | TN                     | ND                     | ERR                    | TP!                    |
+| **v10** | TN                     | TN                     | ND                     | ND                     | FP!                    |
+| **v11** | TN                     | TN                     | ND                     | ND                     | TP!                    |
+| **v12** | TN                     | TN                     | ND                     | ND                     | FP!                    |
+| **v13** | TN                     | TN                     | ND                     | ND                     | FP!                    |
+| **v14** | TP!                    | FN                     | ND                     | ND                     | FP!                    |
+| **v15** | TP!                    | FN                     | ND                     | ND                     | TP!                    |
 | **v16** | FN                     | FN                     | ND                     | ND                     | TN                     |
 | **v17** | FN                     | FN                     | ND                     | ND                     | TN                     |
-| **v18** | TN                     | TN                     | ND                     | ND                     | FN                     |
-| **v19** | TN                     | TN                     | ND                     | ND                     | FN                     |
-| **v2** | TN                     | TN                     | ND                     | ND                     | FN                     |
+| **v18** | TN                     | TN                     | ND                     | ND                     | TP!                    |
+| **v19** | TN                     | TN                     | ND                     | ND                     | TP!                    |
+| **v2** | TN                     | TN                     | ND                     | ND                     | TP!                    |
 | **v20** | TN                     | TN                     | ND                     | ND                     | TP!                    |
-| **v3** | TN                     | FN                     | ND                     | ND                     | ERR                    |
-| **v4** | TN                     | TN                     | ND                     | ND                     | TN                     |
-| **v5** | TN                     | TN                     | ND                     | ND                     | TN                     |
+| **v3** | TN                     | FN                     | ND                     | ND                     | TP!                    |
+| **v4** | TN                     | TN                     | ND                     | ND                     | FP!                    |
+| **v5** | TN                     | TN                     | ND                     | ND                     | FP!                    |
 | **v6** | TN                     | TN                     | ND                     | ND                     | TP!                    |
-| **v7** | TN                     | TN                     | ND                     | ND                     | FN                     |
-| **v8** | TN                     | TN                     | ND                     | ND                     | FN                     |
-| **v9** | TN                     | TN                     | ND                     | ND                     | FN                     |
+| **v7** | TN                     | TN                     | ND                     | ND                     | TP!                    |
+| **v8** | TN                     | TN                     | ND                     | ND                     | TP!                    |
+| **v9** | TN                     | TN                     | ND                     | ND                     | TP!                    |
  
 
