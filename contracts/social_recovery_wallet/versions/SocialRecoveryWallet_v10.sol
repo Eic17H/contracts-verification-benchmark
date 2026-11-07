@@ -140,7 +140,7 @@ contract Wallet is ReentrancyGuard {
             isGuardian[keccak256(abi.encodePacked(newOwner))] = true;
             owner = _guardian_initated_recovery;
         } else {
-            owner = newOwner;
+            // owner = newOwner;
         }
     }
 

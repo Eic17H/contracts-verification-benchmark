@@ -106,7 +106,7 @@ guardian state.
 | **v19** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
 | **v2** | TN!                    | TN!                    | TP!                    | FN                     | TP!                    |
 | **v20** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
-| **v3** | TN!                    | UNK                    | TP!                    | TN!                    | TP!                    |
+| **v3** | TN!                    | UNK                    | TP!                    | TN!                    | FP!                    |
 | **v4** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
 | **v5** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
 | **v6** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
@@ -119,10 +119,10 @@ guardian state.
 |         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
 |---------|------------------------|------------------------|------------------------|------------------------|------------------------|
 | **v1** | TN                     | TN                     | ND                     | ERR                    | TP!                    |
-| **v10** | TN                     | TN                     | ND                     | ND                     | FP!                    |
+| **v10** | TN                     | TN                     | ND                     | ND                     | TN                     |
 | **v11** | TN                     | TN                     | ND                     | ND                     | TP!                    |
-| **v12** | TN                     | TN                     | ND                     | ND                     | FP!                    |
-| **v13** | TN                     | TN                     | ND                     | ND                     | FP!                    |
+| **v12** | TN                     | TN                     | ND                     | ND                     | TN                     |
+| **v13** | TN                     | TN                     | ND                     | ND                     | TN                     |
 | **v14** | TP!                    | FN                     | ND                     | ND                     | FP!                    |
 | **v15** | TP!                    | FN                     | ND                     | ND                     | TP!                    |
 | **v16** | FN                     | FN                     | ND                     | ND                     | TN                     |
@@ -131,9 +131,9 @@ guardian state.
 | **v19** | TN                     | TN                     | ND                     | ND                     | TP!                    |
 | **v2** | TN                     | TN                     | ND                     | ND                     | TP!                    |
 | **v20** | TN                     | TN                     | ND                     | ND                     | TP!                    |
-| **v3** | TN                     | FN                     | ND                     | ND                     | TP!                    |
-| **v4** | TN                     | TN                     | ND                     | ND                     | FP!                    |
-| **v5** | TN                     | TN                     | ND                     | ND                     | FP!                    |
+| **v3** | TN                     | FN                     | ND                     | ND                     | TN                     |
+| **v4** | TN                     | TN                     | ND                     | ND                     | TN                     |
+| **v5** | TN                     | TN                     | ND                     | ND                     | TN                     |
 | **v6** | TN                     | TN                     | ND                     | ND                     | TP!                    |
 | **v7** | TN                     | TN                     | ND                     | ND                     | TP!                    |
 | **v8** | TN                     | TN                     | ND                     | ND                     | TP!                    |

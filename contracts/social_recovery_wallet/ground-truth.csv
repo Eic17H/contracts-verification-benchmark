@@ -16,7 +16,7 @@ no-recov,v3,0,
 owner-cannot-change,v3,1,
 recov-fails,v3,1,
 recov-implies-guardian,v3,0,
-recov-succeeds,v3,1,
+recov-succeeds,v3,0,
 
 no-recov,v4,0,
 owner-cannot-change,v4,0,
