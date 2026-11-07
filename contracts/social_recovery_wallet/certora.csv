@@ -39,6 +39,7 @@ owner-cannot-change,v6,N
 owner-cannot-change,v7,N
 owner-cannot-change,v8,N
 owner-cannot-change,v9,N
+recov-fails,v1,ERR
 recov-implies-guardian,v1,ERR
 recov-succeeds,v1,P!
 recov-succeeds,v10,N

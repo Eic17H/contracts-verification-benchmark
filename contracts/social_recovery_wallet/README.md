@@ -118,7 +118,7 @@ guardian state.
 ### Certora
 |         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
 |---------|------------------------|------------------------|------------------------|------------------------|------------------------|
-| **v1** | TN                     | TN                     | ND                     | ERR                    | TP!                    |
+| **v1** | TN                     | TN                     | ERR                    | ERR                    | TP!                    |
 | **v10** | TN                     | TN                     | ND                     | ND                     | TN                     |
 | **v11** | TN                     | TN                     | ND                     | ND                     | TP!                    |
 | **v12** | TN                     | TN                     | ND                     | ND                     | TN                     |
