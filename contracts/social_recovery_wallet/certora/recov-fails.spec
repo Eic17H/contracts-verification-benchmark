@@ -1,7 +1,7 @@
 // `executeRecovery()` will fail if not enough guardians have joined the recovery process.
 
 
-rule recov_succeeds {
+rule recov_fails {
 
     address newOwner;
     address oldOwner;
