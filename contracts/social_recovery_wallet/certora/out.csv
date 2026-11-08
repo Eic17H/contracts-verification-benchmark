@@ -25,9 +25,9 @@ owner-cannot-change,v10,N
 owner-cannot-change,v11,N
 owner-cannot-change,v12,N
 owner-cannot-change,v13,N
-owner-cannot-change,v14,N
-owner-cannot-change,v15,N
-owner-cannot-change,v16,N
+owner-cannot-change,v14,P!
+owner-cannot-change,v15,P!
+owner-cannot-change,v16,P!
 owner-cannot-change,v17,N
 owner-cannot-change,v18,N
 owner-cannot-change,v19,N
@@ -88,7 +88,7 @@ recov-succeeds,v10,N
 recov-succeeds,v11,P!
 recov-succeeds,v12,N
 recov-succeeds,v13,N
-recov-succeeds,v14,P!
+recov-succeeds,v14,ERR
 recov-succeeds,v15,P!
 recov-succeeds,v16,N
 recov-succeeds,v17,N

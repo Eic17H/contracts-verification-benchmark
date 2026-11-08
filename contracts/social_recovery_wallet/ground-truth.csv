@@ -81,7 +81,7 @@ recov-succeeds,v13,0,
 no-recov,v14,1,
 owner-cannot-change,v14,1,
 recov-fails,v14,1,
-recov-implies-guardian,v14,1,"Recovery can't happen, and a recovery needs to exist in order for the property to be violated, because (true=>any)==false."
+recov-implies-guardian,v14,0,"Participating in a recovery includes initiating and supporting one, so the property doesn't vacuously hold."
 recov-succeeds,v14,0,
 
 no-recov,v15,1,

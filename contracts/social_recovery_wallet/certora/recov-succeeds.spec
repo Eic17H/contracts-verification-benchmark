@@ -60,3 +60,15 @@ rule recov_succeeds {
     assert currentContract.owner == newOwner;
     assert currentContract._recovered;
 }
+
+/* certora.py doesn't allow this, but it would solve the false positive on v14
+// If supportRecovery always reverted, the other rule would be satisfied vacuously
+rule exists_sender_not_revert {
+    env e;
+    method f;
+    calldataarg args;
+    require f.selector == sig:supportRecovery(address).selector;
+    f@withrevert(e,args);
+    satisfy !lastReverted;
+}
+//*/
