@@ -59,7 +59,8 @@ recov-fails,v6,P!
 recov-fails,v7,P!
 recov-fails,v8,P!
 recov-fails,v9,P!
-recov-implies-guardian,v1,ERR
+recov-implies-guardian,v1,P!
+recov-implies-guardian,v2,N
 recov-succeeds,v1,P!
 recov-succeeds,v10,N
 recov-succeeds,v11,P!

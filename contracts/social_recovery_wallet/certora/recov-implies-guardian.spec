@@ -1,13 +1,18 @@
-// 
+// if an address `addr` has participated in a recovery, then `addr` is a guardian.
+// Should fail in v1 because guardians can be removed.
 
-// Iterations capped at 64 to avoid stack overflow
-/// @custom:run certoraRun versions/SocialRecoveryWallet_v1.sol:Wallet --verify Wallet:certora/recov-succeeds.spec --loop_iter 64 --optimistic_loop
+/// @custom:run certoraRun versions/SocialRecoveryWallet_v1.sol:Wallet --verify Wallet:certora/recov-implies-guardian.spec --loop_iter 64 --optimistic_loop
 
 rule recov_implies_guardian {
 
     address newOwner;
     address[] guardianList;
     env e;
+
+    env e2;
+    require e2.msg.value == e.msg.value;
+    require e2.msg.sender == e.msg.sender;
+    require e2.block.number > e.block.number;
 
     require e.msg.value == 0;
 
@@ -18,7 +23,7 @@ rule recov_implies_guardian {
     require guardianList.length >= currentContract.threshold;
 
     require guardianList.length < 64;
-    
+
     // lines 115-121 in v1
     require forall uint256 i .
         i < guardianList.length =>
@@ -27,9 +32,7 @@ rule recov_implies_guardian {
         && !currentContract.guardianToRecovery[guardianList[i]].usedInExecuteRecovery
         && to_mathint(guardianList[i]) < 2^160 // cap address value to avoid addresses being rejected
         ;
-    
-    // storage initial = lastStorage;
-    
+
     // avoid duplicate guardians
     require forall uint256 i .
         forall uint256 j .
@@ -38,15 +41,22 @@ rule recov_implies_guardian {
             => guardianList[i] != guardianList[j]
         ;
 
+    
+    storage initial = lastStorage;
+
+    require !currentContract.guardianToRecovery[e.msg.sender].usedInExecuteRecovery;
+
+
     // Find a sender that doesn't make the method revert
     method f;
     calldataarg args;
     require f.selector == sig:executeRecovery(address, address[]).selector;
-    f@withrevert(e,args);
+    f@withrevert(e2,args) at initial;
     // All other preconditions are met, so a non-guardian sender is the only way for the method to revert
     bool senderIsGuardian = !lastReverted;
 
-    
+    // TODO: use a different method to read senderIsGuardian, so that usedInExecuteRecovery isn't modfied as a side effect
+    // Need to rewrite the preconditions
 
-            assert guardianToRecovery[msg.sender].proposedOwner != address(0) => senderIsGuardian;
+    assert currentContract.guardianToRecovery[e.msg.sender].usedInExecuteRecovery => senderIsGuardian;
 }
