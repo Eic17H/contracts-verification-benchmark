@@ -21,6 +21,7 @@ rule recov_succeeds {
     // line 112 in v1
     require guardianList.length >= currentContract.threshold;
 
+    // Certora iteration cap
     require guardianList.length < 64;
     
     // lines 115-121 in v1
@@ -32,7 +33,6 @@ rule recov_succeeds {
         && to_mathint(guardianList[i]) < 2^160 // cap address value to avoid addresses being rejected
         ;
     
-    storage initial = lastStorage;
     
     // avoid duplicate guardians
     require forall uint256 i .
@@ -42,14 +42,17 @@ rule recov_succeeds {
             => guardianList[i] != guardianList[j]
         ;
 
+    storage initial = lastStorage;
+    
     // Find a sender that doesn't make the method revert
     method f;
     calldataarg args;
-    require f.selector == sig:executeRecovery(address, address[]).selector;
+    require f.selector == sig:supportRecovery(address).selector;
     f@withrevert(e,args);
     require !lastReverted;
+    // Whether the sender is a guardian can't be checked directly by reading isGuardian[]
+    // because keccak256(abi.encodePacked()) can't be replicated in Certora.
 
-    
 
     executeRecovery@withrevert(e, newOwner, guardianList) at initial;
 

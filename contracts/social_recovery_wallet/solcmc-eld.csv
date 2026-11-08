@@ -12,6 +12,7 @@ no-recov,v18,N!
 no-recov,v19,N!
 no-recov,v2,N!
 no-recov,v20,N!
+no-recov,v21,N!
 no-recov,v3,N!
 no-recov,v4,N!
 no-recov,v5,N!
@@ -32,6 +33,7 @@ owner-cannot-change,v18,N!
 owner-cannot-change,v19,N!
 owner-cannot-change,v2,N!
 owner-cannot-change,v20,N!
+owner-cannot-change,v21,N!
 owner-cannot-change,v3,UNK
 owner-cannot-change,v4,N!
 owner-cannot-change,v5,N!
@@ -52,6 +54,7 @@ recov-fails,v18,P!
 recov-fails,v19,N!
 recov-fails,v2,P!
 recov-fails,v20,N!
+recov-fails,v21,P!
 recov-fails,v3,P!
 recov-fails,v4,P!
 recov-fails,v5,P!
@@ -72,6 +75,7 @@ recov-implies-guardian,v18,N
 recov-implies-guardian,v19,N!
 recov-implies-guardian,v2,N
 recov-implies-guardian,v20,N!
+recov-implies-guardian,v21,N!
 recov-implies-guardian,v3,N!
 recov-implies-guardian,v4,N
 recov-implies-guardian,v5,N
@@ -92,6 +96,7 @@ recov-succeeds,v18,P!
 recov-succeeds,v19,P!
 recov-succeeds,v2,P!
 recov-succeeds,v20,P!
+recov-succeeds,v21,P!
 recov-succeeds,v3,P!
 recov-succeeds,v4,P!
 recov-succeeds,v5,P!

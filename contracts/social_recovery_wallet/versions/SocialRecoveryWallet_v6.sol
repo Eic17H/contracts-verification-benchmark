@@ -150,7 +150,7 @@ contract Wallet is ReentrancyGuard {
         // Reset this the removal timestamp
         guardianHashToRemovalTimestamp[oldGuardianHash] = 0;
 
-        // isGuardian[oldGuardianHash] = false;
+        isGuardian[oldGuardianHash] = false;
         isGuardian[newGuardianHash] = true;
     }
 

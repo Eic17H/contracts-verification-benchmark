@@ -55,6 +55,7 @@ guardian state.
 - **v18**: `executeExternalTx` is reentrant.
 - **v19**: the threshold of guardians that need to support the recovery isn't checked.
 - **v20**: methods don't revert.
+- **v21**: when the contract checks whether an address is a guardian, that address becomes a guardian.
 
 ## Verification data
 
@@ -81,6 +82,7 @@ guardian state.
 | **v19** | TN!                    | UNK                    | TN!                    | UNK                    | TP!                    |
 | **v2** | TN!                    | TN!                    | TP!                    | UNK                    | TP!                    |
 | **v20** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
+| **v21** | UNK                    | UNK                    | UNK                    | UNK                    | UNK                    |
 | **v3** | UNK                    | TP!                    | TP!                    | UNK                    | UNK                    |
 | **v4** | UNK                    | UNK                    | TP!                    | UNK                    | FP!                    |
 | **v5** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
@@ -106,6 +108,7 @@ guardian state.
 | **v19** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
 | **v2** | TN!                    | TN!                    | TP!                    | FN                     | TP!                    |
 | **v20** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
+| **v21** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
 | **v3** | TN!                    | UNK                    | TP!                    | TN!                    | FP!                    |
 | **v4** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
 | **v5** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
@@ -118,25 +121,26 @@ guardian state.
 ### Certora
 |         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
 |---------|------------------------|------------------------|------------------------|------------------------|------------------------|
-| **v1** | TN                     | TN                     | TP!                    | ERR                    | TP!                    |
-| **v10** | TN                     | TN                     | TP!                    | ND                     | TN                     |
-| **v11** | TN                     | TN                     | FP!                    | ND                     | TP!                    |
-| **v12** | TN                     | TN                     | TP!                    | ND                     | TN                     |
-| **v13** | TN                     | TN                     | TN                     | ND                     | TN                     |
-| **v14** | TP!                    | FN                     | TP!                    | ND                     | FP!                    |
-| **v15** | TP!                    | FN                     | TP!                    | ND                     | TP!                    |
-| **v16** | FN                     | FN                     | FN                     | ND                     | TN                     |
-| **v17** | FN                     | FN                     | TP!                    | ND                     | TN                     |
-| **v18** | TN                     | TN                     | TP!                    | ND                     | TP!                    |
-| **v19** | TN                     | TN                     | TN                     | ND                     | TP!                    |
-| **v2** | TN                     | TN                     | TP!                    | ND                     | TP!                    |
-| **v20** | TN                     | TN                     | TN                     | ND                     | TP!                    |
-| **v3** | TN                     | FN                     | TP!                    | ND                     | TN                     |
-| **v4** | TN                     | TN                     | TP!                    | ND                     | TN                     |
-| **v5** | TN                     | TN                     | TP!                    | ND                     | TN                     |
-| **v6** | TN                     | TN                     | TP!                    | ND                     | TP!                    |
-| **v7** | TN                     | TN                     | TP!                    | ND                     | TP!                    |
-| **v8** | TN                     | TN                     | TP!                    | ND                     | TP!                    |
-| **v9** | TN                     | TN                     | TP!                    | ND                     | TP!                    |
+| **v1** | TN                     | TN                     | TP!                    | TN                     | TP!                    |
+| **v10** | TN                     | TN                     | TP!                    | TN                     | TN                     |
+| **v11** | TN                     | TN                     | FP!                    | TN                     | TP!                    |
+| **v12** | TN                     | TN                     | TP!                    | TN                     | TN                     |
+| **v13** | TN                     | TN                     | TN                     | TN                     | TN                     |
+| **v14** | TP!                    | FN                     | TP!                    | FN                     | FP!                    |
+| **v15** | TP!                    | FN                     | TP!                    | FN                     | TP!                    |
+| **v16** | FN                     | FN                     | FN                     | TP!                    | TN                     |
+| **v17** | FN                     | FN                     | TP!                    | FN                     | TN                     |
+| **v18** | TN                     | TN                     | TP!                    | TN                     | TP!                    |
+| **v19** | TN                     | TN                     | TN                     | TN                     | TP!                    |
+| **v2** | TN                     | TN                     | TP!                    | FN                     | TP!                    |
+| **v20** | TN                     | TN                     | TN                     | FP!                    | TP!                    |
+| **v21** | TN                     | TN                     | TP!                    | FP!                    | TP!                    |
+| **v3** | TN                     | FN                     | TP!                    | TN                     | TN                     |
+| **v4** | TN                     | TN                     | TP!                    | TN                     | TN                     |
+| **v5** | TN                     | TN                     | TP!                    | TN                     | TN                     |
+| **v6** | TN                     | TN                     | TP!                    | FP!                    | TP!                    |
+| **v7** | TN                     | TN                     | TP!                    | TN                     | TP!                    |
+| **v8** | TN                     | TN                     | TP!                    | TN                     | TP!                    |
+| **v9** | TN                     | TN                     | TP!                    | TN                     | TP!                    |
  
 
