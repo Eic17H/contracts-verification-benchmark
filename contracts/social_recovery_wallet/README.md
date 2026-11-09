@@ -75,7 +75,7 @@ guardian state.
 | **v12** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
 | **v13** | UNK                    | UNK                    | UNK                    | UNK                    | UNK                    |
 | **v14** | TP!                    | TP!                    | TP!                    | TN!                    | TN!                    |
-| **v15** | TP!                    | TP!                    | TP!                    | TP!                    | FN!                    |
+| **v15** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
 | **v16** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
 | **v17** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
 | **v18** | UNK                    | UNK                    | UNK                    | UNK                    | TP!                    |
@@ -96,13 +96,13 @@ guardian state.
 |         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
 |---------|------------------------|------------------------|------------------------|------------------------|------------------------|
 | **v1** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
-| **v10** | TN!                    | TN!                    | TP!                    | TN!                    | FP!                    |
+| **v10** | TN!                    | TN!                    | TP!                    | TN!                    | UNK                    |
 | **v11** | TN!                    | TN!                    | FP!                    | TN!                    | TP!                    |
 | **v12** | TN!                    | TN!                    | TP!                    | TN!                    | FP!                    |
 | **v13** | TN!                    | TN!                    | TN!                    | TN!                    | FP!                    |
 | **v14** | TP!                    | TP!                    | TP!                    | TN!                    | TN!                    |
-| **v15** | TP!                    | TP!                    | TP!                    | TP!                    | FN!                    |
-| **v16** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
+| **v15** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
+| **v16** | TP!                    | TP!                    | TP!                    | TP!                    | FP!                    |
 | **v17** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
 | **v18** | TN!                    | TN!                    | TP!                    | TN                     | TP!                    |
 | **v19** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
@@ -114,8 +114,8 @@ guardian state.
 | **v5** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
 | **v6** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
 | **v7** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
-| **v8** | TN                     | UNK                    | TP!                    | UNK                    | TP!                    |
-| **v9** | TN                     | UNK                    | TP!                    | TN                     | TP!                    |
+| **v8** | TN                     | UNK                    | TP!                    | UNK                    | UNK                    |
+| **v9** | TN                     | UNK                    | TP!                    | TN                     | UNK                    |
  
 
 ### Certora
@@ -127,7 +127,7 @@ guardian state.
 | **v12** | TN                     | TN                     | TP!                    | TN                     | TN                     |
 | **v13** | TN                     | TN                     | TN                     | TN                     | TN                     |
 | **v14** | TP!                    | TP!                    | TP!                    | TN                     | TN                     |
-| **v15** | TP!                    | TP!                    | TP!                    | FN                     | TP!                    |
+| **v15** | TP!                    | TP!                    | TP!                    | FN                     | FP!                    |
 | **v16** | FN                     | TP!                    | TP!                    | TP!                    | TN                     |
 | **v17** | FN                     | TP!                    | TP!                    | FN                     | TN                     |
 | **v18** | TN                     | TN                     | TP!                    | TN                     | TP!                    |

@@ -2,27 +2,38 @@
 // have participated in the same recovery round, and selected the same new owner,
 // then `executeRecovery()` will succeed and `owner == newOwner`.
 
+// Wrong
+
 /// @custom:negate
 
 /// @custom:ghost
-address newOwner_;
-address[] guardianList_;
+address recov_succeeds_newOwner;
 
 /// @custom:preghost function executeRecovery
-require(guardianList_.length >= threshold); // line 112 in v1
-require(inRecovery == true); // modifier onlyInRecovery
-for (uint i = 0; i < guardianList_.length; i++) {
-    //require(isGuardian[keccak256(abi.encodePacked(guardianList_[i]))] == true); // check that the guardian list makes sense
-    require(guardianToRecovery[guardianList_[i]].recoveryRound == currRecoveryRound); // line 119 in v1
-    require(guardianToRecovery[guardianList_[i]].proposedOwner == newOwner_); // line 120 in v1
-    require(!guardianToRecovery[guardianList_[i]].usedInExecuteRecovery); // line 121 in v1
+require(newOwner == recov_succeeds_newOwner);
+require(guardianList.length >= threshold); // line 112 in v1
+require(newOwner != owner);
+for (uint i = 0; i < guardianList.length; i++) {
+    //require(isGuardian[keccak256(abi.encodePacked(guardianList[i]))] == true); // check that the guardian list makes sense
+    require(guardianToRecovery[guardianList[i]].recoveryRound == currRecoveryRound); // line 119 in v1
+    require(guardianToRecovery[guardianList[i]].proposedOwner == newOwner); // line 120 in v1
+    require(!guardianToRecovery[guardianList[i]].usedInExecuteRecovery); // line 121 in v1
+    require(guardianList[i] != newOwner); // check the new owner isn't a guardian
 }
 
+// check the new owner isn't a guardian
+/// @custom:preghost function initiateRecovery
+require(msg.sender != recov_succeeds_newOwner);
+/// @custom:preghost function supportRecovery
+require(msg.sender != recov_succeeds_newOwner);
+/// @custom:preghost function executeRecovery
+require(msg.sender != recov_succeeds_newOwner);
+
 /// @custom:postghost function executeRecovery
-assert(owner != newOwner_);
+assert(owner != recov_succeeds_newOwner);
 
 /// @custom:invariant
-function invariant(address newOwnerParam, address[] calldata guardianListParam) public {
-    newOwner_ = newOwnerParam;
-    guardianList_ = guardianListParam;
+function invariant(address newOwnerParam) public {
+    require(newOwnerParam != owner);
+    recov_succeeds_newOwner = newOwnerParam;
 }

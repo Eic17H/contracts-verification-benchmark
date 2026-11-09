@@ -82,25 +82,25 @@ no-recov,v14,1,
 owner-cannot-change,v14,1,
 recov-fails,v14,1,
 recov-implies-guardian,v14,0,"Participating in a recovery includes initiating and supporting one, so the property doesn't vacuously hold."
-recov-succeeds,v14,0,
+recov-succeeds,v14,0,"Recovery always fails."
 
 no-recov,v15,1,
 owner-cannot-change,v15,1,
 recov-fails,v15,1,
 recov-implies-guardian,v15,1,"Recovery can't happen, and a recovery needs to exist in order for the property to be violated, because (true=>any)==false."
-recov-succeeds,v15,1,
+recov-succeeds,v15,0,"Recovery always fails."
 
 no-recov,v16,1,
 owner-cannot-change,v16,1,
 recov-fails,v16,1,
 recov-implies-guardian,v16,1,"Recovery can't happen, and a recovery needs to exist in order for the property to be violated, because (true=>any)==false."
-recov-succeeds,v16,0,
+recov-succeeds,v16,0,"Recovery does nothing."
 
 no-recov,v17,1,
 owner-cannot-change,v17,1,
 recov-fails,v17,1,
 recov-implies-guardian,v17,1,"Recovery can't happen, and a recovery needs to exist in order for the property to be violated, because (true=>any)==false."
-recov-succeeds,v17,0,
+recov-succeeds,v17,0,"Recovery does nothing."
 
 no-recov,v18,0,
 owner-cannot-change,v18,0,
