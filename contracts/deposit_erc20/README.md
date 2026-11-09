@@ -17,6 +17,20 @@ The function `withdraw(amount)` can be called by anyone to transfer `amount` tok
 ## Versions
 - **v1**: conformant to specification.
 - **v2**: safe IERC20 interactions by using [SafeERC20.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.8.3/contracts/token/ERC20/utils/SafeERC20.sol) (OpenZeppelin)
+- **v3**: methods are non reentrant.
+- **v4**: `deposit` always reverts.
+- **v5**: can deposit exactly twice.
+- **v6**: can deposit multiple times.
+- **v7**: `withdraw` always reverts.
+- **v8**: can only withdraw once.
+- **v9**: all methods always revert.
+- **v10**: all methods do nothing.
+- **v11**: all methods do nothing, but revert when they should.
+- **v12**: only the depositor can withdraw.
+- **v13**: depositor can't withdraw.
+- **v14**: withdraw withholds one token.
+- **v15**: each address can only withdraw once.
+- **v16**: `withdraw` always sends funds to depositor.
 
 ## Verification data
 

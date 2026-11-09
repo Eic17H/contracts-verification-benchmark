@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity >= 0.8.2;
+
+import "./lib/ERC20v1.sol";
+
+/// @custom:version depositor can't withdraw.
+contract Deposit {
+    ERC20 token;
+    bool ever_deposited;
+
+    uint private sent;
+    uint initial_deposit;
+
+    // ghost variables
+    uint _count_deposit;
+
+    address depositor;
+
+    constructor(ERC20 token_) {
+        token = token_;
+    }
+
+    function deposit() public {
+        require(!ever_deposited);
+
+        ever_deposited = true;
+        uint allowance = token.allowance(msg.sender, address(this));
+        token.transferFrom(msg.sender, address(this), allowance);
+
+        initial_deposit = token.totalSupply();
+
+        _count_deposit += 1;	
+
+        depositor = msg.sender;
+    }
+
+    function withdraw(uint amount) public {
+        require(msg.sender != depositor);
+        sent += amount;
+        token.transfer(msg.sender, amount);
+    }
+}
