@@ -5,11 +5,11 @@ rule wd_contract_bal {
     uint amount;
     mathint mi_amount = amount;
 
-    mathint before = getBalance();
+    mathint before = nativeBalances[currentContract];
     require before >= mi_amount;
     
     withdraw(e, amount);
     
-    mathint after = getBalance();
+    mathint after = nativeBalances[currentContract];
     assert before == after + mi_amount;
 }

@@ -1,0 +1,7 @@
+property,version,outcome
+no-deposit-twice,v1,P!
+no-deposit-twice,v2,P!
+wd-contract-bal,v1,N
+wd-contract-bal,v2,N
+wd-leq-init-bal,v1,N
+wd-leq-init-bal,v2,N
