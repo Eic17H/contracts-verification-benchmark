@@ -1,34 +1,34 @@
 property,version,truth,footnote-md
 
-no-recov,v1,0,
-owner-cannot-change,v1,0,
+no-recov,v1,0,"Should fail."
+owner-cannot-change,v1,0,"Should fail."
 recov-fails,v1,1,
-recov-implies-guardian,v1,0,
+recov-implies-guardian,v1,0,"Should fail, because guardians can be removed."
 recov-succeeds,v1,1,
 
 no-recov,v2,0,
 owner-cannot-change,v2,0,
 recov-fails,v2,1,
-recov-implies-guardian,v2,1,
+recov-implies-guardian,v2,1,"Guardians can't be removed."
 recov-succeeds,v2,1,
 
 no-recov,v3,0,
-owner-cannot-change,v3,1,
+owner-cannot-change,v3,1,"Owner cannot be changed."
 recov-fails,v3,1,
 recov-implies-guardian,v3,0,
-recov-succeeds,v3,0,
+recov-succeeds,v3,0,"Owner cannot be changed."
 
 no-recov,v4,0,
 owner-cannot-change,v4,0,
 recov-fails,v4,1,
 recov-implies-guardian,v4,0,
-recov-succeeds,v4,0,
+recov-succeeds,v4,0,"Owner is changed to the wrong address."
 
 no-recov,v5,0,
 owner-cannot-change,v5,0,
 recov-fails,v5,1,
 recov-implies-guardian,v5,0,
-recov-succeeds,v5,0,
+recov-succeeds,v5,0,"Owner is sometimes changed to the first owner."
 
 no-recov,v6,0,
 owner-cannot-change,v6,0,
@@ -58,11 +58,11 @@ no-recov,v10,0,
 owner-cannot-change,v10,0,
 recov-fails,v10,1,
 recov-implies-guardian,v10,0,
-recov-succeeds,v10,0,
+recov-succeeds,v10,0,"The owner is changed to the wrong address."
 
 no-recov,v11,0,
 owner-cannot-change,v11,0,
-recov-fails,v11,0,
+recov-fails,v11,0,"The wrong threshold is used."
 recov-implies-guardian,v11,0,
 recov-succeeds,v11,1,
 
@@ -70,34 +70,34 @@ no-recov,v12,0,
 owner-cannot-change,v12,0,
 recov-fails,v12,1,
 recov-implies-guardian,v12,0,
-recov-succeeds,v12,0,
+recov-succeeds,v12,0,"Recovery fails if too many guardians support it."
 
 no-recov,v13,0,
 owner-cannot-change,v13,0,
-recov-fails,v13,0,
+recov-fails,v13,0,"Guardian amount doesn't have a lower threshold."
 recov-implies-guardian,v13,0,
-recov-succeeds,v13,0,
+recov-succeeds,v13,0,"Recovery fails if too many guardians support it."
 
 no-recov,v14,1,
-owner-cannot-change,v14,1,
+owner-cannot-change,v14,1,"Recovery always reverts."
 recov-fails,v14,1,
 recov-implies-guardian,v14,0,"Participating in a recovery includes initiating and supporting one, so the property doesn't vacuously hold."
 recov-succeeds,v14,0,"Recovery always fails."
 
 no-recov,v15,1,
-owner-cannot-change,v15,1,
+owner-cannot-change,v15,1,"Recovery always reverts."
 recov-fails,v15,1,
 recov-implies-guardian,v15,1,"Recovery can't happen, and a recovery needs to exist in order for the property to be violated, because (true=>any)==false."
 recov-succeeds,v15,0,"Recovery always fails."
 
 no-recov,v16,1,
-owner-cannot-change,v16,1,
+owner-cannot-change,v16,1,"Recovery does nothing."
 recov-fails,v16,1,
 recov-implies-guardian,v16,1,"Recovery can't happen, and a recovery needs to exist in order for the property to be violated, because (true=>any)==false."
 recov-succeeds,v16,0,"Recovery does nothing."
 
 no-recov,v17,1,
-owner-cannot-change,v17,1,
+owner-cannot-change,v17,1,"Recovery does nothing."
 recov-fails,v17,1,
 recov-implies-guardian,v17,1,"Recovery can't happen, and a recovery needs to exist in order for the property to be violated, because (true=>any)==false."
 recov-succeeds,v17,0,"Recovery does nothing."
@@ -110,13 +110,13 @@ recov-succeeds,v18,1,
 
 no-recov,v19,0,
 owner-cannot-change,v19,0,
-recov-fails,v19,0,
+recov-fails,v19,0,"Threshold is ignored."
 recov-implies-guardian,v19,0,
 recov-succeeds,v19,1,
 
 no-recov,v20,0,
 owner-cannot-change,v20,0,
-recov-fails,v20,0,
+recov-fails,v20,0,"Threshold is ignored."
 recov-implies-guardian,v20,0,
 recov-succeeds,v20,1,
 
