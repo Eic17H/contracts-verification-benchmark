@@ -33,8 +33,8 @@ contract Deposit {
     }
 
     function withdraw(uint amount) public {
-        require(!hasWithdrawn(msg.sender));
-        hasWithdrawn(msg.sender) = true;
+        require(!hasWithdrawn[msg.sender]);
+        hasWithdrawn[msg.sender] = true;
         sent += amount;
         token.transfer(msg.sender, amount);
     }

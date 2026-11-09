@@ -1,9 +1,52 @@
 property,version,truth,footnote-md
+
 no-deposit-twice,v1,1,
 no-deposit-twice,v2,1,
+no-deposit-twice,v3,1,
+no-deposit-twice,v4,1,
+no-deposit-twice,v5,0,"Can deposit twice."
+no-deposit-twice,v6,0,"Can deposit multiple times."
+no-deposit-twice,v7,1,
+no-deposit-twice,v8,1,
+no-deposit-twice,v9,1,"Cannot deposit."
+no-deposit-twice,v10,1,"Cannot deposit."
+no-deposit-twice,v11,1,"Cannot deposit."
+no-deposit-twice,v12,1,
+no-deposit-twice,v13,1,
+no-deposit-twice,v14,1,
+no-deposit-twice,v15,1,
+no-deposit-twice,v16,1,
 
 wd-leq-init-bal,v1,0,"This property should not hold for ERC20 tokens, since one can easily increase the contract balance without the contract being able to notice or prevent it. Since this is also possible with ETH (via coinbase or `selfdestruct` transactions), the behavior is comparable for the purposes of these tests."
 wd-leq-init-bal,v2,0,
+wd-leq-init-bal,v3,0,
+wd-leq-init-bal,v4,0,
+wd-leq-init-bal,v5,0,
+wd-leq-init-bal,v6,0,
+wd-leq-init-bal,v7,1,"Cannot withdraw, withdrawn amount is always 0."
+wd-leq-init-bal,v8,0,
+wd-leq-init-bal,v9,1,"Cannot withdraw, withdrawn amount is always 0."
+wd-leq-init-bal,v10,1,"Cannot withdraw, withdrawn amount is always 0."
+wd-leq-init-bal,v11,1,"Cannot withdraw, withdrawn amount is always 0."
+wd-leq-init-bal,v12,0,
+wd-leq-init-bal,v13,0,
+wd-leq-init-bal,v14,0,
+wd-leq-init-bal,v15,0,
+wd-leq-init-bal,v16,0,
 
 wd-contract-bal,v1,1,
 wd-contract-bal,v2,1,
+wd-contract-bal,v3,1,
+wd-contract-bal,v4,1,
+wd-contract-bal,v5,1,
+wd-contract-bal,v6,1,
+wd-contract-bal,v7,1,"`withdraw` always reverts, so the property holds vacuously."
+wd-contract-bal,v8,1,
+wd-contract-bal,v9,1,"`withdraw` always reverts, so the property holds vacuously."
+wd-contract-bal,v10,0,"`withdraw` does nothing even when successful."
+wd-contract-bal,v11,0,"`withdraw` does nothing even when successful."
+wd-contract-bal,v12,1,
+wd-contract-bal,v13,1,
+wd-contract-bal,v14,0,"`withdraw` withholds one token."
+wd-contract-bal,v15,1,
+wd-contract-bal,v16,1,

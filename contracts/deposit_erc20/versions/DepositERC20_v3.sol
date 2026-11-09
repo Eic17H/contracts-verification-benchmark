@@ -5,7 +5,7 @@ import "./lib/ERC20v1.sol";
 import "./lib/ReentrancyGuard.sol";
 
 /// @custom:version methods are non reentrant.
-contract Deposit {
+contract Deposit is ReentrancyGuard {
     ERC20 token;
     bool ever_deposited;
 

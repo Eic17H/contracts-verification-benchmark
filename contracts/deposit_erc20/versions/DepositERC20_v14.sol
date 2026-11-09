@@ -3,7 +3,7 @@ pragma solidity >= 0.8.2;
 
 import "./lib/ERC20v1.sol";
 
-/// @custom:version withdraw withholds one token.
+/// @custom:version `withdraw` withholds one token.
 contract Deposit {
     ERC20 token;
     bool ever_deposited;

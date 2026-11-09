@@ -28,7 +28,7 @@ The function `withdraw(amount)` can be called by anyone to transfer `amount` tok
 - **v11**: all methods do nothing, but revert when they should.
 - **v12**: only the depositor can withdraw.
 - **v13**: depositor can't withdraw.
-- **v14**: withdraw withholds one token.
+- **v14**: `withdraw` withholds one token.
 - **v15**: each address can only withdraw once.
 - **v16**: `withdraw` always sends funds to depositor.
 
@@ -42,23 +42,65 @@ The function `withdraw(amount)` can be called by anyone to transfer `amount` tok
 ## Experiments
 ### SolCMC
 #### Z3
-|        | no-deposit-twice | wd-contract-bal  | wd-leq-init-bal  |
-|--------|------------------|------------------|------------------|
+|         | no-deposit-twice | wd-contract-bal  | wd-leq-init-bal  |
+|---------|------------------|------------------|------------------|
 | **v1** | TP!              | FN!              | TN!              |
+| **v10** | TP!              | TN!              | TP!              |
+| **v11** | TP!              | TN!              | TP!              |
+| **v12** | TP!              | FN!              | TN!              |
+| **v13** | TP!              | FN!              | TN!              |
+| **v14** | TP!              | TN!              | TN!              |
+| **v15** | TP!              | FN!              | TN!              |
+| **v16** | TP!              | FN!              | TN!              |
 | **v2** | TP!              | FN!              | UNK              |
+| **v3** | TP!              | FN!              | TN!              |
+| **v4** | TP!              | FN!              | TN!              |
+| **v5** | TN!              | FN!              | TN!              |
+| **v6** | TN!              | FN!              | TN!              |
+| **v7** | TP!              | TP!              | TP!              |
+| **v8** | TP!              | FN!              | TN!              |
+| **v9** | TP!              | TP!              | TP!              |
  
 
 #### Eldarica
-|        | no-deposit-twice | wd-contract-bal  | wd-leq-init-bal  |
-|--------|------------------|------------------|------------------|
+|         | no-deposit-twice | wd-contract-bal  | wd-leq-init-bal  |
+|---------|------------------|------------------|------------------|
 | **v1** | TP!              | FN!              | TN!              |
-| **v2** | TP!              | FN!              | TN!              |
+| **v10** | TP!              | TN!              | TP!              |
+| **v11** | TP!              | TN!              | TP!              |
+| **v12** | TP!              | FN!              | TN!              |
+| **v13** | TP!              | FN!              | TN!              |
+| **v14** | TP!              | TN!              | TN!              |
+| **v15** | UNK              | FN!              | TN!              |
+| **v16** | TP!              | FN!              | TN!              |
+| **v2** | UNK              | FN!              | TN!              |
+| **v3** | TP!              | FN!              | TN!              |
+| **v4** | TP!              | FN!              | TN!              |
+| **v5** | TN!              | FN!              | TN!              |
+| **v6** | TN!              | FN!              | TN!              |
+| **v7** | TP!              | TP!              | TP!              |
+| **v8** | TP!              | FN!              | TN!              |
+| **v9** | TP!              | TP!              | TP!              |
  
 
 ### Certora
-|        | no-deposit-twice | wd-contract-bal  | wd-leq-init-bal  |
-|--------|------------------|------------------|------------------|
+|         | no-deposit-twice | wd-contract-bal  | wd-leq-init-bal  |
+|---------|------------------|------------------|------------------|
 | **v1** | TP!              | FN               | TN               |
+| **v10** | FN               | TN               | ERR              |
+| **v11** | FN               | TN               | ERR              |
+| **v12** | TP!              | FN               | TN               |
+| **v13** | TP!              | FN               | TN               |
+| **v14** | TP!              | TN               | TN               |
+| **v15** | TP!              | FN               | TN               |
+| **v16** | TP!              | FN               | TN               |
 | **v2** | TP!              | FN               | TN               |
+| **v3** | TP!              | FN               | TN               |
+| **v4** | TP!              | FN               | ERR              |
+| **v5** | TN               | FN               | TN               |
+| **v6** | TN               | FN               | TN               |
+| **v7** | TP!              | TP!              | ERR              |
+| **v8** | TP!              | FN               | TN               |
+| **v9** | TP!              | TP!              | ERR              |
  
 
