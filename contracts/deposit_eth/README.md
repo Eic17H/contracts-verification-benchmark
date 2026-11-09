@@ -21,21 +21,12 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 - **v7**: non-reentrant `withdraw` with whitelist.
 - **v8**: `withdraw` callable only by EOAs.
 
-## Ground truth
-|        | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
-|--------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
-| **v1** | 1                 | 0[^1]             | 0[^2]             | 0                 | 0[^3]             | 1                 |
-| **v2** | 1                 | 0                 | 0                 | 0                 | 0                 | 1                 |
-| **v3** | 0                 | 0                 | 0                 | 1                 | 0                 | 0                 |
-| **v4** | 0                 | 0                 | 0                 | 0                 | 0                 | 0                 |
-| **v5** | 0                 | 0                 | 0                 | 0                 | 0                 | 1                 |
-| **v6** | 0                 | 0                 | 0                 | 0                 | 0                 | 1                 |
-| **v7** | 0                 | 0                 | 0                 | 0                 | 0                 | 1                 |
-| **v8** | 1                 | 0                 | 0                 | 1                 | 1                 | 1                 |
- 
-[^1]: A reentrant call to `withdraw` can remove more ETH than the specified `amount`.
-[^2]: This property should always be false, since the contract can receive ETH when its address is specified in a coinbase transaction or in a `s-leq-destruct`.
-[^3]: `msg.sender` can be an untrusted contract that transfer the received ETH to another account.
+## Verification data
+
+- [Ground truth](ground-truth.csv)
+- [Solcmc/z3](solcmc-z3.csv)
+- [Solcmc/Eldarica](solcmc-eld.csv)
+- [Certora](certora.csv)
 
 ## Experiments
 ### SolCMC
@@ -43,7 +34,7 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 |        | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
 |--------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 | **v1** | ND                | UNK               | TN!               | ND                | TN!               | FN!               |
-| **v2** | ND                | UNK               | TN!               | ND                | TN!               | FN!               |
+| **v2** | ND                | UNK               | TN!               | ND                | TN!               | UNK               |
 | **v3** | ND                | UNK               | TN!               | ND                | TN!               | TN!               |
 | **v4** | ND                | TN!               | TN!               | ND                | TN!               | TN!               |
 | **v5** | ND                | UNK               | TN!               | ND                | TN!               | FN!               |
@@ -65,13 +56,12 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 | **v8** | ND                | TN!               | TN!               | ND                | FN!               | FN!               |
  
 
-
 ### Certora
 |        | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
 |--------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 | **v1** | FN                | TN                | TN                | TN                | TN                | FN                |
 | **v2** | FN                | TN                | TN                | TN                | TN                | FN                |
-| **v3** | TN                | TN                | TN                | FN                | TN                | TN                |
+| **v3** | ERR               | ERR               | ERR               | ERR               | ERR               | ERR               |
 | **v4** | TN                | TN                | TN                | TN                | TN                | TN                |
 | **v5** | TN                | TN                | TN                | TN                | TN                | FN                |
 | **v6** | TN                | TN                | TN                | TN                | TN                | FN                |

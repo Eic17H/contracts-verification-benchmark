@@ -5,9 +5,9 @@ rule wd_sender_rcv {
     uint amount;
     address sender = e.msg.sender;
 
-    mathint before = getAddressBalance(sender);
+    mathint before = nativeBalances[sender];
     withdraw(e, amount);
-    mathint after = getAddressBalance(sender);
+    mathint after = nativeBalances[sender];
 
-    assert after == before + amount;
+    assert after - before == amount;
 }

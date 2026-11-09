@@ -3,9 +3,9 @@
 rule always_depletable {
     env e;
     require (e.msg.sender == e.tx.origin);
-    uint amount = getAddressBalance(currentContract);
+    uint amount = nativeBalances[currentContract];
     withdraw@withrevert(e, amount);
     
     assert !lastReverted;
-    assert (getAddressBalance(currentContract) == 0);
+    assert (nativeBalances[currentContract] == 0);
 }

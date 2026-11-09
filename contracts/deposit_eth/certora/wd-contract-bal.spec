@@ -3,9 +3,9 @@
 rule wd_contract_bal {
     env e;
     uint amount;
-    mathint before = getBalance();
+    mathint before = nativeBalances[currentContract];
     withdraw(e, amount);
     
-    mathint after = getBalance();
+    mathint after = nativeBalances[currentContract];
     assert before == after + amount;
 }
