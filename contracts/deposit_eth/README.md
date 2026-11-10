@@ -20,6 +20,8 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 - **v6**: non-reentrant `withdraw` with blacklist.
 - **v7**: non-reentrant `withdraw` with whitelist.
 - **v8**: `withdraw` callable only by EOAs.
+- **v9**: reentrant `withdraw` does not revert.
+- **v10**: non-reentrant `withdraw` does not revert.
 
 ## Verification data
 
@@ -31,9 +33,10 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 ## Experiments
 ### SolCMC
 #### Z3
-|        | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
-|--------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
+|         | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
+|---------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 | **v1** | ND                | UNK               | TN!               | ND                | TN!               | FN!               |
+| **v10** | ND                | ND                | ND                | ND                | ND                | ND                |
 | **v2** | ND                | UNK               | TN!               | ND                | TN!               | UNK               |
 | **v3** | ND                | UNK               | TN!               | ND                | TN!               | TN!               |
 | **v4** | ND                | TN!               | TN!               | ND                | TN!               | TN!               |
@@ -41,12 +44,14 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 | **v6** | ND                | UNK               | TN!               | ND                | TN!               | FN!               |
 | **v7** | ND                | UNK               | TN!               | ND                | TN!               | FN!               |
 | **v8** | ND                | UNK               | TN!               | ND                | FN!               | FN!               |
+| **v9** | ND                | ND                | ND                | ND                | ND                | ND                |
  
 
 #### Eldarica
-|        | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
-|--------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
+|         | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
+|---------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 | **v1** | ND                | TN!               | TN!               | ND                | TN!               | FN!               |
+| **v10** | ND                | ND                | ND                | ND                | ND                | ND                |
 | **v2** | ND                | FP!               | TN!               | ND                | TN!               | FN!               |
 | **v3** | ND                | FP!               | TN!               | ND                | TN!               | TN!               |
 | **v4** | ND                | TN!               | TN!               | ND                | TN!               | TN!               |
@@ -54,12 +59,14 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 | **v6** | ND                | FP!               | TN!               | ND                | TN!               | FN!               |
 | **v7** | ND                | FP!               | TN!               | ND                | TN!               | FN!               |
 | **v8** | ND                | TN!               | TN!               | ND                | FN!               | FN!               |
+| **v9** | ND                | ND                | ND                | ND                | ND                | ND                |
  
 
 ### Certora
-|        | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
-|--------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
+|         | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
+|---------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 | **v1** | FN                | TN                | TN                | TN                | TN                | FN                |
+| **v10** | FN                | ND                | ND                | ND                | ND                | ND                |
 | **v2** | FN                | TN                | TN                | TN                | TN                | FN                |
 | **v3** | ERR               | ERR               | ERR               | ERR               | ERR               | ERR               |
 | **v4** | TN                | TN                | TN                | TN                | TN                | TN                |
@@ -67,5 +74,6 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 | **v6** | TN                | TN                | TN                | TN                | TN                | FN                |
 | **v7** | TN                | TN                | TN                | TN                | TN                | FN                |
 | **v8** | FN                | TN                | TN                | FN                | FN                | FN                |
+| **v9** | FN                | ND                | ND                | ND                | ND                | ND                |
  
 
