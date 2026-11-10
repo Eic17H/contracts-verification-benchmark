@@ -17,8 +17,8 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 - **v3**: non-reentrant `withdraw` transfers to `address(0)` instead of `msg.sender`.
 - **v4**: non-reentrant `withdraw` transfers `amount-1` instead of `amount`.
 - **v5**: non-reentrant `withdraw` requires a balance of at least `amount+1` instead of `amount`.
-- **v6**: non-reentrant `withdraw` with blacklist.
-- **v7**: non-reentrant `withdraw` with whitelist.
+- **v6**: non-reentrant `withdraw`, cannot send funds to owner.
+- **v7**: non-reentrant `withdraw`, can only send funds to owner.
 - **v8**: `withdraw` callable only by EOAs.
 - **v9**: reentrant `withdraw` does not revert.
 - **v10**: non-reentrant `withdraw` does not revert.
@@ -66,7 +66,7 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 |         | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
 |---------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 | **v1** | FN                | TN                | TN                | TN                | TN                | FN                |
-| **v10** | FN                | ND                | ND                | ND                | ND                | ND                |
+| **v10** | FN                | TN                | TN                | FN                | TN                | TN                |
 | **v2** | FN                | TN                | TN                | TN                | TN                | FN                |
 | **v3** | ERR               | ERR               | ERR               | ERR               | ERR               | ERR               |
 | **v4** | TN                | TN                | TN                | TN                | TN                | TN                |
@@ -74,6 +74,6 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 | **v6** | TN                | TN                | TN                | TN                | TN                | FN                |
 | **v7** | TN                | TN                | TN                | TN                | TN                | FN                |
 | **v8** | FN                | TN                | TN                | FN                | FN                | FN                |
-| **v9** | FN                | ND                | ND                | ND                | ND                | ND                |
+| **v9** | FN                | TN                | TN                | FN                | TN                | TN                |
  
 

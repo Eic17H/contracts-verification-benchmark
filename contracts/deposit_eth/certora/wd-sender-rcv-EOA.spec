@@ -7,6 +7,9 @@ rule wd_sender_rcv_EOA {
 
     require (sender == e.tx.origin);
 
+    // If the contract sent itself funds, its balance wouldn't change
+    require (sender != currentContract);
+
     mathint before = nativeBalances[sender];
     withdraw(e, amount);
     mathint after = nativeBalances[sender];

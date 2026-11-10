@@ -12,7 +12,9 @@ contract DepositEth {
     }
 
     function withdraw(uint amount) public {
-        require(amount <= address(this).balance);
+        //require(amount <= address(this).balance);
+
+        if(amount > address(this).balance) amount = address(this).balance;
 
         sent += amount;
 

@@ -7,6 +7,7 @@ rule wd_not_revert {
     uint before = nativeBalances[currentContract];
     require e.msg.value == 0;
     require amount <= before;
+    require e.msg.sender != currentContract;
 
     withdraw@withrevert(e, amount);
     assert !lastReverted;

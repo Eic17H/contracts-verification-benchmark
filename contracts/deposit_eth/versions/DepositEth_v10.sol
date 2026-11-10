@@ -13,7 +13,7 @@ contract DepositEth is ReentrancyGuard {
     }
 
     function withdraw(uint amount) public nonReentrant {
-        require(amount <= address(this).balance);
+        if(amount > address(this).balance) amount = address(this).balance;
 
         sent += amount;
 
