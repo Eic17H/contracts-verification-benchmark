@@ -2,7 +2,7 @@
 pragma solidity >= 0.8.2;
 import "./lib/ReentrancyGuard.sol"; // https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.8.2/contracts/security/ReentrancyGuard.sol
 
-/// @custom:version non-reentrant `withdraw` with whitelist.
+/// @custom:version non-reentrant `withdraw`, can only send funds to owner.
 contract DepositEth is ReentrancyGuard {
 
     uint private sent;
