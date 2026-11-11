@@ -1,3 +1,5 @@
+// the contract balance is unchanged after a call to `callwrap`.
+
 /// @custom:preghost function callwrap
 uint _balance = address(this).balance;
 

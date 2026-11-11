@@ -1,3 +1,5 @@
+// the contract storage is unchanged after a call to `callwrap`.
+
 rule stor {
     env e;
     address called;

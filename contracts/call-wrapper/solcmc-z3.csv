@@ -1,0 +1,11 @@
+property,version,outcome
+bal,v1,N!
+bal,v2,P!
+bal,v3,N!
+bal,v4,N!
+bal,v5,P!
+stor,v1,P!
+stor,v2,P!
+stor,v3,N!
+stor,v4,N!
+stor,v5,P!

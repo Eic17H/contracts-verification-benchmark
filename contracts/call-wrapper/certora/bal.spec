@@ -1,3 +1,5 @@
+// the contract balance is unchanged after a call to `callwrap`.
+
 rule bal {
     env e;
     address called;

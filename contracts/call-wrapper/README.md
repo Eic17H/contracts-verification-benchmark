@@ -14,19 +14,16 @@ The contract acts as a wrapper to Solidity's `call` function.
 - **v4**: non-reentrant `callwrap` and additional reentrant function `modifystorage`.
 - **v5**: non-reentrant `callwrap` and additional non-reentrant function `modifystorage`.
 
-## Ground truth
-|        | bal   | stor  |
-|--------|-------|-------|
-| **v1** | 0     | 1     |
-| **v2** | 0     | 1     |
-| **v3** | 0     | 0     |
-| **v4** | 0     | 0     |
-| **v5** | 0     | 1     |
- 
+## Verification data
+
+- [Ground truth](ground-truth.csv)
+- [Solcmc/z3](solcmc-z3.csv)
+- [Solcmc/Eldarica](solcmc-eld.csv)
+- [Certora](certora.csv)
 
 ## Experiments
-
-### SolCMC (Z3)
+### SolCMC
+#### Z3
 |        | bal   | stor  |
 |--------|-------|-------|
 | **v1** | TN!   | TP!   |
@@ -35,7 +32,8 @@ The contract acts as a wrapper to Solidity's `call` function.
 | **v4** | TN!   | TN!   |
 | **v5** | FP!   | TP!   |
  
-### SolCMC (Eldarica)
+
+#### Eldarica
 |        | bal   | stor  |
 |--------|-------|-------|
 | **v1** | TN!   | TP!   |

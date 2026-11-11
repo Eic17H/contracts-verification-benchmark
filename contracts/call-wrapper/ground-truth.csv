@@ -1,11 +1,13 @@
 property,version,truth,footnote-md
-bal,v1,0,
-bal,v2,0,
-bal,v3,0,
-bal,v4,0,
-bal,v5,0,
-stor,v1,1,
-stor,v2,1,
-stor,v3,0,
-stor,v4,0,
-stor,v5,1,
+
+bal,v1,0,"An external call can change the contract's balance."
+bal,v2,0,"An external call can change the contract's balance."
+bal,v3,0,"An external call or a reentrant call to `modifystorage` can change the contract's balance."
+bal,v4,0,"An external call or a reentrant call to `modifystorage` can change the contract's balance."
+bal,v5,0,"An external call can change the contract's balance."
+
+stor,v1,1,"No method can modify `data`."
+stor,v2,1,"No method can modify `data`."
+stor,v3,0,"A reentrant call to `modifystorage` can happen during `callwrap`."
+stor,v4,0,"A reentrant call to `modifystorage` can happen during `callwrap`."
+stor,v5,1,"No reentrant call to `modifystorage` can happen during `callwrap`."
