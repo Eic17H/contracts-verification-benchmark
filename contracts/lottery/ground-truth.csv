@@ -1,5 +1,5 @@
 property,version,truth,footnote-md
-deadlock-freedom-join1,v1,0,
+deadlock-freedom-join1,v1,0,"`player0` may reject the transfer."
 deadlock-freedom-join1,v2,0,"`redeem0_nojoin1` transfers only half the balance, and it pays `player0`, which may reject the transfer"
 deadlock-freedom-join1,v3,0,
 deadlock-freedom-join1,v4,0,
@@ -21,7 +21,7 @@ deadlock-freedom-join1,v19,0,
 deadlock-freedom-join1,v20,0,
 deadlock-freedom-join1,v21,0,
 deadlock-freedom-join1,v22,0,
-deadlock-freedom-join1-eoa,v1,1,
+deadlock-freedom-join1-eoa,v1,1,"`player0` is an EOA."
 deadlock-freedom-join1-eoa,v2,0,"`redeem0_nojoin1` transfers only half the balance"
 deadlock-freedom-join1-eoa,v3,1,
 deadlock-freedom-join1-eoa,v4,1,
@@ -43,7 +43,7 @@ deadlock-freedom-join1-eoa,v19,1,
 deadlock-freedom-join1-eoa,v20,1,
 deadlock-freedom-join1-eoa,v21,1,
 deadlock-freedom-join1-eoa,v22,1,
-deadlock-freedom-join1-witness,v1,0,
+deadlock-freedom-join1-witness,v1,0,"`player0` may reject the transfer."
 deadlock-freedom-join1-witness,v2,0,"`redeem0_nojoin1` transfers only half the balance"
 deadlock-freedom-join1-witness,v3,0,
 deadlock-freedom-join1-witness,v4,0,
@@ -65,7 +65,7 @@ deadlock-freedom-join1-witness,v19,0,
 deadlock-freedom-join1-witness,v20,0,
 deadlock-freedom-join1-witness,v21,0,
 deadlock-freedom-join1-witness,v22,0,
-deadlock-freedom-join1-witness-eoa,v1,1,
+deadlock-freedom-join1-witness-eoa,v1,1,"`player0` is an EOA."
 deadlock-freedom-join1-witness-eoa,v2,0,"`redeem0_nojoin1` transfers only half the balance"
 deadlock-freedom-join1-witness-eoa,v3,1,
 deadlock-freedom-join1-witness-eoa,v4,1,
@@ -87,7 +87,7 @@ deadlock-freedom-join1-witness-eoa,v19,1,
 deadlock-freedom-join1-witness-eoa,v20,1,
 deadlock-freedom-join1-witness-eoa,v21,1,
 deadlock-freedom-join1-witness-eoa,v22,1,
-deadlock-freedom-reveal0,v1,0,
+deadlock-freedom-reveal0,v1,0,"`player1` may reject the transfer."
 deadlock-freedom-reveal0,v2,0,
 deadlock-freedom-reveal0,v3,0,
 deadlock-freedom-reveal0,v4,0,
@@ -109,7 +109,7 @@ deadlock-freedom-reveal0,v19,0,
 deadlock-freedom-reveal0,v20,0,
 deadlock-freedom-reveal0,v21,0,
 deadlock-freedom-reveal0,v22,0,
-deadlock-freedom-reveal0-eoa,v1,1,
+deadlock-freedom-reveal0-eoa,v1,1,"`player1` is an EOA."
 deadlock-freedom-reveal0-eoa,v2,1,
 deadlock-freedom-reveal0-eoa,v3,0,"`redeem1_noreveal0` transfers only half the balance"
 deadlock-freedom-reveal0-eoa,v4,1,
@@ -131,7 +131,7 @@ deadlock-freedom-reveal0-eoa,v19,1,
 deadlock-freedom-reveal0-eoa,v20,1,
 deadlock-freedom-reveal0-eoa,v21,1,
 deadlock-freedom-reveal0-eoa,v22,1,
-deadlock-freedom-reveal0-witness,v1,0,
+deadlock-freedom-reveal0-witness,v1,0,"`player1` may reject the transfer."
 deadlock-freedom-reveal0-witness,v2,0,
 deadlock-freedom-reveal0-witness,v3,0,"`redeem1_noreveal0` transfers only half the balance"
 deadlock-freedom-reveal0-witness,v4,0,
@@ -153,7 +153,7 @@ deadlock-freedom-reveal0-witness,v19,0,
 deadlock-freedom-reveal0-witness,v20,0,
 deadlock-freedom-reveal0-witness,v21,0,
 deadlock-freedom-reveal0-witness,v22,0,
-deadlock-freedom-reveal0-witness-eoa,v1,1,
+deadlock-freedom-reveal0-witness-eoa,v1,1,"`player1` is an EOA."
 deadlock-freedom-reveal0-witness-eoa,v2,1,
 deadlock-freedom-reveal0-witness-eoa,v3,0,"`redeem1_noreveal0` transfers only half the balance"
 deadlock-freedom-reveal0-witness-eoa,v4,1,
@@ -175,7 +175,7 @@ deadlock-freedom-reveal0-witness-eoa,v19,1,
 deadlock-freedom-reveal0-witness-eoa,v20,1,
 deadlock-freedom-reveal0-witness-eoa,v21,1,
 deadlock-freedom-reveal0-witness-eoa,v22,1,
-deadlock-freedom-reveal1,v1,0,
+deadlock-freedom-reveal1,v1,0,"`player0` may reject the transfer."
 deadlock-freedom-reveal1,v2,0,
 deadlock-freedom-reveal1,v3,0,
 deadlock-freedom-reveal1,v4,0,
@@ -197,7 +197,7 @@ deadlock-freedom-reveal1,v19,0,
 deadlock-freedom-reveal1,v20,0,
 deadlock-freedom-reveal1,v21,0,
 deadlock-freedom-reveal1,v22,0,
-deadlock-freedom-reveal1-eoa,v1,1,
+deadlock-freedom-reveal1-eoa,v1,1,"`player0` is an EOA."
 deadlock-freedom-reveal1-eoa,v2,1,
 deadlock-freedom-reveal1-eoa,v3,1,
 deadlock-freedom-reveal1-eoa,v4,0,"`redeem0_noreveal1` transfers only half the balance"
@@ -219,7 +219,7 @@ deadlock-freedom-reveal1-eoa,v19,1,
 deadlock-freedom-reveal1-eoa,v20,1,
 deadlock-freedom-reveal1-eoa,v21,1,
 deadlock-freedom-reveal1-eoa,v22,1,
-deadlock-freedom-reveal1-witness,v1,0,
+deadlock-freedom-reveal1-witness,v1,0,"`player0` may reject the transfer."
 deadlock-freedom-reveal1-witness,v2,0,
 deadlock-freedom-reveal1-witness,v3,0,
 deadlock-freedom-reveal1-witness,v4,0,"`redeem0_noreveal1` transfers only half the balance"
@@ -241,7 +241,7 @@ deadlock-freedom-reveal1-witness,v19,0,
 deadlock-freedom-reveal1-witness,v20,0,
 deadlock-freedom-reveal1-witness,v21,0,
 deadlock-freedom-reveal1-witness,v22,0,
-deadlock-freedom-reveal1-witness-eoa,v1,1,
+deadlock-freedom-reveal1-witness-eoa,v1,1,"`player0` is an EOA."
 deadlock-freedom-reveal1-witness-eoa,v2,1,
 deadlock-freedom-reveal1-witness-eoa,v3,1,
 deadlock-freedom-reveal1-witness-eoa,v4,0,"`redeem0_noreveal1` transfers only half the balance, so the contract balance is not zero afterwards"
@@ -263,7 +263,7 @@ deadlock-freedom-reveal1-witness-eoa,v19,1,
 deadlock-freedom-reveal1-witness-eoa,v20,1,
 deadlock-freedom-reveal1-witness-eoa,v21,1,
 deadlock-freedom-reveal1-witness-eoa,v22,1,
-deadlock-freedom-win,v1,0,
+deadlock-freedom-win,v1,0,"`winner` may reject the transfer."
 deadlock-freedom-win,v2,0,
 deadlock-freedom-win,v3,0,
 deadlock-freedom-win,v4,0,
@@ -285,7 +285,7 @@ deadlock-freedom-win,v19,0,
 deadlock-freedom-win,v20,1,"`win` pays `msg.sender`, so any EOA can empty the balance"
 deadlock-freedom-win,v21,0,
 deadlock-freedom-win,v22,0,
-deadlock-freedom-win-eoa,v1,1,
+deadlock-freedom-win-eoa,v1,1,"`winner` is an EOA."
 deadlock-freedom-win-eoa,v2,1,
 deadlock-freedom-win-eoa,v3,1,
 deadlock-freedom-win-eoa,v4,1,
@@ -307,7 +307,7 @@ deadlock-freedom-win-eoa,v19,1,
 deadlock-freedom-win-eoa,v20,1,
 deadlock-freedom-win-eoa,v21,1,
 deadlock-freedom-win-eoa,v22,1,
-deadlock-freedom-win-witness,v1,0,
+deadlock-freedom-win-witness,v1,0,"`winner` may reject the transfer."
 deadlock-freedom-win-witness,v2,0,
 deadlock-freedom-win-witness,v3,0,
 deadlock-freedom-win-witness,v4,0,
@@ -329,7 +329,7 @@ deadlock-freedom-win-witness,v19,0,
 deadlock-freedom-win-witness,v20,0,
 deadlock-freedom-win-witness,v21,0,
 deadlock-freedom-win-witness,v22,0,
-deadlock-freedom-win-witness-eoa,v1,1,
+deadlock-freedom-win-witness-eoa,v1,1,"`winner` is an EOA."
 deadlock-freedom-win-witness-eoa,v2,1,
 deadlock-freedom-win-witness-eoa,v3,1,
 deadlock-freedom-win-witness-eoa,v4,1,
