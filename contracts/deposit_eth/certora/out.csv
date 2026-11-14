@@ -1,6 +1,7 @@
 property,version,outcome
-always-depletable,v1,P
+always-depletable,v1,N
 always-depletable,v10,N
+always-depletable,v11,ERR
 always-depletable,v2,N
 always-depletable,v3,ERR
 always-depletable,v4,P
