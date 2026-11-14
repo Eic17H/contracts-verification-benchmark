@@ -27,7 +27,7 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 - **v13**: reentrant `withdraw` transfers `amount-1` instead of `amount`.
 - **v14**: reentrant `withdraw` transfers `amount-1` instead of `amount`, except if `amount` is equal to the contract balance.
 - **v15**: reentrant `withdraw` transfers `amount-1` instead of `amount`, except if the contract balance is `type(uint256).max`.
-- **v16**: reentrant `withdraw` won't send the entire contract balance, new `withdrawAll` method sends the entire contract balance.
+- **v16**: reentrant `withdraw` won't send the full contract balance, new `withdrawAll` method sends the full contract balance.
 
 ## Verification data
 
@@ -69,7 +69,7 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 | **v13** | ND                | TN!               | TN!               | ND                | TN!               | TN!               |
 | **v14** | ND                | TN!               | TN!               | ND                | TN!               | TN!               |
 | **v15** | ND                | TN!               | TN!               | ND                | TN!               | TN!               |
-| **v16** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v16** | ND                | ND                | ND                | ND                | ND                | TN!               |
 | **v2** | ND                | FP!               | TN!               | ND                | TN!               | FN!               |
 | **v3** | ND                | FP!               | TN!               | ND                | TN!               | TN!               |
 | **v4** | ND                | TN!               | TN!               | ND                | TN!               | TN!               |
