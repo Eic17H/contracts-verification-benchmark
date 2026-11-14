@@ -15,13 +15,18 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 - **v1**: reentrant `withdraw`.
 - **v2**: non-reentrant `withdraw`.
 - **v3**: non-reentrant `withdraw` transfers to `address(0)` instead of `msg.sender`.
-- **v4**: non-reentrant `withdraw` transfers `amount-1` instead of `amount`.
+- **v4**: non-reentrant `withdraw` transfers `amount-1` instead of `amount` and reverts if the balance isn't at least `amount + 1`.
 - **v5**: non-reentrant `withdraw` requires a balance of at least `amount+1` instead of `amount`.
 - **v6**: non-reentrant `withdraw`, cannot send funds to owner.
 - **v7**: non-reentrant `withdraw`, can only send funds to owner.
 - **v8**: `withdraw` callable only by EOAs.
 - **v9**: reentrant `withdraw` does not revert.
 - **v10**: non-reentrant `withdraw` does not revert.
+- **v11**: reentrant `withdraw`, funds are sent to `address(0)` if the first transfer fails.
+- **v12**: non-reentrant `withdraw` transfers `amount-1` instead of `amount`.
+- **v13**: reentrant `withdraw` transfers `amount-1` instead of `amount`.
+- **v14**: reentrant `withdraw` transfers `amount-1` instead of `amount`, except if `amount` is equal to the contract balance.
+- **v15**: reentrant `withdraw` transfers `amount-1` instead of `amount`, except if the contract balance is `type(uint256).max`.
 
 ## Verification data
 
@@ -37,6 +42,11 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 |---------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 | **v1** | ND                | UNK               | TN!               | ND                | TN!               | FN!               |
 | **v10** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v11** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v12** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v13** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v14** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v15** | ND                | ND                | ND                | ND                | ND                | ND                |
 | **v2** | ND                | UNK               | TN!               | ND                | TN!               | UNK               |
 | **v3** | ND                | UNK               | TN!               | ND                | TN!               | TN!               |
 | **v4** | ND                | TN!               | TN!               | ND                | TN!               | TN!               |
@@ -52,6 +62,11 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 |---------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 | **v1** | ND                | TN!               | TN!               | ND                | TN!               | FN!               |
 | **v10** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v11** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v12** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v13** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v14** | ND                | ND                | ND                | ND                | ND                | ND                |
+| **v15** | ND                | ND                | ND                | ND                | ND                | ND                |
 | **v2** | ND                | FP!               | TN!               | ND                | TN!               | FN!               |
 | **v3** | ND                | FP!               | TN!               | ND                | TN!               | TN!               |
 | **v4** | ND                | TN!               | TN!               | ND                | TN!               | TN!               |
@@ -65,15 +80,20 @@ The contract accepts a single deposit of ETH through the constructor. The functi
 ### Certora
 |         | always-depletable | wd-contract-bal   | wd-leq-init-bal   | wd-not-revert     | wd-sender-rcv     | wd-sender-rcv-EOA |
 |---------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
-| **v1** | FN                | TN                | TN                | TN                | TN                | FN                |
+| **v1** | TP!               | TN                | TN                | TN                | TN                | TP!               |
 | **v10** | FN                | TN                | TN                | FN                | TN                | TN                |
-| **v2** | FN                | TN                | TN                | TN                | TN                | FN                |
-| **v3** | ERR               | ERR               | ERR               | ERR               | ERR               | ERR               |
+| **v11** | TP!               | ND                | ND                | ND                | ND                | TN                |
+| **v12** | TN                | ND                | ND                | ND                | ND                | TN                |
+| **v13** | TN                | ND                | ND                | ND                | ND                | TN                |
+| **v14** | TP!               | ND                | ND                | ND                | ND                | TN                |
+| **v15** | TP!               | ND                | ND                | ND                | ND                | TN                |
+| **v2** | FN                | TN                | TN                | TN                | TN                | TP!               |
+| **v3** | TN                | ERR               | ERR               | ERR               | ERR               | TN                |
 | **v4** | TN                | TN                | TN                | TN                | TN                | TN                |
-| **v5** | TN                | TN                | TN                | TN                | TN                | FN                |
-| **v6** | TN                | TN                | TN                | TN                | TN                | FN                |
-| **v7** | TN                | TN                | TN                | TN                | TN                | FN                |
-| **v8** | FN                | TN                | TN                | FN                | FN                | FN                |
-| **v9** | FN                | TN                | TN                | FN                | TN                | TN                |
+| **v5** | TN                | TN                | TN                | TN                | TN                | TP!               |
+| **v6** | TN                | TN                | TN                | TN                | TN                | TP!               |
+| **v7** | TN                | TN                | TN                | TN                | TN                | TP!               |
+| **v8** | TP!               | TN                | TN                | FN                | FN                | TP!               |
+| **v9** | TP!               | TN                | TN                | FN                | TN                | TN                |
  
 

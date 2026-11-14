@@ -11,6 +11,10 @@ always-depletable,v8,1,
 always-depletable,v9,1,
 always-depletable,v10,1,
 always-depletable,v11,1,
+always-depletable,v12,0,"If the contract balance is `type(uint256).max`, the parameter of `withdraw` would have to be `type(uint256).max+1` to deplete the contract balance."
+always-depletable,v13,0,"If the contract balance is `type(uint256).max`, the parameter of `withdraw` would have to be `type(uint256).max+1` to deplete the contract balance."
+always-depletable,v14,1,
+always-depletable,v15,1,
 
 wd-contract-bal,v1,0,"A reentrant call to `withdraw` can remove more ETH than the specified `amount`, and a selfdestruct during the external call can make the final balance greater than expected."
 wd-contract-bal,v2,0,"A selfdestruct during the external call can make the final balance greater than expected."
@@ -23,6 +27,10 @@ wd-contract-bal,v8,0,"A reentrant call to `withdraw` can remove more ETH than th
 wd-contract-bal,v9,0,"The amount is capped."
 wd-contract-bal,v10,0,"The amount is capped."
 wd-contract-bal,v11,0,
+wd-contract-bal,v12,0,
+wd-contract-bal,v13,0,
+wd-contract-bal,v14,0,
+wd-contract-bal,v15,0,
 
 wd-leq-init-bal,v1,0,"This property should always be false, since the contract can receive ETH when its address is specified in a coinbase transaction or in a `s-leq-destruct`".
 wd-leq-init-bal,v2,0,
@@ -35,6 +43,10 @@ wd-leq-init-bal,v8,0,
 wd-leq-init-bal,v9,0,
 wd-leq-init-bal,v10,0,
 wd-leq-init-bal,v11,0,
+wd-leq-init-bal,v12,0,
+wd-leq-init-bal,v13,0,
+wd-leq-init-bal,v14,0,
+wd-leq-init-bal,v15,0,
 
 wd-not-revert,v1,0,"`withdraw` will revert if the external call isn't successful."
 wd-not-revert,v2,0,
@@ -46,7 +58,11 @@ wd-not-revert,v7,0,
 wd-not-revert,v8,1,"The external call in `withdraw` is only to EOAs."
 wd-not-revert,v9,1,"`withdraw` doesn't revert when it should."
 wd-not-revert,v10,1,"`withdraw` doesn't revert when it should."
-wd-not-revert,v1,1,"`withdraw` sends funds to `address(0)` if the first call isn't successfuk."
+wd-not-revert,v11,1,"`withdraw` sends funds to `address(0)` if the first call isn't successful."
+wd-not-revert,v12,0,
+wd-not-revert,v13,0,
+wd-not-revert,v14,0,
+wd-not-revert,v15,0,
 
 wd-sender-rcv,v1,0,"`msg.sender` can be an untrusted contract that transfer the received ETH to another account."
 wd-sender-rcv,v2,0,
@@ -59,6 +75,10 @@ wd-sender-rcv,v8,1,"The external call in `withdraw` is only to EOAs."
 wd-sender-rcv,v9,0,
 wd-sender-rcv,v10,0,
 wd-sender-rcv,v11,0,"The funds may be sent to `address(0)` or redirected from `msg.sender`."
+wd-sender-rcv,v12,0,
+wd-sender-rcv,v13,0,
+wd-sender-rcv,v14,0,
+wd-sender-rcv,v15,0,
 
 wd-sender-rcv-EOA,v1,1,
 wd-sender-rcv-EOA,v2,1,
@@ -70,4 +90,8 @@ wd-sender-rcv-EOA,v7,1,
 wd-sender-rcv-EOA,v8,1,
 wd-sender-rcv-EOA,v9,0,"`withdraw` will be successful even if the sender doesn't receive the funds."
 wd-sender-rcv-EOA,v10,0,"`withdraw` will be successful even if the sender doesn't receive the funds."
-wd-sender-rcv-EOA,v11,1,
+wd-sender-rcv-EOA,v11,0,"`withdraw` will be successful even if the sender doesn't receive the funds."
+wd-sender-rcv-EOA,v12,0,"`withdraw` transfers less than `amount`."
+wd-sender-rcv-EOA,v13,0,"`withdraw` transfers less than `amount`."
+wd-sender-rcv-EOA,v14,0,"`withdraw` transfers less than `amount`."
+wd-sender-rcv-EOA,v15,0,"`withdraw` transfers less than `amount`."

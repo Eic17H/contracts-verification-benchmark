@@ -2,7 +2,7 @@
 pragma solidity >= 0.8.2;
 import "./lib/ReentrancyGuard.sol";
 
-/// @custom:version non-reentrant `withdraw` transfers `amount-1` instead of `amount`.
+/// @custom:version non-reentrant `withdraw` transfers `amount-1` instead of `amount` and reverts if the balance isn't at least `amount + 1`.
 contract DepositEth is ReentrancyGuard {
 
     uint private sent;
