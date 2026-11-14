@@ -15,6 +15,7 @@ always-depletable,v12,0,"If the contract balance is `type(uint256).max`, the par
 always-depletable,v13,0,"If the contract balance is `type(uint256).max`, the parameter of `withdraw` would have to be `type(uint256).max+1` to deplete the contract balance."
 always-depletable,v14,1,
 always-depletable,v15,1,
+always-depletable,v16,1,"`withdrawAll` sends the full balance."
 
 wd-contract-bal,v1,0,"A reentrant call to `withdraw` can remove more ETH than the specified `amount`, and a selfdestruct during the external call can make the final balance greater than expected."
 wd-contract-bal,v2,0,"A selfdestruct during the external call can make the final balance greater than expected."
@@ -31,6 +32,7 @@ wd-contract-bal,v12,0,
 wd-contract-bal,v13,0,
 wd-contract-bal,v14,0,
 wd-contract-bal,v15,0,
+wd-contract-bal,v16,0,"`withdraw` won't send the full balance."
 
 wd-leq-init-bal,v1,0,"This property should always be false, since the contract can receive ETH when its address is specified in a coinbase transaction or in a `s-leq-destruct`".
 wd-leq-init-bal,v2,0,
@@ -47,6 +49,7 @@ wd-leq-init-bal,v12,0,
 wd-leq-init-bal,v13,0,
 wd-leq-init-bal,v14,0,
 wd-leq-init-bal,v15,0,
+wd-leq-init-bal,v16,0,
 
 wd-not-revert,v1,0,"`withdraw` will revert if the external call isn't successful."
 wd-not-revert,v2,0,
@@ -63,6 +66,7 @@ wd-not-revert,v12,0,
 wd-not-revert,v13,0,
 wd-not-revert,v14,0,
 wd-not-revert,v15,0,
+wd-not-revert,v16,0,"`withdraw` won't send the full balance."
 
 wd-sender-rcv,v1,0,"`msg.sender` can be an untrusted contract that transfer the received ETH to another account."
 wd-sender-rcv,v2,0,
@@ -79,6 +83,7 @@ wd-sender-rcv,v12,0,
 wd-sender-rcv,v13,0,
 wd-sender-rcv,v14,0,
 wd-sender-rcv,v15,0,
+wd-sender-rcv,v16,0,
 
 wd-sender-rcv-EOA,v1,1,
 wd-sender-rcv-EOA,v2,1,
@@ -95,3 +100,4 @@ wd-sender-rcv-EOA,v12,0,"`withdraw` transfers less than `amount`."
 wd-sender-rcv-EOA,v13,0,"`withdraw` transfers less than `amount`."
 wd-sender-rcv-EOA,v14,0,"`withdraw` transfers less than `amount`."
 wd-sender-rcv-EOA,v15,0,"`withdraw` transfers less than `amount`."
+wd-sender-rcv-EOA,v16,0,"`withdraw` won't send the full balance."
