@@ -113,7 +113,7 @@ contract Lottery {
     /// if `player1` has not revealed, `player0` can redeem both players' bets after a given deadline (`end_reveal1`)
     function redeem0_noreveal1() public {
 	    require(status==Status.Reveal1);
-        require(block.number > end_reveal1);
+        // require(block.number > end_reveal1);
 
         (bool success,) = player0.call{value: address(this).balance}("");
         require(success, "Transfer failed.");

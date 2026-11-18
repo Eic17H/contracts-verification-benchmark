@@ -360,6 +360,8 @@ redeem-before-deadline-reverts-nojoin1,v20,P!
 redeem-before-deadline-reverts-nojoin1,v21,P!
 redeem-before-deadline-reverts-nojoin1,v22,P!
 redeem-before-deadline-reverts-nojoin1,v23,P!
+redeem-before-deadline-reverts-nojoin1,v24,N!
+redeem-before-deadline-reverts-nojoin1,v27,N!
 redeem-before-deadline-reverts-nojoin1,v3,P!
 redeem-before-deadline-reverts-nojoin1,v4,P!
 redeem-before-deadline-reverts-nojoin1,v5,P!
@@ -383,6 +385,8 @@ redeem-before-deadline-reverts-noreveal0,v20,P!
 redeem-before-deadline-reverts-noreveal0,v21,P!
 redeem-before-deadline-reverts-noreveal0,v22,P!
 redeem-before-deadline-reverts-noreveal0,v23,P!
+redeem-before-deadline-reverts-noreveal0,v25,N!
+redeem-before-deadline-reverts-noreveal0,v28,N!
 redeem-before-deadline-reverts-noreveal0,v3,P!
 redeem-before-deadline-reverts-noreveal0,v4,P!
 redeem-before-deadline-reverts-noreveal0,v5,P!
@@ -406,6 +410,8 @@ redeem-before-deadline-reverts-noreveal1,v20,P!
 redeem-before-deadline-reverts-noreveal1,v21,P!
 redeem-before-deadline-reverts-noreveal1,v22,P!
 redeem-before-deadline-reverts-noreveal1,v23,P!
+redeem-before-deadline-reverts-noreveal1,v26,N!
+redeem-before-deadline-reverts-noreveal1,v29,N!
 redeem-before-deadline-reverts-noreveal1,v3,P!
 redeem-before-deadline-reverts-noreveal1,v4,P!
 redeem-before-deadline-reverts-noreveal1,v5,P!
@@ -453,6 +459,7 @@ reveal0-reverts-after-deadline,v21,N!
 reveal0-reverts-after-deadline,v22,P!
 reveal0-reverts-after-deadline,v23,P!
 reveal0-reverts-after-deadline,v3,P!
+reveal0-reverts-after-deadline,v30,N!
 reveal0-reverts-after-deadline,v4,P!
 reveal0-reverts-after-deadline,v5,P!
 reveal0-reverts-after-deadline,v6,P!
@@ -476,6 +483,7 @@ reveal1-reverts-after-deadline,v21,P!
 reveal1-reverts-after-deadline,v22,N!
 reveal1-reverts-after-deadline,v23,P!
 reveal1-reverts-after-deadline,v3,P!
+reveal1-reverts-after-deadline,v31,N!
 reveal1-reverts-after-deadline,v4,P!
 reveal1-reverts-after-deadline,v5,P!
 reveal1-reverts-after-deadline,v6,P!
@@ -568,6 +576,7 @@ winner-computation-env-independent,v21,P!
 winner-computation-env-independent,v22,P!
 winner-computation-env-independent,v23,P!
 winner-computation-env-independent,v3,P!
+winner-computation-env-independent,v32,N!
 winner-computation-env-independent,v4,P!
 winner-computation-env-independent,v5,P!
 winner-computation-env-independent,v6,P!
@@ -591,6 +600,7 @@ wrong-preimage-reverts-p0,v21,P!
 wrong-preimage-reverts-p0,v22,P!
 wrong-preimage-reverts-p0,v23,P!
 wrong-preimage-reverts-p0,v3,P!
+wrong-preimage-reverts-p0,v33,N!
 wrong-preimage-reverts-p0,v4,P!
 wrong-preimage-reverts-p0,v5,P!
 wrong-preimage-reverts-p0,v6,P!
@@ -614,6 +624,7 @@ wrong-preimage-reverts-p1,v21,P!
 wrong-preimage-reverts-p1,v22,P!
 wrong-preimage-reverts-p1,v23,P!
 wrong-preimage-reverts-p1,v3,P!
+wrong-preimage-reverts-p1,v34,N!
 wrong-preimage-reverts-p1,v4,P!
 wrong-preimage-reverts-p1,v5,P!
 wrong-preimage-reverts-p1,v6,P!
