@@ -5,6 +5,8 @@
 // then the same transaction (except for `msg.sender`), made by any EOA, in the same state, must produce the same
 // state modifications
 
+// Certora may start from a state where both players have joined but the status allows for `join0` or `join1` to run, whose behavior depends on the sender.
+
 /// @custom:run certoraRun versions/Lottery_v1.sol:Lottery versions/lib/EOA0.sol versions/lib/EOA1.sol --verify Lottery:certora/owner-impartiality-eoa.spec --optimistic_hashing --link Lottery:player0=EOA0 --link Lottery:player1=EOA1
 
 rule owner_impartiality_eoa(method f)
