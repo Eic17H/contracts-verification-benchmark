@@ -68,6 +68,7 @@ deadlock-freedom-join1-witness,v6,N!
 deadlock-freedom-join1-witness,v7,N!
 deadlock-freedom-join1-witness,v8,N!
 deadlock-freedom-join1-witness,v9,N!
+deadlock-freedom-join1-witness-eoa,v1,N!
 deadlock-freedom-reveal0,v1,N!
 deadlock-freedom-reveal0,v10,N!
 deadlock-freedom-reveal0,v11,N!
@@ -137,6 +138,7 @@ deadlock-freedom-reveal0-witness,v6,N!
 deadlock-freedom-reveal0-witness,v7,N!
 deadlock-freedom-reveal0-witness,v8,N!
 deadlock-freedom-reveal0-witness,v9,N!
+deadlock-freedom-reveal0-witness-eoa,v1,N!
 deadlock-freedom-reveal1,v1,N!
 deadlock-freedom-reveal1,v10,N!
 deadlock-freedom-reveal1,v11,N!
@@ -206,6 +208,7 @@ deadlock-freedom-reveal1-witness,v6,N!
 deadlock-freedom-reveal1-witness,v7,N!
 deadlock-freedom-reveal1-witness,v8,N!
 deadlock-freedom-reveal1-witness,v9,N!
+deadlock-freedom-reveal1-witness-eoa,v1,N!
 deadlock-freedom-win,v1,N!
 deadlock-freedom-win,v10,N!
 deadlock-freedom-win,v11,N!
@@ -275,6 +278,7 @@ deadlock-freedom-win-witness,v6,N!
 deadlock-freedom-win-witness,v7,N!
 deadlock-freedom-win-witness,v8,N!
 deadlock-freedom-win-witness,v9,N!
+deadlock-freedom-win-witness-eoa,v1,N!
 honest-player-profitability-eoa-redeem0-nojoin1,v1,P!
 honest-player-profitability-eoa-redeem0-nojoin1,v10,P!
 honest-player-profitability-eoa-redeem0-nojoin1,v11,P!
@@ -298,6 +302,10 @@ honest-player-profitability-eoa-redeem0-nojoin1,v6,P!
 honest-player-profitability-eoa-redeem0-nojoin1,v7,P!
 honest-player-profitability-eoa-redeem0-nojoin1,v8,P!
 honest-player-profitability-eoa-redeem0-nojoin1,v9,P!
+honest-player-profitability-eoa-redeem0-noreveal1,v1,P!
+honest-player-profitability-eoa-redeem1-noreveal0,v1,P!
+no-incentives-to-abort-eoa,v1,P!
+no-incentives-to-abort-witness-eoa,v1,P!
 owner-impartiality-eoa,v1,ND
 owner-impartiality-eoa,v10,ND
 owner-impartiality-eoa,v11,ND
@@ -419,7 +427,7 @@ redeem-before-deadline-reverts-noreveal1,v6,P!
 redeem-before-deadline-reverts-noreveal1,v7,P!
 redeem-before-deadline-reverts-noreveal1,v8,P!
 redeem-before-deadline-reverts-noreveal1,v9,P!
-redeem0-noreveal1-fairness-eoa,v1,UNK
+redeem0-noreveal1-fairness-eoa,v1,N!
 redeem0-noreveal1-fairness-eoa,v10,N!
 redeem0-noreveal1-fairness-eoa,v11,N!
 redeem0-noreveal1-fairness-eoa,v12,N!
@@ -536,7 +544,7 @@ win-pays-fair-winner-eoa,v6,N!
 win-pays-fair-winner-eoa,v7,N!
 win-pays-fair-winner-eoa,v8,N!
 win-pays-fair-winner-eoa,v9,N!
-win-transaction-env-independent,v1,UNK
+win-transaction-env-independent,v1,N!
 win-transaction-env-independent,v10,UNK
 win-transaction-env-independent,v11,UNK
 win-transaction-env-independent,v12,UNK
