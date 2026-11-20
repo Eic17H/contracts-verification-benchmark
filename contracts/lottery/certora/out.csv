@@ -482,7 +482,7 @@ no-incentives-to-abort-witness-eoa,v6,ERR
 no-incentives-to-abort-witness-eoa,v7,ERR
 no-incentives-to-abort-witness-eoa,v8,ERR
 no-incentives-to-abort-witness-eoa,v9,ERR
-owner-impartiality-eoa,v1,N
+owner-impartiality-eoa,v1,ERR
 owner-impartiality-eoa,v10,N
 owner-impartiality-eoa,v11,N
 owner-impartiality-eoa,v12,N

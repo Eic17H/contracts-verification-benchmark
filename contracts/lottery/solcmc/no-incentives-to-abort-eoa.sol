@@ -14,6 +14,7 @@ bool assertion = true;
 require(player0.code.length == 0);
 require(player1.code.length == 0);
 uint prebal = player0.balance;
+if(player0 != address(0) && player1 != address(0)) require(player0 != player1);
 
 /// @custom:postghost function reveal0
 uint postbal = player0.balance;
@@ -25,6 +26,7 @@ lastTransactionWasReveal0 = true;
 require(msg.sender == tx.origin);
 require(msg.sender.code.length == 0);
 uint prebal = player0.balance;
+if(player0 != address(0) && player1 != address(0)) require(player0 != player1);
 
 /// @custom:postghost function join0
 uint postbal = player0.balance;
@@ -36,6 +38,7 @@ lastTransactionWasReveal0 = false;
 require(msg.sender == tx.origin);
 require(msg.sender.code.length == 0);
 uint prebal = player0.balance;
+if(player0 != address(0) && player1 != address(0)) require(player0 != player1);
 
 /// @custom:postghost function join1
 uint postbal = player0.balance;
@@ -47,6 +50,7 @@ lastTransactionWasReveal0 = false;
 require(player0.code.length == 0);
 require(player1.code.length == 0);
 uint prebal = player0.balance;
+if(player0 != address(0) && player1 != address(0)) require(player0 != player1);
 
 /// @custom:postghost function redeem0_nojoin1
 uint postbal = player0.balance;
@@ -58,6 +62,7 @@ lastTransactionWasReveal0 = false;
 require(player0.code.length == 0);
 require(player1.code.length == 0);
 uint prebal = player0.balance;
+if(player0 != address(0) && player1 != address(0)) require(player0 != player1);
 
 /// @custom:postghost function redeem1_noreveal0
 uint postbal = player0.balance;
@@ -69,6 +74,7 @@ lastTransactionWasReveal0 = false;
 require(player0.code.length == 0);
 require(player1.code.length == 0);
 uint prebal = player0.balance;
+if(player0 != address(0) && player1 != address(0)) require(player0 != player1);
 
 /// @custom:postghost function reveal1
 uint postbal = player0.balance;
@@ -80,6 +86,7 @@ lastTransactionWasReveal0 = false;
 require(player0.code.length == 0);
 require(player1.code.length == 0);
 uint prebal = player0.balance;
+if(player0 != address(0) && player1 != address(0)) require(player0 != player1);
 
 /// @custom:postghost function redeem0_noreveal1
 uint postbal = player0.balance;
@@ -91,6 +98,7 @@ lastTransactionWasReveal0 = false;
 require(player0.code.length == 0);
 require(player1.code.length == 0);
 uint prebal = player0.balance;
+if(player0 != address(0) && player1 != address(0)) require(player0 != player1);
 
 /// @custom:postghost function win
 uint postbal = player0.balance;
