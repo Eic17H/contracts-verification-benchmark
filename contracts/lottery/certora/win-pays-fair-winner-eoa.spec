@@ -21,8 +21,12 @@ rule win_pays_fair_winner_eoa {
 
     win(e);
 
-    assert (
-        nativeBalances[expected_winner] == pre_bal + pre_pot &&
-        nativeBalances[currentContract] == 0
-    );
+    mathint post_bal = nativeBalances[expected_winner];
+    mathint post_pot = nativeBalances[currentContract];
+
+    // Certora may start from an unreachable state, such as one where the bet is more than the contract balance in the Win state
+    // That is impossible in v1, but requiring the bet to be equal to the contract balance would rule out versions that incorrectly compute the bet amount
+    mathint bet = currentContract.bet_amount;
+
+    assert (post_bal - pre_bal == pre_pot && post_pot == 0);
 }

@@ -34,10 +34,12 @@ rule no_incentives_to_abort_eoa_witness {
     mathint post_p1_bal = nativeBalances[p1];
     mathint post_contract_bal = nativeBalances[currentContract];
 
+    Lottery.Status post_contract_status = currentContract.status;
+
     assert (
         post_p0_bal != pre_p0_bal + pre_contract_bal ||
         post_contract_bal != 0 ||
         post_p1_bal != pre_p1_bal ||
-        currentContract.status != Lottery.Status.End
+        post_contract_status != Lottery.Status.End
     );
 }
