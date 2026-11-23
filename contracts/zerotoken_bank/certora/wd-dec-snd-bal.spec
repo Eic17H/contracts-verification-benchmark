@@ -2,9 +2,9 @@ rule wd_dec_snd_bal {
     env e;
     uint amount;
 
-    mathint currb = nativeBalances[e.msg.sender];
+    mathint currb = balanceOf(e, e.msg.sender);
     withdraw(e, amount);
-    mathint newb = nativeBalances[e.msg.sender];
+    mathint newb = balanceOf(e, e.msg.sender);
 
     assert(newb == currb - to_mathint(amount));
 }
