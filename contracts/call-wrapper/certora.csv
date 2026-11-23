@@ -4,8 +4,16 @@ bal,v2,N
 bal,v3,N
 bal,v4,N
 bal,v5,N
+bal,v6,N
+bal,v7,P!
+bal,v8,N
+bal,v9,N
 stor,v1,P!
 stor,v2,P!
 stor,v3,P!
 stor,v4,P!
 stor,v5,P!
+stor,v6,P!
+stor,v7,P!
+stor,v8,N
+stor,v9,P!

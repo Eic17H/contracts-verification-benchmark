@@ -1,0 +1,1 @@
+The contract acts as a wrapper to Solidity's `call` function.

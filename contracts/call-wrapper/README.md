@@ -13,6 +13,10 @@ The contract acts as a wrapper to Solidity's `call` function.
 - **v3**: reentrant `callwrap` and additional reentrant function `modifystorage`.
 - **v4**: non-reentrant `callwrap` and additional reentrant function `modifystorage`.
 - **v5**: non-reentrant `callwrap` and additional non-reentrant function `modifystorage`.
+- **v6**: reentrant `callwrap` and additional non-reentrant function `modifystorage`.
+- **v7**: reentrant `callwrap` always reverts, `receive` always reverts.
+- **v8**: reentrant `callwrap` increments `data`.
+- **v9**: reentrant `callwrap` calls `msg.sender` instead of `called`.
 
 ## Verification data
 
@@ -31,6 +35,10 @@ The contract acts as a wrapper to Solidity's `call` function.
 | **v3** | TN!   | TN!   |
 | **v4** | TN!   | TN!   |
 | **v5** | FP!   | TP!   |
+| **v6** | TN!   | TN!   |
+| **v7** | TP!   | TP!   |
+| **v8** | TN!   | TN!   |
+| **v9** | TN!   | TP!   |
  
 
 #### Eldarica
@@ -41,6 +49,10 @@ The contract acts as a wrapper to Solidity's `call` function.
 | **v3** | TN!   | TN!   |
 | **v4** | TN!   | TN!   |
 | **v5** | FP!   | TP!   |
+| **v6** | TN!   | TN!   |
+| **v7** | TP!   | TP!   |
+| **v8** | TN!   | TN!   |
+| **v9** | TN!   | TP!   |
  
 
 ### Certora
@@ -51,5 +63,9 @@ The contract acts as a wrapper to Solidity's `call` function.
 | **v3** | TN    | FP!   |
 | **v4** | TN    | FP!   |
 | **v5** | TN    | TP!   |
+| **v6** | TN    | FP!   |
+| **v7** | TP!   | TP!   |
+| **v8** | TN    | TN    |
+| **v9** | TN    | TP!   |
  
 
