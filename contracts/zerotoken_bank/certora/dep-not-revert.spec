@@ -1,4 +1,4 @@
-rule P3 {
+rule dep_not_revert {
     env e;
     uint amount;
 

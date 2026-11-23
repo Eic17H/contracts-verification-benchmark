@@ -32,42 +32,12 @@ The ZeroTokenBank contract accepts deposits and withdrawals from any address. Wh
 - **v6**: has to be "pinged" after 10 blocks of inactivity in order to withdraw.
 - **v7**: withdraw locked after 100 rounds from creation.
 
-## Ground truth
-|        | always-bal-inc     | always-bal-to-max  | always-wd-all-many | always-wd-all-one  | bal-dec-onlyif-wd  | bal-inc-onlyif-dep | bal-nonneg         | bal-sum-dep-wd     | cbal-eq-sum-bal    | cbal-ge-bal        | cbal-nonneg        | dep-inc-snd-bal    | dep-not-revert     | frontrun-many      | frontrun-one       | sum-wd-le-sum-dep  | wd-dec-snd-bal     | wd-not-revert      |
-|--------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
-| **v1** | 0[^1]              | 0[^2]              | 1                  | 1                  | 1[^3]              | 1[^4]              | 1[^5]              | 1                  | 1                  | 1[^6]              | 1[^7]              | 1                  | 0[^8]              | 1                  | 1                  | 1                  | 1                  | 1                  |
-| **v2** | 0                  | 0                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 0                  | 1                  | 1                  | 1                  | 1                  | 1                  |
-| **v3** | 0                  | 0                  | 1                  | 1                  | 1                  | 1                  | 1                  | 0[^9]              | 0[^10]             | 0[^11]             | 1                  | 1                  | 0                  | 0[^12]             | 0[^13]             | 0[^14]             | 0[^15]             | 1                  |
-| **v4** | 0                  | 0[^16]             | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 0                  | 1                  | 1                  | 1                  | 1                  | 1                  |
-| **v5** | 0                  | 0[^17]             | 1                  | 0[^18]             | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 0                  | 1                  | 1                  | 1                  | 1                  | 1                  |
-| **v6** | 0                  | 0                  | 0[^19]             | 0[^20]             | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 0                  | 0[^21]             | 0[^22]             | 1                  | 1                  | 0[^23]             |
-| **v7** | 0                  | 0                  | 1                  | 0[^24]             | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 1                  | 0[^25]             |
- 
-[^1]: balance may be at MAX_UINT
-[^2]: only if nobody else has deposited 
-[^3]: in all versions parameters are uints
-[^4]: in all versions  parameters are uints
-[^5]: balance is a map to uints
-[^6]: requires inductive reasoning about the sum
-[^7]: contract_balance is a uint
-[^8]: reverts if overflow
-[^9]: balance modified incorrectly in withdraw
-[^10]: balance and contract_balance are modified incorrectly in withdraw
-[^11]: balance and contract_balance are modified incorrectly in withdraw
-[^12]: the incorrect balance change can make it impossible for other users to withdraw
-[^13]: the incorrect balance change can make it impossible for other users to withdraw
-[^14]: users can withdraw more than deposited
-[^15]: balance entry modified by one less than the withdrawn amount
-[^16]: the owner cannot increase their balance
-[^17]: deposit bounded: requires multiple transactions
-[^18]: have to withdraw 100 ETH at a time
-[^19]: after 100 blocks it is impossible to withdraw
-[^20]: requires two transactions in general: one to wakeup the contract and one to withdraw
-[^21]: another user may wake up the contract
-[^22]: another user may wake up the contract
-[^23]: will revert if inactive for 10 rounds
-[^24]: after 100 blocks it is impossible to withdraw
-[^25]: will revert if 100 rounds have elapsed
+## Verification data
+
+- [Ground truth](ground-truth.csv)
+- [Solcmc/z3](solcmc-z3.csv)
+- [Solcmc/Eldarica](solcmc-eld.csv)
+- [Certora](certora.csv)
 
 ## Experiments
 ### SolCMC
@@ -95,16 +65,15 @@ The ZeroTokenBank contract accepts deposits and withdrawals from any address. Wh
 | **v7** | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | TP!                | ND                 | ND                 | FN                 | TP!                | TP!                | ND                 | ND                 | ND                 | ND                 | TP!                | ND                 |
  
 
-
 ### Certora
 |        | always-bal-inc     | always-bal-to-max  | always-wd-all-many | always-wd-all-one  | bal-dec-onlyif-wd  | bal-inc-onlyif-dep | bal-nonneg         | bal-sum-dep-wd     | cbal-eq-sum-bal    | cbal-ge-bal        | cbal-nonneg        | dep-inc-snd-bal    | dep-not-revert     | frontrun-many      | frontrun-one       | sum-wd-le-sum-dep  | wd-dec-snd-bal     | wd-not-revert      |
 |--------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
-| **v1** | ND                 | TN                 | ND                 | FN                 | TP!                | TP!                | TP!                | ND                 | ND                 | FN                 | TP!                | TP!                | TN                 | ND                 | FN                 | ND                 | TP!                | FN                 |
-| **v2** | ND                 | TN                 | ND                 | FN                 | TP!                | TP!                | TP!                | ND                 | ND                 | FN                 | TP!                | TP!                | TN                 | ND                 | FN                 | ND                 | TP!                | FN                 |
-| **v3** | ND                 | TN                 | ND                 | FN                 | TP!                | TP!                | TP!                | ND                 | ND                 | TN                 | TP!                | TP!                | TN                 | ND                 | TN                 | ND                 | TN                 | FN                 |
-| **v4** | ND                 | TN                 | ND                 | FN                 | TP!                | TP!                | TP!                | ND                 | ND                 | FN                 | TP!                | TP!                | TN                 | ND                 | FN                 | ND                 | TP!                | FN                 |
-| **v5** | ND                 | TN                 | ND                 | TN                 | TP!                | TP!                | TP!                | ND                 | ND                 | FN                 | TP!                | TP!                | TN                 | ND                 | FN                 | ND                 | TP!                | FN                 |
-| **v6** | ND                 | TN                 | ND                 | TN                 | TP!                | TP!                | TP!                | ND                 | ND                 | FN                 | TP!                | TP!                | TN                 | ND                 | TN                 | ND                 | TP!                | TN                 |
-| **v7** | ND                 | TN                 | ND                 | TN                 | TP!                | TP!                | TP!                | ND                 | ND                 | FN                 | TP!                | TP!                | FN                 | ND                 | FN                 | ND                 | TP!                | TN                 |
+| **v1** | ND                 | TN                 | ND                 | FN                 | TP!                | TP!                | TP!                | ND                 | ND                 | FN                 | TP!                | FN                 | TN                 | ND                 | TP!                | ND                 | FN                 | FN                 |
+| **v2** | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | FN                 | ND                 |
+| **v3** | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | TN                 | ND                 |
+| **v4** | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | FN                 | ND                 |
+| **v5** | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | FN                 | ND                 |
+| **v6** | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | FN                 | ND                 |
+| **v7** | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | ND                 | FN                 | ND                 |
  
 

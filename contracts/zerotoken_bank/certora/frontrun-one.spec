@@ -1,11 +1,11 @@
-rule P17 {
+rule frontrun_one {
     storage initial = lastStorage;
 
     method f;
     env e1;
     calldataarg args1;
     f@withrevert(e1, args1) at initial;
-    uint balance1 = balanceOf(e1.msg.sender);
+    uint balance1 = nativeBalances[e1.msg.sender];
 
     method g;
     env e0;
@@ -13,7 +13,7 @@ rule P17 {
     require e0.msg.sender != e1.msg.sender;
     g(e0, args0) at initial;
     f@withrevert(e1, args1);
-    uint balance2 = balanceOf(e1.msg.sender);
+    uint balance2 = nativeBalances[e1.msg.sender];
 
     assert balance1 == balance2;
 }

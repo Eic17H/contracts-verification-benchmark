@@ -1,3 +1,3 @@
-invariant P7()
-    totalBalance() >= 0;
+invariant cbal_nonneg (env e)
+    totalBalance(e) >= 0;
 

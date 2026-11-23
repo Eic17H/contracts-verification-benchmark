@@ -1,3 +1,3 @@
-invariant P8(address a )
-    balanceOf(a) >= 0;
+invariant bal_nonneg (address a )
+    nativeBalances[a] >= 0;
 

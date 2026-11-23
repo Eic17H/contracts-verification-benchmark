@@ -1,8 +1,8 @@
-rule P4 {
+rule wd_not_revert {
     env e;
     uint amount;
 
-    require(amount <= balanceOf(e.msg.sender));
+    require(amount <= nativeBalances[e.msg.sender]);
 
     withdraw@withrevert(e, amount);
 

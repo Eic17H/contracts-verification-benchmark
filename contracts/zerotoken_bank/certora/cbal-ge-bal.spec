@@ -1,2 +1,2 @@
-invariant P11(address a)
-    totalBalance() >= balanceOf(a);
+invariant cbal_ge_bal (env e, address a)
+    totalBalance(e) >= nativeBalances[a];

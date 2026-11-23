@@ -1,10 +1,10 @@
-rule P2 {
+rule wd_dec_snd_bal {
     env e;
     uint amount;
 
-    mathint currb = balanceOf(e.msg.sender);
+    mathint currb = nativeBalances[e.msg.sender];
     withdraw(e, amount);
-    mathint newb = balanceOf(e.msg.sender);
+    mathint newb = nativeBalances[e.msg.sender];
 
     assert(newb == currb - to_mathint(amount));
 }
