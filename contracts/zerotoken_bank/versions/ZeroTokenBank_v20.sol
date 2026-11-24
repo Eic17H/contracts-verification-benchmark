@@ -13,7 +13,7 @@ contract ZeroTokenBank {
     }
 
     function deposit(uint amount) public {
-        require(balances[msg.sender] <= MAX_UINT - amount);
+        require(balances[msg.sender] <= type(uint).max - amount);
     }
 
     function withdraw(uint amount) public {

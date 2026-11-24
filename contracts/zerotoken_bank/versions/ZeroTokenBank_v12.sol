@@ -7,7 +7,7 @@ contract ZeroTokenBank {
     mapping (address => uint) balances;
 
     function balanceOf(address addr) public returns (uint) {
-        if(balances[addr] < MAX_UINT - 1) balances[addr] += 1;
+        if(balances[addr] < type(uint).max - 1) balances[addr] += 1;
         return balances[addr];
     }
 

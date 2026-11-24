@@ -1,4 +1,4 @@
-/// @custom:version if the contract balance is `MAX_UINT`, `deposit` won't update it.
+/// @custom:version if the contract balance is `type(uint).max`, `deposit` won't update it.
 //SPDX-License-Identifier: UNLICENSED
 pragma solidity >= 0.8.2;
 
@@ -16,8 +16,8 @@ contract ZeroTokenBank {
 
     function deposit(uint amount) public {
         balances[msg.sender] += amount;
-        if(contract_balance < MAX_UINT - amount) contract_balance += amount;
-        else contract_balance = MAX_UINT;
+        if(contract_balance < type(uint).max - amount) contract_balance += amount;
+        else contract_balance = type(uint).max;
     }
 
     function withdraw(uint amount) public {
