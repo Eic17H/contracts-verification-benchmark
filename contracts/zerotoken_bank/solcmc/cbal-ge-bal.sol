@@ -1,3 +1,5 @@
+/// @custom:ghost
+
 function absv(uint n) internal pure returns (uint) {
     return n;
 }
@@ -15,6 +17,8 @@ function sign(int n) internal pure returns (uint) {
     if(n<0) return 0;
     else return 1;
 }
+
+/// @custom:invariant
 
 function invariant(address addr) public {
     assert(absv(contract_balance) >= absv(balances[addr]));
