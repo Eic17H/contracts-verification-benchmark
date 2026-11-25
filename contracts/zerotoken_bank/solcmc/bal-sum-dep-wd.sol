@@ -12,14 +12,16 @@ function checkSigned(int) internal {balancesSigned = true;}
 function checkSigned(uint) internal {balancesUnsigned = true;}
 
 /// @custom:preghost function deposit
-expectedBalances[msg.sender] += amount;
+expectedBalances[msg.sender] += uint(amount);
+expectedBalancesSigned[msg.sender] += int(amount);
 
 /// @custom:preghost function withdraw
-expectedBalances[msg.sender] -= amount;
+expectedBalances[msg.sender] -= uint(amount);
+expectedBalancesSigned[msg.sender] -= int(amount);
 
 /// @custom:invariant
 function invariant(address a) public {
     checkSigned(balances[a]);
-    if(balancesSigned) assert(balances[a] > 0 && expectedBalances[a] == uint(balances[a])); // todo: balances[a]>0 is wrong
+    if(balancesSigned) assert(expectedBalancesSigned[a] == int(balances[a]));
     if(balancesUnsigned) assert(expectedBalances[a] == uint(balances[a]));
 }

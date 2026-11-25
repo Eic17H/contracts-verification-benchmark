@@ -169,20 +169,20 @@ bal-sum-dep-wd,v5,1,
 bal-sum-dep-wd,v6,1,
 bal-sum-dep-wd,v7,1,
 bal-sum-dep-wd,v8,1,
-bal-sum-dep-wd,v9,1,
-bal-sum-dep-wd,v10,1,
-bal-sum-dep-wd,v11,1,
-bal-sum-dep-wd,v12,1,
+bal-sum-dep-wd,v9,0,"`decreaseBalance` can cause a mismatch."
+bal-sum-dep-wd,v10,0,"`balanceOf` can cause a mismatch."
+bal-sum-dep-wd,v11,0,"`increaseBalance` can cause a mismatch."
+bal-sum-dep-wd,v12,0,"`balanceOf` can cause a mismatch."
 bal-sum-dep-wd,v13,1,
 bal-sum-dep-wd,v14,1,
-bal-sum-dep-wd,v15,1,
-bal-sum-dep-wd,v16,1,
+bal-sum-dep-wd,v15,0,"Balance modified incorrectly in `deposit`."
+bal-sum-dep-wd,v16,0,"Balance is never modified in `deposit`."
 bal-sum-dep-wd,v17,1,
-bal-sum-dep-wd,v18,1,
+bal-sum-dep-wd,v18,0,"Balance is never modified."
 bal-sum-dep-wd,v19,1,
-bal-sum-dep-wd,v20,1,
+bal-sum-dep-wd,v20,0,"Balance is never modified."
 bal-sum-dep-wd,v21,1,
-bal-sum-dep-wd,v22,1,"Balance modified incorrectly in `deposit`."
+bal-sum-dep-wd,v22,0,"Balances are updated incorrectly."
 
 cbal-eq-sum-bal,v1,1,
 cbal-eq-sum-bal,v2,1,

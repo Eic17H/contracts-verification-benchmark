@@ -1,4 +1,4 @@
-/// @custom:version compliant with the specification.
+/// @custom:version all methods are non-reentrant.
 //SPDX-License-Identifier: UNLICENSED
 pragma solidity >= 0.8.2;
 
