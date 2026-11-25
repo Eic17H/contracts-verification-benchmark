@@ -1,5 +1,5 @@
 property,version,outcome
-always-bal-to-max,v1,N
+always-bal-to-max,v1,ERR
 always-wd-all-one,v1,N
 bal-dec-onlyif-wd,v1,P!
 bal-inc-onlyif-dep,v1,P!
