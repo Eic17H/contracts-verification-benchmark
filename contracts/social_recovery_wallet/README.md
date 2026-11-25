@@ -7,8 +7,8 @@ The concept was popularized by
 [this](https://vitalik.ca/general/2021/01/11/recovery.html) article by Vitalik Buterin.
 
 ## Specification
-This wallet can be used by the owner to make transactions by calling `the
-executeExternalTx()` function, by provinding the desired recipient
+This wallet can be used by the owner to make transactions by calling the
+`executeExternalTx()` function, by providing the desired recipient
 contract/externally owned account (EOA), an ether value, and arbitrary data.
 
 In case of lost private key, a recovery process can be initiated by a guardian.
