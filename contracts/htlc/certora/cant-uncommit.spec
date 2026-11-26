@@ -3,7 +3,8 @@
 // If contract is in a committed state,
 // no transaction should be able to reverse it back to an uncommited state
 
-// Will yield false negatives due to considering input strings too long for the hashing function.
+// Will yield false negatives due to considering input strings too long for the hashing function,
+// if a version has a new method with a string parameter that's not `reveal` or `hashing` that calls the hashing function.
 
 rule cant_uncommit {
     env e;
