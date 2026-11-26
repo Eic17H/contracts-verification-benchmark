@@ -7,6 +7,8 @@ rule reveal_timeout_after_isCommitted {
     string s;
     method f;
 
+    bool wasCommitted = currentContract.isCommitted;
+
     // Maximum length allowed by the hashing function
     require s.length <= 224;
 
@@ -19,6 +21,5 @@ rule reveal_timeout_after_isCommitted {
         timeout(e);
     }
 
-    assert currentContract.isCommitted;
-
+    assert wasCommitted;
 }

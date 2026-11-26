@@ -176,7 +176,7 @@ reveal-timeout-after-isCommitted,v3,1,
 reveal-timeout-after-isCommitted,v4,1,
 reveal-timeout-after-isCommitted,v5,1,
 reveal-timeout-after-isCommitted,v6,1,
-reveal-timeout-after-isCommitted,v7,0,"`reveal` and `timeout` reset `isCommitted` to `false`."
+reveal-timeout-after-isCommitted,v7,1,"`reveal` and `timeout` still check `isCommitted` at the start."
 reveal-timeout-after-isCommitted,v8,1,
 reveal-timeout-after-isCommitted,v9,1,
 reveal-timeout-after-isCommitted,v10,1,
