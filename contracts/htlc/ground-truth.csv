@@ -1,5 +1,5 @@
 property,version,truth,footnote-md
-balance-only-increases-on-commit,v1,0,"This property should always be false, since a contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
+balance-only-increases-on-commit,v1,0,"The contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
 balance-only-increases-on-commit,v2,0,
 balance-only-increases-on-commit,v3,0,
 balance-only-increases-on-commit,v4,0,
@@ -91,7 +91,7 @@ commit-reverts-if-isCommitted,v13,1,
 commit-reverts-if-isCommitted,v14,1,
 commit-reverts-if-isCommitted,v15,0,
 commit-reverts-if-isCommitted,v16,1,
-commit-reverts-if-isCommitted,v17,0,"Methods do nothing and don't revert."
+commit-reverts-if-isCommitted,v17,1,"Methods never revert, but `isCommitted` is never set to `true`. (false => false) is true."
 commit-reverts-if-isCommitted,v18,1,
 commit-reverts-if-isCommitted,v19,1,
 commit-twice-reverts,v1,1,
@@ -113,7 +113,7 @@ commit-twice-reverts,v16,1,
 commit-twice-reverts,v17,0,"Methods do nothing and don't revert."
 commit-twice-reverts,v18,0,"`isCommitted` is never set."
 commit-twice-reverts,v19,1,
-contract-balance-is-commit-value,v1,0,"This property should always be false, since a contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
+contract-balance-is-commit-value,v1,0,"The contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
 contract-balance-is-commit-value,v2,0,
 contract-balance-is-commit-value,v3,0,
 contract-balance-is-commit-value,v4,0,
@@ -189,7 +189,7 @@ reveal-timeout-after-isCommitted,v16,1,
 reveal-timeout-after-isCommitted,v17,0,"Methods do nothing and don't revert."
 reveal-timeout-after-isCommitted,v18,1,
 reveal-timeout-after-isCommitted,v19,1,
-reveal-transfer,v1,0,"This property should always be false, since a contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
+reveal-transfer,v1,0,"`owner` can be a contract that redirects the funds received from HTLC to another address."
 reveal-transfer,v2,0,
 reveal-transfer,v3,0,
 reveal-transfer,v4,0,
@@ -208,7 +208,7 @@ reveal-transfer,v16,1,"`reveal` always reverts, and violating this property requ
 reveal-transfer,v17,0,
 reveal-transfer,v18,0,
 reveal-transfer,v19,0,
-reveal-zeroes-balance,v1,0,"This property should always be false, since a contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
+reveal-zeroes-balance,v1,0,"The contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
 reveal-zeroes-balance,v2,0,
 reveal-zeroes-balance,v3,0,
 reveal-zeroes-balance,v4,0,
@@ -227,7 +227,7 @@ reveal-zeroes-balance,v16,1,"`reveal` always reverts, and violating this propert
 reveal-zeroes-balance,v17,0,
 reveal-zeroes-balance,v18,0,
 reveal-zeroes-balance,v19,0,
-sent-le-init-bal,v1,0,"This property should always be false, since a contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
+sent-le-init-bal,v1,0,"The contraxt can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
 sent-le-init-bal,v2,0,
 sent-le-init-bal,v3,0,
 sent-le-init-bal,v4,0,
@@ -265,7 +265,7 @@ timeout-deadline,v16,1,
 timeout-deadline,v17,0,"All methods do nothing and don't revert."
 timeout-deadline,v18,1,
 timeout-deadline,v19,1,
-timeout-transfer,v1,0,"This property should always be false, since a contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
+timeout-transfer,v1,0,"`verifier` can be a contract that redirects the funds received from HTLC to another address."
 timeout-transfer,v2,0,
 timeout-transfer,v3,0,
 timeout-transfer,v4,0,
@@ -284,7 +284,7 @@ timeout-transfer,v16,1,"`timeout` always reverts, and violating this property re
 timeout-transfer,v17,0,
 timeout-transfer,v18,0,
 timeout-transfer,v19,0,
-timeout-zeroes-balance,v1,0,"This property should always be false, since a contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
+timeout-zeroes-balance,v1,0,"The contract can receive ETH when its address is specified in a coinbase transaction or in a `selfdestruct`."
 timeout-zeroes-balance,v2,0,
 timeout-zeroes-balance,v3,0,
 timeout-zeroes-balance,v4,0,
