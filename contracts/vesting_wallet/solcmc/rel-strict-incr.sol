@@ -11,9 +11,11 @@ function invariant(uint64 timestamp1, uint64 timestamp2) public view {
     uint releasable1 = vestedAmount(timestamp1);
     uint releasable2 = vestedAmount(timestamp2);
 
+    /* Attempt to correct for integer truncation
     // Avoid timestamps being so close that releasable1==releasable2 despite the function being strictly increasing.
     // Will not work with function that grow faster than linearly.
     require((address(this).balance + released) * (timestamp2 - timestamp1) >= duration);
+    */
 
     assert(releasable2 > releasable1);
 }

@@ -27,9 +27,11 @@ rule rel_strict_incr {
     require balance1 == balance2 && released2 == released1;
     require start+duration > timestamp2 && timestamp2 > timestamp1 && timestamp1 > start;
 
+    /* Attempt to correct for integer truncation
     // Avoid timestamps being so close that releasable1==releasable2 despite the function being strictly increasing.
     // Will not work with function that grow faster than linearly.
     require (balance1+released1) * (timestamp2 - timestamp1) >= duration;
+    */
     
     assert releasable2 > releasable1;
 }

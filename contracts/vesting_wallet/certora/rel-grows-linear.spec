@@ -20,40 +20,53 @@ rule rel_grows_linear {
 
     // Get data from the three environments
     
-    mathint releasable1 = currentContract.releasable(e1);
-    mathint balance1 = nativeBalances[currentContract];
-    mathint timestamp1 = e1.block.timestamp;
-    mathint released1 = currentContract.released;
+    mathint r1 = currentContract.releasable(e1);
+    mathint b1 = nativeBalances[currentContract];
+    mathint t1 = e1.block.timestamp;
+    mathint rd1 = currentContract.released;
 
-    mathint releasable2 = currentContract.releasable(e2);
-    mathint balance2 = nativeBalances[currentContract];
-    mathint timestamp2 = e2.block.timestamp;
-    mathint released2 = currentContract.released;
+    mathint r2 = currentContract.releasable(e2);
+    mathint b2 = nativeBalances[currentContract];
+    mathint t2 = e2.block.timestamp;
+    mathint rd2 = currentContract.released;
 
-    mathint releasable3 = currentContract.releasable(e3);
-    mathint balance3 = nativeBalances[currentContract];
-    mathint timestamp3 = e3.block.timestamp;
-    mathint released3 = currentContract.released;
+    mathint r3 = currentContract.releasable(e3);
+    mathint b3 = nativeBalances[currentContract];
+    mathint t3 = e3.block.timestamp;
+    mathint rd3 = currentContract.released;
 
     // Ensure only the timestamp and releasable have changed
-    require balance1 == balance2;
-    require released2 == released1;
-    require balance2 == balance3;
-    require released2 == released3;
+    require b1 == b2;
+    require rd2 == rd1;
+    require b2 == b3;
+    require rd2 == rd3;
 
     // Ensure the timestamps are in the correct order
-    require      start < timestamp1;
-    require timestamp1 < timestamp2;
-    require timestamp2 < timestamp3;
-    require timestamp3 < start+duration;
+    require      start < t1;
+    require t1 < t2;
+    require t2 < t3;
+    require t3 < start+duration;
 
-    mathint tdiff1 = timestamp2 - timestamp1;
-    mathint tdiff2 = timestamp3 - timestamp2;
-    mathint rdiff1 = releasable2 - releasable1;
-    mathint rdiff2 = releasable3 - releasable2;
+    /* Attempt to correct for integer truncation
+    mathint tdiff1 = t2 - t1;
+    mathint tdiff2 = t3 - t2;
+    mathint rdiff1 = r2 - r1;
+    mathint rdiff2 = 3 - r2;
     
     mathint cross = rdiff1 * tdiff2 - rdiff2 * tdiff1;
     mathint tolerance = tdiff1 + tdiff2;
 
     assert -tolerance < cross && cross < tolerance;
+    */
+
+    mathint c;
+    assert r1>r2 => t1>t2;
+    assert r1<r2 => t1<t2;
+    assert r1>r2 => t2>t3;
+    assert r1<r2 => t2<t3;
+    assert r2>r3 => t2>t3;
+    assert r2<r3 => t2<t3;
+
+    require r2-r1 == c*(t2-t1);
+    assert r3-r2 == c*(t3-t2);
 }
