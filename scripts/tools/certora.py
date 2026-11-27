@@ -118,9 +118,20 @@ def run(contract_path, spec_path):
             logging.error(msg)
             return ERROR, msg
 
+        '''
+        Will reject .spec files that have a rule with assert and a rule with satisfy.
+        Will also flag identifiers that contain "assert" or "satisfy" as assert/satisfy statements, such as `satisfy assertionCheck;`.
         # Exit if both are used
         if has_assert and has_satisfy:
             msg = f'Error in {spec_path}: Combining both "satisfy" and "assert" is not allowed.'
+            logging.error(msg)
+            return ERROR, msg
+        '''
+        # Check that assert and satisfy appear in the same rule
+        has_assert_and_satisfy = re.search('{[^}]*[^}a-zA-Z0-9_]assert[^}a-zA-Z0-9_][^}]*[^}a-zA-Z0-9_]satisfy[^}a-zA-Z0-9_][^}]*}', spec_no_comments)
+        has_satisfy_and_assert = re.search('{[^}]*[^}a-zA-Z0-9_]satisfy[^}a-zA-Z0-9_][^}]*[^}a-zA-Z0-9_]assert[^}a-zA-Z0-9_][^}]*}', spec_no_comments)
+        if has_assert_and_satisfy or has_satisfy_and_assert:
+            msg = f'Error in {spec_path}: Combining both "satisfy" and "assert" in one rule is not allowed.'
             logging.error(msg)
             return ERROR, msg
 
