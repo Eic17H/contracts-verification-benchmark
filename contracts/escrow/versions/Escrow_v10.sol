@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity >= 0.8.2;
 
-/// @custom:version conformant to specification, but very time ETH is sent, two calls are used instead of one.
+/// @custom:version conformant to specification, but every time ETH is sent, two calls are used instead of one.
 
 contract Escrow {
    enum State {AGREE, DISPUTE, ARBITRATED, REDEEM, END}

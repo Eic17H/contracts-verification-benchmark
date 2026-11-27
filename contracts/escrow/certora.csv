@@ -95,7 +95,7 @@ recipient-buyer-or-seller,v11,P!
 recipient-buyer-or-seller,v12,P!
 recipient-buyer-or-seller,v13,P!
 recipient-buyer-or-seller,v14,P!
-recipient-buyer-or-seller,v15,ERR
+recipient-buyer-or-seller,v15,P!
 recipient-buyer-or-seller,v2,P!
 recipient-buyer-or-seller,v3,P!
 recipient-buyer-or-seller,v4,N
@@ -103,7 +103,7 @@ recipient-buyer-or-seller,v5,P!
 recipient-buyer-or-seller,v6,P!
 recipient-buyer-or-seller,v7,P!
 recipient-buyer-or-seller,v8,P!
-recipient-buyer-or-seller,v9,P!
+recipient-buyer-or-seller,v9,N
 redeem-send,v1,P!
 redeem-send,v10,P!
 redeem-send,v11,ERR

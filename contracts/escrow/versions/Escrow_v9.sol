@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity >= 0.8.2;
 
-/// @custom:version after a successful call to `redeem`, the arbiter receives `deposit` ETH.
+/// @custom:version `redeem` sends the balance to the arbiter, disregarding the `recipient` variable.
 
 contract Escrow {
    enum State {AGREE, DISPUTE, ARBITRATED, REDEEM, END}

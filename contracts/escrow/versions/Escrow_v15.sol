@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity >= 0.8.2;
 
-/// @custom:version all methods revert, most properties hold due to negating the precedent.
+/// @custom:version all methods revert.
 
 contract Escrow {
    enum State {AGREE, DISPUTE, ARBITRATED, REDEEM, END}
