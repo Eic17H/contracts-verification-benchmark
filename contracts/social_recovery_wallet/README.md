@@ -56,6 +56,7 @@ guardian state.
 - **v19**: the threshold of guardians that need to support the recovery isn't checked.
 - **v20**: methods don't revert.
 - **v21**: when the contract checks whether an address is a guardian, that address becomes a guardian.
+- **v22**: methods with the modifier `onlyGuardian` won't revert if the caller isn't a guardian, but they won't do anything.
 
 ## Verification data
 
@@ -83,6 +84,7 @@ guardian state.
 | **v2** | TN!                    | TN!                    | TP!                    | UNK                    | TP!                    |
 | **v20** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
 | **v21** | UNK                    | UNK                    | UNK                    | UNK                    | UNK                    |
+| **v22** | UNK                    | UNK                    | UNK                    | TN                     | UNK                    |
 | **v3** | UNK                    | TP!                    | TP!                    | UNK                    | UNK                    |
 | **v4** | UNK                    | UNK                    | TP!                    | UNK                    | FP!                    |
 | **v5** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
@@ -95,7 +97,7 @@ guardian state.
 #### Eldarica
 |         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
 |---------|------------------------|------------------------|------------------------|------------------------|------------------------|
-| **v1** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
+| **v1** | UNK                    | TN!                    | TP!                    | UNK                    | TP!                    |
 | **v10** | TN!                    | TN!                    | TP!                    | TN!                    | UNK                    |
 | **v11** | TN!                    | TN!                    | FP!                    | TN!                    | TP!                    |
 | **v12** | TN!                    | TN!                    | TP!                    | TN!                    | FP!                    |
@@ -109,6 +111,7 @@ guardian state.
 | **v2** | TN!                    | TN!                    | TP!                    | FN                     | TP!                    |
 | **v20** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
 | **v21** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
+| **v22** | TN!                    | UNK                    | TP!                    | UNK                    | TP!                    |
 | **v3** | TN!                    | UNK                    | TP!                    | TN!                    | FP!                    |
 | **v4** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
 | **v5** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
@@ -135,6 +138,7 @@ guardian state.
 | **v2** | TN                     | TN                     | TP!                    | FN                     | TP!                    |
 | **v20** | TN                     | TN                     | TN                     | FP!                    | TP!                    |
 | **v21** | TN                     | TN                     | TP!                    | FP!                    | TP!                    |
+| **v22** | TN                     | TN                     | TP!                    | FP!                    | FN                     |
 | **v3** | TN                     | TP!                    | TP!                    | TN                     | TN                     |
 | **v4** | TN                     | TN                     | TP!                    | TN                     | TN                     |
 | **v5** | TN                     | TN                     | TP!                    | TN                     | TN                     |
