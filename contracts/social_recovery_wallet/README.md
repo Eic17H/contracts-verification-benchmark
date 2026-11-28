@@ -28,19 +28,29 @@ guardian state.
 
 
 ## Properties
-- **can-change-guardian**: The guardian list can change.
-- **can-change-owner**: The owner can change.
-- **recov-can-cancel**: A recovery can be canceled.
-- **recov-can-happen**: A recovery can happen.
-- **recov-requires-guardian**: If an address participates in a recovery, that address is a guardian.
-- **recov-succeeds**: If all the right conditions are met for a recovery, the recovery succeeds.
-- **recov-threshold**: Recovery fails if the threshold isn't met.
-- **removal-can-cancel**: A removal can be canceled.
-- **removal-can-happen**: A removal can happen.
-- **removal-requires-owner**: Only the owner can remove guardians.
+- **can-change-guardian**: If an address `a` has behaved as a guardian, it might not behave as a guardian now.
+- **can-change-guardian-variable**: If an address `a` was in the guardian list, it might not be in the guardian list now.
+- **can-change-owner**: If an address `a` has behaved as an owner, it might not behave as an owner now.
+- **can-change-owner-variable**: The value of the variable `owner` can change.
+- **recov-can-cancel**: If a call to `cancelRecovery()` is followed by `executeRecovery()` with no in-between calls, if an address `a` behaved as the owner before `executeRecovery()` then it must behave as the owner immediately afterwards.
+- **recov-can-cancel-variable**: If a call to `cancelRecovery()` is followed by `executeRecovery()` with no in-between calls, the content of the variable `owner` before `executeRecovery()`must be the same as its content immediately afterwards.
+- **recov-can-happen**: If `supportRecovery()` was called successfully at least the number of times specified by the `threshold` parameter of the constructor and `cancelRecovery()` wasn't called, then the address that behaves as the owner must be different before and after the call to `executeRecovery()`.
+- **recov-can-happen-variable**: If `supportingGuardianCount` for the current round is at least `guardianThreshold` and the contract is in the `inRecovery` state, then the content of the `owner` variable must be different before and after the call to `executeRecovery()`.
+- **recov-requires-guardian**: ???
+- **recov-requires-guardian-variable**: ???
+- **recov-succeeds**: Same as **recov-can-happen**?
+- **recov-succeeds-variable**: Same as **recov-can-happen-variable**?
+- **recov-threshold**: Reverse **recov-can-happen**?
+- **recov-threshold-variable**: Reverse **recov-can-happen-variable**?
+- **removal-can-cancel**: Variation of **recov-can-cancel**.
+- **removal-can-cancel-variable**: Variation of **recov-can-cancel-variable**.
+- **removal-can-happen**: Variation of **recov-can-happen**.
+- **removal-can-happen-variable**: Variation of **recov-can-happen-variable**.
+- **removal-requires-owner**: Guardian behavior changes if owner behavior.
+- **removal-requires-owner-variable**: Guardian list changes if owner variable.
 
 ## Versions
-- **v1**: conformant to specification, reimplemented independently from v1.
+- **v1**: conformant to specification.
 
 ## Verification data
 
@@ -53,4 +63,9 @@ guardian state.
 ### SolCMC
 #### Z3
 #### Eldarica
+|        | can-change-guardian     | can-change-owner        | recov-can-cancel        | recov-can-happen        | recov-requires-guardian | recov-succeeds          | recov-threshold         | removal-can-cancel      | removal-can-happen      | removal-requires-owner  |
+|--------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
+| **v1** | UNK                     | UNK                     | ND                      | ND                      | ND                      | ND                      | ND                      | ND                      | ND                      | ND                      |
+ 
+
 ### Certora

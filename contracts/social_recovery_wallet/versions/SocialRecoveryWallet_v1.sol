@@ -89,6 +89,11 @@ contract SocialRecoveryWallet is ReentrancyGuard {
         inRecovery = false;
     }
 
+    function cancelRecovery() public nonReentrant requireGuardian(true, msg.sender) requireRecovery(true) {
+        // Reset recovery
+        inRecovery = false;
+    }
+
     // Guardian removal =============================================================================================================================
 
     function initiateGuardianRemoval(bytes32 hash) public nonReentrant requireOwner(true, msg.sender) requireGuardianHash(true, hash) {
