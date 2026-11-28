@@ -4,158 +4,148 @@ pragma solidity ^0.8.11;
 import "./lib/ReentrancyGuard.sol";
 
 /// @custom:version conformant to specification.
-contract Wallet is ReentrancyGuard {
 
-    // hash of guardian address
-    mapping(bytes32 => bool) public isGuardian;
-    uint256 public threshold;
-    address public owner;
-    bool public inRecovery;
-    uint256 public currRecoveryRound;
-    mapping(bytes32 => uint256) public guardianHashToRemovalTimestamp;
+contract SocialRecoveryWallet is ReentrancyGuard {
 
-    /// @notice struct used for bookkeeping during recovery mode
-    /// @dev trival struct but can be extended in future (when building for malicious guardians
-    /// or when owner key is compromised)
-    struct Recovery {
-        address proposedOwner;
-        uint256 recoveryRound; // recovery round in which this recovery struct was created
-        bool usedInExecuteRecovery; // set to true when we see this struct in RecoveryExecute
+    uint round; // current recovery round
+    address owner; // current owner of the wallet
+    mapping(bytes32 => bool) guardianHashList; // current guardians
+
+    // Contract parameters
+    uint guardianThreshold;
+
+    // Recovery state
+    mapping(uint => uint) supportingGuardianCount; // the key is the round
+    mapping(uint => address) proposedOwner; // the key is the round
+    mapping(address => uint) supportingGuardians; // the key is the guardian, the value is the latest round
+    bool inRecovery;
+
+    // Removal state
+    mapping(bytes32 => uint256) guardianRemovalTimestamp;
+    mapping(bytes32 => bool) guardianProposedRemoval;
+
+    // Address management
+
+    function hashAddress(address a) internal pure returns (bytes32) {
+        return bytes32(abi.encode(a));
     }
 
-    mapping(address => Recovery) public guardianToRecovery;
-     
-    // ghost variables p1
-    address _first_owner;
-    
-     // ghost variables p2
-    bool _recovered;
-    
-
-    /************************************************
-     *  MODIFIERS 
-    ***********************************************/
-
-    modifier onlyOwner {
-        require(msg.sender == owner, "only owner");
-        _;
+    function isGuardian(address a) internal view returns (bool) {
+        return isGuardianHash(hashAddress(a));
     }
 
-    modifier onlyGuardian {
-        require(isGuardian[keccak256(abi.encodePacked(msg.sender))], "only guardian");
-        _;
+    function isGuardianHash(bytes32 hash) internal view returns (bool) {
+        return guardianHashList[hash];
     }
 
-    modifier notInRecovery {
-        require(!inRecovery, "wallet is in recovery mode");
-        _;
+    function addGuardian(bytes32 hash) internal {
+        guardianHashList[hash] = true;
     }
 
-    modifier onlyInRecovery {
-        require(inRecovery, "wallet is not in recovery mode");
-        _;
+    function removeGuardian(bytes32 hash) internal {
+        guardianHashList[hash] = false;
     }
 
-    constructor(bytes32[] memory guardianAddrHashes, uint256 threshold_) {
-        require(threshold_ <= guardianAddrHashes.length, "threshold too high");
-        
-        for(uint i = 0; i < guardianAddrHashes.length; i++) {
-            require(!isGuardian[guardianAddrHashes[i]], "duplicate guardian");
-            isGuardian[guardianAddrHashes[i]] = true;
+    // Basic functions
+
+    constructor(bytes32[] memory guardians, uint256 threshold) {
+        uint256 guardianCount = 0;
+        for(uint i = 0; i < guardians.length; i++) {
+            if(!guardianHashList[guardians[i]]) {
+                guardianHashList[guardians[i]] = true;
+                guardianCount += 1;
+            }
         }
-        
-        threshold = threshold_;
+        require(threshold <= guardianCount);
+        guardianThreshold = threshold;
         owner = msg.sender;
-        
-        //p1
-        _first_owner = owner;
+
     }
 
-    function executeExternalTx(address callee, 
-        uint256 value, 
-        bytes memory data
-    ) external onlyOwner nonReentrant returns (bytes memory) {
-        (bool success, bytes memory result) = callee.call{value: value}(data);
-        require(success, "external call reverted");
-        return result;
+    function executeExternalTx(address recipient, bytes memory data) public payable nonReentrant {
+        (bool success,) = recipient.call{value: msg.value}(data);
+        require(success);
     }
 
-    /************************************************
-     *  Recovery
-    ***********************************************/
+    // Recovery
 
-    function initiateRecovery(address _proposedOwner) onlyGuardian notInRecovery external {
-        // we are entering a new recovery round
-        currRecoveryRound++;
-        guardianToRecovery[msg.sender] = Recovery(
-            _proposedOwner,
-            currRecoveryRound, 
-            false
-        );
+    function initiateRecovery(address newOwner) public nonReentrant {
+        require(isGuardian(msg.sender));
+
+        // Must not already be in a recovery
+        require(!inRecovery);
+
+        // Must make sense
+        require(newOwner != owner);
+        require(!isGuardian(newOwner));
+
+        // Reset supporting guardians
+        round += 1;
+
+        // Automatically support the recovery
+        supportingGuardianCount[round] = 1;
+        supportingGuardians[msg.sender] = round;
+
+        // Initiate recovery
+        proposedOwner[round] = newOwner;
         inRecovery = true;
     }
 
-    function supportRecovery(address _proposedOwner) onlyGuardian onlyInRecovery external {
-        guardianToRecovery[msg.sender] = Recovery(
-            _proposedOwner,
-            currRecoveryRound, 
-            false
-        );
+    function supportRecovery(address newOwner) public nonReentrant {
+        require(isGuardian(msg.sender));
+        require(newOwner == proposedOwner[round]);
+
+        // Must be in a recovery
+        require(inRecovery);
+
+        // Cannot support twice
+        require(supportingGuardians[msg.sender] != round);
+
+        // Support recovery
+        supportingGuardianCount[round] += 1;
+        supportingGuardians[msg.sender] = round;
     }
 
-    function cancelRecovery() onlyOwner onlyInRecovery external {
+    function executeRecovery() public nonReentrant {
+        require(isGuardian(msg.sender));
+
+        // Must be in a recovery
+        require(inRecovery);
+
+        // Recovery must be supported
+        require(supportingGuardianCount[round] >= guardianThreshold);
+
+        // Execute recovery
+        owner = proposedOwner[round];
+
+        // Reset recovery
         inRecovery = false;
     }
 
-    function executeRecovery(address newOwner, address[] calldata guardianList) onlyGuardian onlyInRecovery external {
-        // Need enough guardians to agree on same newOwner
-        require(guardianList.length >= threshold, "more guardians required to transfer ownership");
+    // Guardian removal
 
-        // Let's verify that all guardians agreed on the same newOwner in the same round
-        for (uint i = 0; i < guardianList.length; i++) {
-            // cache recovery struct in memory
-            Recovery memory recovery = guardianToRecovery[guardianList[i]];
-
-            require(recovery.recoveryRound == currRecoveryRound, "round mismatch");
-            require(recovery.proposedOwner == newOwner, "disagreement on new owner");
-            require(!recovery.usedInExecuteRecovery, "duplicate guardian used in recovery");
-
-            // set field to true in storage, not memory
-            guardianToRecovery[guardianList[i]].usedInExecuteRecovery = true;
-        }
-
-        //p2
-        _recovered = true;
-        
-        inRecovery = false;
-        owner = newOwner;
+    function initiateGuardianRemoval(bytes32 hash) public nonReentrant {
+        require(msg.sender == owner);
+        require(isGuardianHash(hash));
+        require(!guardianProposedRemoval[hash]);
+        guardianRemovalTimestamp[hash] = block.timestamp + 3 days;
+        guardianProposedRemoval[hash] = true;
     }
 
-    /************************************************
-     *  Guardian Management
-    ***********************************************/
-
-    function initiateGuardianRemoval(bytes32 guardianHash) external onlyOwner {
-        // verify that the hash actually corresponds to a guardian
-        require(isGuardian[guardianHash], "not a guardian");
-
-        // removal delay fixed at 3 days
-        guardianHashToRemovalTimestamp[guardianHash] = block.timestamp + 3 days;
+    function executeGuardianRemoval(bytes32 hash, bytes32 hash2) public nonReentrant {
+        require(msg.sender == owner);
+        require(isGuardianHash(hash));
+        require(guardianProposedRemoval[hash]);
+        require(guardianRemovalTimestamp[hash] <= block.timestamp);
+        removeGuardian(hash);
+        addGuardian(hash2);
+        guardianProposedRemoval[hash] = false;
     }
 
-    function executeGuardianRemoval(bytes32 oldGuardianHash, bytes32 newGuardianHash) onlyOwner external {
-        require(guardianHashToRemovalTimestamp[oldGuardianHash] > 0, "guardian isn't queued for removal");
-        require(guardianHashToRemovalTimestamp[oldGuardianHash] <= block.timestamp, "time delay has not passed");
-
-        // Reset this the removal timestamp
-        guardianHashToRemovalTimestamp[oldGuardianHash] = 0;
-
-        isGuardian[oldGuardianHash] = false;
-        isGuardian[newGuardianHash] = true;
+    function cancelGuardianRemoval(bytes32 hash) public nonReentrant {
+        require(msg.sender == owner);
+        require(isGuardianHash(hash));
+        require(guardianProposedRemoval[hash]);
+        guardianProposedRemoval[hash] = false;
     }
-
-    function cancelGuardianRemoval(bytes32 guardianHash) onlyOwner external {
-        guardianHashToRemovalTimestamp[guardianHash] = 0;
-    }
-
 }

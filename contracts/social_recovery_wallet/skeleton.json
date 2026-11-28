@@ -3,10 +3,15 @@
     "credits": "file:credits.md",
     "specification": "file:specification.md",
     "properties": {
-        "owner-cannot-change": "the first owner is always the owner, in other words: the owner cannot change (should fail).",
-        "no-recov": "the recovery can never happen (should fail).",
-        "recov-implies-guardian": "if an address `addr` has participated in a recovery, then `addr` is a guardian. Should fail in v1 because guardians can be removed.",
-        "recov-succeeds": "if a number of guardians greater than or equal to the threshold have participated in the same recovery round, and selected the same new owner, then `executeRecovery()` will succeed and `owner == newOwner`.",
-        "recov-fails": "`executeRecovery()` will fail if not enough guardians have joined the recovery process."
+        "recov-can-happen": "A recovery can happen.",
+        "recov-threshold": "Recovery fails if the threshold isn't met.",
+        "recov-requires-guardian": "If an address participates in a recovery, that address is a guardian.",
+        "recov-succeeds": "If all the right conditions are met for a recovery, the recovery succeeds.",
+        "recov-can-cancel": "A recovery can be canceled.",
+        "removal-can-happen": "A removal can happen.",
+        "removal-requires-owner": "Only the owner can remove guardians.",
+        "removal-can-cancel": "A removal can be canceled.",
+        "can-change-owner": "The owner can change.",
+        "can-change-guardian": "The guardian list can change."
     }
 }

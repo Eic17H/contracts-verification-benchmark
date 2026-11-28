@@ -28,35 +28,19 @@ guardian state.
 
 
 ## Properties
-- **no-recov**: the recovery can never happen (should fail).
-- **owner-cannot-change**: the first owner is always the owner, in other words: the owner cannot change (should fail).
-- **recov-fails**: `executeRecovery()` will fail if not enough guardians have joined the recovery process.
-- **recov-implies-guardian**: if an address `addr` has participated in a recovery, then `addr` is a guardian. Should fail in v1 because guardians can be removed.
-- **recov-succeeds**: if a number of guardians greater than or equal to the threshold have participated in the same recovery round, and selected the same new owner, then `executeRecovery()` will succeed and `owner == newOwner`.
+- **can-change-guardian**: The guardian list can change.
+- **can-change-owner**: The owner can change.
+- **recov-can-cancel**: A recovery can be canceled.
+- **recov-can-happen**: A recovery can happen.
+- **recov-requires-guardian**: If an address participates in a recovery, that address is a guardian.
+- **recov-succeeds**: If all the right conditions are met for a recovery, the recovery succeeds.
+- **recov-threshold**: Recovery fails if the threshold isn't met.
+- **removal-can-cancel**: A removal can be canceled.
+- **removal-can-happen**: A removal can happen.
+- **removal-requires-owner**: Only the owner can remove guardians.
 
 ## Versions
-- **v1**: conformant to specification.
-- **v2**: removed guardian management.
-- **v3**: owner cannot be changed.
-- **v4**: recovery changes the owner to the guardian that initiated the recovery process.
-- **v5**: if the current owner isn't the first owner, recovery changes the owner to the first owner.
-- **v6**: any address is treated as a guardian.
-- **v7**: any address is treated as the owner.
-- **v8**: the owner is always considered a guardian.
-- **v9**: after recovery, the old owner replaces the guardian that initiated the recovery.
-- **v10**: after recovery, the guardian that initiated the recovery becomes the owner, and the proposed owner becomes a guardian.
-- **v11**: the threshold of guardians that need to support the recovery is always 0.
-- **v12**: the number of guardians supporting the recovery has an upper limit equal to double the lower threshold.
-- **v13**: the threshold of guardians supporting the recovery is treated as an upper bound instead of a lower bound.
-- **v14**: recovery always reverts.
-- **v15**: all methods always revert.
-- **v16**: all methods do nothing.
-- **v17**: all methods do nothing, but revert when they're supposed to.
-- **v18**: `executeExternalTx` is reentrant.
-- **v19**: the threshold of guardians that need to support the recovery isn't checked.
-- **v20**: methods don't revert.
-- **v21**: when the contract checks whether an address is a guardian, that address becomes a guardian.
-- **v22**: methods with the modifier `onlyGuardian` won't revert if the caller isn't a guardian, but they won't do anything.
+- **v1**: conformant to specification, reimplemented independently from v1.
 
 ## Verification data
 
@@ -68,83 +52,5 @@ guardian state.
 ## Experiments
 ### SolCMC
 #### Z3
-|         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
-|---------|------------------------|------------------------|------------------------|------------------------|------------------------|
-| **v1** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
-| **v10** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
-| **v11** | TN!                    | UNK                    | FP!                    | UNK                    | TP!                    |
-| **v12** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
-| **v13** | UNK                    | UNK                    | UNK                    | UNK                    | UNK                    |
-| **v14** | TP!                    | TP!                    | TP!                    | TN!                    | TN!                    |
-| **v15** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
-| **v16** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
-| **v17** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
-| **v18** | UNK                    | UNK                    | UNK                    | UNK                    | TP!                    |
-| **v19** | TN!                    | UNK                    | TN!                    | UNK                    | TP!                    |
-| **v2** | TN!                    | TN!                    | TP!                    | UNK                    | TP!                    |
-| **v20** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
-| **v21** | UNK                    | UNK                    | UNK                    | UNK                    | UNK                    |
-| **v22** | UNK                    | UNK                    | UNK                    | TN                     | UNK                    |
-| **v3** | UNK                    | TP!                    | TP!                    | UNK                    | UNK                    |
-| **v4** | UNK                    | UNK                    | TP!                    | UNK                    | FP!                    |
-| **v5** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
-| **v6** | TN!                    | UNK                    | TP!                    | TN!                    | TP!                    |
-| **v7** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
-| **v8** | UNK                    | UNK                    | UNK                    | UNK                    | UNK                    |
-| **v9** | UNK                    | UNK                    | TP!                    | UNK                    | UNK                    |
- 
-
 #### Eldarica
-|         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
-|---------|------------------------|------------------------|------------------------|------------------------|------------------------|
-| **v1** | UNK                    | TN!                    | TP!                    | UNK                    | TP!                    |
-| **v10** | TN!                    | TN!                    | TP!                    | TN!                    | UNK                    |
-| **v11** | TN!                    | TN!                    | FP!                    | TN!                    | TP!                    |
-| **v12** | TN!                    | TN!                    | TP!                    | TN!                    | FP!                    |
-| **v13** | TN!                    | TN!                    | TN!                    | TN!                    | FP!                    |
-| **v14** | TP!                    | TP!                    | TP!                    | TN!                    | TN!                    |
-| **v15** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
-| **v16** | TP!                    | TP!                    | TP!                    | TP!                    | FP!                    |
-| **v17** | TP!                    | TP!                    | TP!                    | TP!                    | TN!                    |
-| **v18** | TN!                    | TN!                    | TP!                    | TN                     | TP!                    |
-| **v19** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
-| **v2** | TN!                    | TN!                    | TP!                    | FN                     | TP!                    |
-| **v20** | TN!                    | TN!                    | TN!                    | TN!                    | TP!                    |
-| **v21** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
-| **v22** | TN!                    | UNK                    | TP!                    | UNK                    | TP!                    |
-| **v3** | TN!                    | UNK                    | TP!                    | TN!                    | FP!                    |
-| **v4** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
-| **v5** | TN!                    | TN!                    | TP!                    | TN                     | FP!                    |
-| **v6** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
-| **v7** | TN!                    | TN!                    | TP!                    | TN!                    | TP!                    |
-| **v8** | TN                     | UNK                    | TP!                    | UNK                    | UNK                    |
-| **v9** | TN                     | UNK                    | TP!                    | TN                     | UNK                    |
- 
-
 ### Certora
-|         | no-recov               | owner-cannot-change    | recov-fails            | recov-implies-guardian | recov-succeeds         |
-|---------|------------------------|------------------------|------------------------|------------------------|------------------------|
-| **v1** | TN                     | TN                     | TP!                    | TN                     | TP!                    |
-| **v10** | TN                     | TN                     | TP!                    | TN                     | TN                     |
-| **v11** | TN                     | TN                     | FP!                    | TN                     | TP!                    |
-| **v12** | TN                     | TN                     | TP!                    | TN                     | TN                     |
-| **v13** | TN                     | TN                     | TN                     | TN                     | TN                     |
-| **v14** | TP!                    | TP!                    | TP!                    | TN                     | TN                     |
-| **v15** | TP!                    | TP!                    | TP!                    | FN                     | FP!                    |
-| **v16** | FN                     | TP!                    | TP!                    | TP!                    | TN                     |
-| **v17** | FN                     | TP!                    | TP!                    | FN                     | TN                     |
-| **v18** | TN                     | TN                     | TP!                    | TN                     | TP!                    |
-| **v19** | TN                     | TN                     | TN                     | TN                     | TP!                    |
-| **v2** | TN                     | TN                     | TP!                    | FN                     | TP!                    |
-| **v20** | TN                     | TN                     | TN                     | FP!                    | TP!                    |
-| **v21** | TN                     | TN                     | TP!                    | FP!                    | TP!                    |
-| **v22** | TN                     | TN                     | TP!                    | FP!                    | FN                     |
-| **v3** | TN                     | TP!                    | TP!                    | TN                     | TN                     |
-| **v4** | TN                     | TN                     | TP!                    | TN                     | TN                     |
-| **v5** | TN                     | TN                     | TP!                    | TN                     | TN                     |
-| **v6** | TN                     | TN                     | TP!                    | FP!                    | TP!                    |
-| **v7** | TN                     | TN                     | TP!                    | TN                     | TP!                    |
-| **v8** | TN                     | TN                     | TP!                    | TN                     | TP!                    |
-| **v9** | TN                     | TN                     | TP!                    | TN                     | TP!                    |
- 
-
