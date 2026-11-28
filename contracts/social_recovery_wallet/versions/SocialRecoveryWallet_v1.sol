@@ -7,46 +7,37 @@ import "./lib/ReentrancyGuard.sol";
 
 contract SocialRecoveryWallet is ReentrancyGuard {
 
-    uint round; // current recovery round
     address owner; // current owner of the wallet
     mapping(bytes32 => bool) guardianHashList; // current guardians
 
     // Contract parameters
-    uint guardianThreshold;
+    uint immutable guardianThreshold;
 
-    // Recovery state
-    mapping(uint => uint) supportingGuardianCount; // the key is the round
-    mapping(uint => address) proposedOwner; // the key is the round
-    mapping(address => uint) supportingGuardians; // the key is the guardian, the value is the latest round
-    bool inRecovery;
+    // Owner recovery state
+    mapping (uint    => uint)    supportingGuardianCount; // the key is the round
+    mapping (uint    => address) proposedOwner;           // the key is the round
+    mapping (address => uint)    supportingGuardians;     // the key is the guardian, the value is the latest round
+    bool                         inRecovery;
+    uint                         round; // current recovery round
 
-    // Removal state
-    mapping(bytes32 => uint256) guardianRemovalTimestamp;
-    mapping(bytes32 => bool) guardianProposedRemoval;
+    // Guardian removal state
+    mapping (bytes32 => uint256) guardianRemovalTimestamp;
+    mapping (bytes32 => bool)    guardianProposedRemoval;
 
     // Address management
+    function hashing        (address addr) internal pure returns (bytes32) { return keccak256(abi.encodePacked(addr)); }
+    function isGuardian     (address addr) internal view returns (bool)    { return isGuardian(hashing(addr)); }
+    function isGuardian     (bytes32 addr) internal view returns (bool)    { return guardianHashList[addr]; }
+    function addGuardian    (bytes32 addr) internal                        { guardianHashList[addr] = true; }
+    function removeGuardian (bytes32 addr) internal                        { guardianHashList[addr] = false; }
 
-    function hashAddress(address a) internal pure returns (bytes32) {
-        return bytes32(abi.encode(a));
-    }
+    // Modifiers
+    modifier requireRecovery     (bool state)               { require(inRecovery       == state); _; }
+    modifier requireOwner        (bool state, address addr) { require((addr == owner)  == state); _; }
+    modifier requireGuardian     (bool state, address addr) { require(isGuardian(addr) == state); _; }
+    modifier requireGuardianHash (bool state, bytes32 addr) { require(isGuardian(addr) == state); _; }
 
-    function isGuardian(address a) internal view returns (bool) {
-        return isGuardianHash(hashAddress(a));
-    }
-
-    function isGuardianHash(bytes32 hash) internal view returns (bool) {
-        return guardianHashList[hash];
-    }
-
-    function addGuardian(bytes32 hash) internal {
-        guardianHashList[hash] = true;
-    }
-
-    function removeGuardian(bytes32 hash) internal {
-        guardianHashList[hash] = false;
-    }
-
-    // Basic functions
+    // Basic functions ===========================================================================
 
     constructor(bytes32[] memory guardians, uint256 threshold) {
         uint256 guardianCount = 0;
@@ -59,7 +50,6 @@ contract SocialRecoveryWallet is ReentrancyGuard {
         require(threshold <= guardianCount);
         guardianThreshold = threshold;
         owner = msg.sender;
-
     }
 
     function executeExternalTx(address recipient, bytes memory data) public payable nonReentrant {
@@ -67,74 +57,47 @@ contract SocialRecoveryWallet is ReentrancyGuard {
         require(success);
     }
 
-    // Recovery
+    // Recovery =============================================================================================================================================================================
 
-    function initiateRecovery(address newOwner) public nonReentrant {
-        require(isGuardian(msg.sender));
-
-        // Must not already be in a recovery
-        require(!inRecovery);
-
-        // Must make sense
-        require(newOwner != owner);
-        require(!isGuardian(newOwner));
-
+    function initiateRecovery(address newOwner) public nonReentrant requireGuardian(true, msg.sender) requireRecovery(false) requireGuardian(false, newOwner) requireOwner(false, newOwner) {
         // Reset supporting guardians
         round += 1;
-
         // Automatically support the recovery
         supportingGuardianCount[round] = 1;
         supportingGuardians[msg.sender] = round;
-
         // Initiate recovery
         proposedOwner[round] = newOwner;
         inRecovery = true;
     }
 
-    function supportRecovery(address newOwner) public nonReentrant {
-        require(isGuardian(msg.sender));
+    function supportRecovery(address newOwner) public nonReentrant requireGuardian(true, msg.sender) requireRecovery(true) {
+        // Support must match proposal
         require(newOwner == proposedOwner[round]);
-
-        // Must be in a recovery
-        require(inRecovery);
-
         // Cannot support twice
         require(supportingGuardians[msg.sender] != round);
-
         // Support recovery
         supportingGuardianCount[round] += 1;
         supportingGuardians[msg.sender] = round;
     }
 
-    function executeRecovery() public nonReentrant {
-        require(isGuardian(msg.sender));
-
-        // Must be in a recovery
-        require(inRecovery);
-
+    function executeRecovery() public nonReentrant requireGuardian(true, msg.sender) requireRecovery(true) {
         // Recovery must be supported
         require(supportingGuardianCount[round] >= guardianThreshold);
-
         // Execute recovery
         owner = proposedOwner[round];
-
         // Reset recovery
         inRecovery = false;
     }
 
-    // Guardian removal
+    // Guardian removal =============================================================================================================================
 
-    function initiateGuardianRemoval(bytes32 hash) public nonReentrant {
-        require(msg.sender == owner);
-        require(isGuardianHash(hash));
+    function initiateGuardianRemoval(bytes32 hash) public nonReentrant requireOwner(true, msg.sender) requireGuardianHash(true, hash) {
         require(!guardianProposedRemoval[hash]);
         guardianRemovalTimestamp[hash] = block.timestamp + 3 days;
         guardianProposedRemoval[hash] = true;
     }
 
-    function executeGuardianRemoval(bytes32 hash, bytes32 hash2) public nonReentrant {
-        require(msg.sender == owner);
-        require(isGuardianHash(hash));
+    function executeGuardianRemoval(bytes32 hash, bytes32 hash2) public nonReentrant requireOwner(true, msg.sender) requireGuardianHash(true, hash) {
         require(guardianProposedRemoval[hash]);
         require(guardianRemovalTimestamp[hash] <= block.timestamp);
         removeGuardian(hash);
@@ -142,9 +105,7 @@ contract SocialRecoveryWallet is ReentrancyGuard {
         guardianProposedRemoval[hash] = false;
     }
 
-    function cancelGuardianRemoval(bytes32 hash) public nonReentrant {
-        require(msg.sender == owner);
-        require(isGuardianHash(hash));
+    function cancelGuardianRemoval(bytes32 hash) public nonReentrant requireOwner(true, msg.sender) requireGuardianHash(true, hash) {
         require(guardianProposedRemoval[hash]);
         guardianProposedRemoval[hash] = false;
     }
